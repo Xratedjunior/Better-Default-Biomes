@@ -1,2 +1,2 @@
 # Better-Default-Biomes
-Mod
+Repository for my BDB Mod
