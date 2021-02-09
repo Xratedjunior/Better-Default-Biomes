@@ -1,0 +1,220 @@
+{
+	//ItemGroups
+	"itemGroup.betterdefaultbiomes": "Better Default Biomes",
+	
+	//Advancements
+	"advancements.betterdefaultbiomes.root.description": "Starte das Spiel mit der Better Default Biomes Modifikation.",
+	"advancements.betterdefaultbiomes.frozen_flesh.title": "Letzte Zuflucht",
+	"advancements.betterdefaultbiomes.frozen_flesh.description": "Iss gefrorenes Fleisch.",
+	"advancements.betterdefaultbiomes.this_is_new.title": "Das ist neu",
+	"advancements.betterdefaultbiomes.this_is_new.description": "Zeit für eine Erkundungstour.",
+	"advancements.betterdefaultbiomes.kill_all_mobs.title": "Gejagte Mobs",
+	"advancements.betterdefaultbiomes.kill_all_mobs.description": "Bring sie alle um.",
+	"advancements.betterdefaultbiomes.axe_feather_reed_grass.title": "Weizen",
+	"advancements.betterdefaultbiomes.axe_feather_reed_grass.description": "Benutzte eine Axt auf Federschilfgras.",
+	"advancements.betterdefaultbiomes.eat_all_foods.title": "Erweiterte Ernährung",
+	"advancements.betterdefaultbiomes.eat_all_foods.description": "Iss alles, das durch BDB hinzugefügt wurde.",
+	
+	//Enchantments
+	"enchantment.betterdefaultbiomes.smelting_touch": "Feuriger Atem",
+	"enchantment.betterdefaultbiomes.smelting_touch.desc": "Schmilzt Blöcke beim Abbauen.",
+	"enchantment.betterdefaultbiomes.scout": "Späher",
+	"enchantment.betterdefaultbiomes.scout.desc": "Mobs um den Spieler leuchten.",
+	"enchantment.betterdefaultbiomes.hunting": "Jagd",
+	"enchantment.betterdefaultbiomes.hunting.desc": "Richte mehr Schaden gegen Tiere an.",
+	"enchantment.betterdefaultbiomes.horse_protection": "Pferdeschutz",
+	"enchantment.betterdefaultbiomes.horse_protection.desc": "Schutz für Pferde.",
+	"enchantment.betterdefaultbiomes.horse_fire_protection": "Pferdefeuerschutz",
+	"enchantment.betterdefaultbiomes.horse_fire_protection.desc": "Feuerschutz für Pferde.",
+	"enchantment.betterdefaultbiomes.horse_feather_falling": "Pferdefederfall",
+	"enchantment.betterdefaultbiomes.horse_feather_falling.desc": "Pferdefederfall für Pferde.",
+	"enchantment.betterdefaultbiomes.horse_blast_protection": "Pferdeexplosionsschutz",
+	"enchantment.betterdefaultbiomes.horse_blast_protection.desc": "Explosionsschutz für Pferde.",
+	"enchantment.betterdefaultbiomes.horse_projectile_protection": "Pferdeschusssicher",
+	"enchantment.betterdefaultbiomes.horse_projectile_protection.desc": "Schusssicher für Pferde.",
+	"enchantment.betterdefaultbiomes.spikes": "Bespicken",
+	"enchantment.betterdefaultbiomes.spikes.desc": "Dornen für Schilde.",
+	"enchantment.betterdefaultbiomes.guard": "Wächter",
+	"enchantment.betterdefaultbiomes.guard.desc": "Rückstoß für Schilde.",
+	"enchantment.betterdefaultbiomes.floating": "Schwimmend",
+	"enchantment.betterdefaultbiomes.floating.desc": "Pferde schwimmen im Wasser.",
+	
+	//Item Tooltips
+	"tooltip.betterdefaultbiomes.hold_shift": "Halte Umschalt für mehr Informationen.",
+	"tooltip.betterdefaultbiomes.bandit_arrow": "Durch Wüstenbanditen-Bogenschützen gewinnbar.",
+	"tooltip.betterdefaultbiomes.hunter_arrow": "Durch Jäger gewinnbar.",
+	"tooltip.betterdefaultbiomes.torch_arrow": "Platziert eine Fackel, wenn es auf einen Block trifft",
+	
+    //Arrows
+	"item.betterdefaultbiomes.hunter_arrow": "Pfeil des Jägers",
+	"item.betterdefaultbiomes.bandit_arrow": "Pfeil des Banditen",
+	"item.betterdefaultbiomes.torch_arrow": "Fackelpfeil",
+	
+	"item.betterdefaultbiomes.duck_egg": "Entenei",
+	
+	//Food
+    "item.betterdefaultbiomes.frozen_flesh": "Gefrorenes Fleisch",
+    "item.betterdefaultbiomes.duck": "Ente",
+    "item.betterdefaultbiomes.cooked_duck": "Gekochte Ente",
+    "item.betterdefaultbiomes.frog_leg": "Froschbein",
+    "item.betterdefaultbiomes.cooked_frog_leg": "Gekochtes Froschbein",
+    
+	//Mob Equipment
+    "equipment.betterdefaultbiomes.hunter_bow": "Bogen des Jägers",
+    "equipment.betterdefaultbiomes.head_hunter_bow": "Bogen des Kopfgeldjägers",
+    "equipment.betterdefaultbiomes.miner_pickaxe": "Spitzhacke des Bergarbeiters",
+    "equipment.betterdefaultbiomes.miner_helmet": "Helm des Bergarbeiters",
+    "equipment.betterdefaultbiomes.bandit_sword": "Schwert des Banditen",
+    "equipment.betterdefaultbiomes.bandit_bow": "Bogen des Banditen",
+    "equipment.betterdefaultbiomes.bandit_crossbow": "Armbrust des Banditen",
+    "equipment.betterdefaultbiomes.bandit_master_sword": "Schwert des Banditenmeisters",
+	"equipment.betterdefaultbiomes.robin_hood_bow": "Robins Bogen",
+	
+	//Entities
+	"entity.betterdefaultbiomes.hunter": "Jäger",
+	"entity.betterdefaultbiomes.head_hunter": "Kopfgeldjäger",
+	"entity.betterdefaultbiomes.jungle_creeper": "Jungelcreeper",
+	"entity.betterdefaultbiomes.lost_miner": "Verschollener Bergarbeiter",
+	"entity.betterdefaultbiomes.frozen_zombie": "Gefrorener Zombie",
+	
+	"entity.betterdefaultbiomes.desert_bandit": "Wüstenbandit", 
+	"entity.betterdefaultbiomes.desert_bandit_archer": "Wüstenbanditen-Bogenschütze",
+	"entity.betterdefaultbiomes.desert_bandit_arbalist": "Wüstenbanditen-Armbrustschütze",
+	"entity.betterdefaultbiomes.desert_bandit_master": "Banditenmeister",
+	
+		//Passive
+		"entity.betterdefaultbiomes.muddy_pig": "Dreckiges Schwein",
+		"entity.betterdefaultbiomes.camel": "Kamel",
+		"entity.betterdefaultbiomes.duck": "Ente",
+		"entity.betterdefaultbiomes.zebra": "Zebra",
+		"entity.betterdefaultbiomes.frog": "Frosch",
+
+	"entity.betterdefaultbiomes.robin_hood": "Robin Hood",
+	"entity.betterdefaultbiomes.robin_hood_archer": "Robin Hood",
+	"entity.betterdefaultbiomes.robin_hood_tanker": "Robin Hood",
+	"entity.betterdefaultbiomes.robin_hood_swordsman": "Robin Hood",
+	
+	//Entity Spawn Eggs
+	"item.betterdefaultbiomes.hunter_spawn_egg": "Jäger-Spawn-Ei",
+	"item.betterdefaultbiomes.head_hunter_spawn_egg": "Kopfgeldjäger-Spawn-Ei",
+	"item.betterdefaultbiomes.jungle_creeper_spawn_egg": "Jungelcreeper-Spawn-Ei",
+	"item.betterdefaultbiomes.warthog_spawn_egg": "Warzenschwein-Spawn-Ei",
+	"item.betterdefaultbiomes.lost_miner_spawn_egg": "Verschollener Bergarbeiter-Spawn-Ei",
+	"item.betterdefaultbiomes.frozen_zombie_spawn_egg": "Gefrorener Zombie-Spawn-Ei",
+	
+	"item.betterdefaultbiomes.desert_bandit_spawn_egg": "Wüstenbandit-Spawn-Ei",
+	"item.betterdefaultbiomes.desert_bandit_archer_spawn_egg": "Wüstenbanditen-Bogenschütze-Spawn-Ei",
+	"item.betterdefaultbiomes.desert_bandit_arbalist_spawn_egg": "Wüstenbanditen-Armbrustschütze-Spawn-Ei",
+	"item.betterdefaultbiomes.desert_bandit_master_spawn_egg": "Banditenmeister-Spawn-Ei",
+	
+		//passive
+		"item.betterdefaultbiomes.muddy_pig_spawn_egg": "Dreckiges Schwein-Spawn-Ei",
+		"item.betterdefaultbiomes.camel_spawn_egg": "Kamel-Spawn-Ei",
+		"item.betterdefaultbiomes.duck_spawn_egg": "Ente-Spawn-Ei",
+		"item.betterdefaultbiomes.zebra_spawn_egg": "Zebra-Spawn-Ei",
+		"item.betterdefaultbiomes.frog_spawn_egg": "Frosch-Spawn-Ei",
+	
+	"item.betterdefaultbiomes.robin_hood_spawn_egg": "Robin Hood-Spawn-Ei",
+	"item.betterdefaultbiomes.robin_hood_archer_spawn_egg": "Robin Hood Bogenschütze-Spawn-Ei",
+	"item.betterdefaultbiomes.robin_hood_tanker_spawn_egg": "Robin Hood Tanker-Spawn-Ei",
+	"item.betterdefaultbiomes.robin_hood_swordsman_spawn_egg": "Robin Hood Sschwertkämpfer-Spawn-Ei",
+	
+	//Block Sounds
+	"betterdefaultbiomes.subtitle.block.add": "Block hinzugefügt",
+	"betterdefaultbiomes.subtitle.block.remove": "Block entfernt",
+	"betterdefaultbiomes.subtitle.block.place": "Block platziert",
+	"betterdefaultbiomes.subtitle.block.break": "Block zerstört",
+	"betterdefaultbiomes.subtitle.block.hit": "Block zerstören",
+	"betterdefaultbiomes.subtitle.block.rotate": "Block gedreht",
+	
+	//Entity Sounds
+	"betterdefaultbiomes.subtitle.duck.hurt": "Ente verletzt sich",
+	"betterdefaultbiomes.subtitle.duck.hurt.baby": "Entenkind verletzt sich",
+	"betterdefaultbiomes.subtitle.duck.death": "Ente stirbt",
+	"betterdefaultbiomes.subtitle.duck.death.baby": "Entenkind stirbt",
+	"betterdefaultbiomes.subtitle.duck.ambient": "Ente quakt",
+	"betterdefaultbiomes.subtitle.zebra.hurt": "Zebra verletzt sich",
+	"betterdefaultbiomes.subtitle.zebra.death": "Zebra stirbt",
+	"betterdefaultbiomes.subtitle.zebra.ambient": "Zebra brüllt",
+	"betterdefaultbiomes.subtitle.frog.hurt": "Frosch verletzt sich",
+	"betterdefaultbiomes.subtitle.frog.death": "Frosch stirbt",
+	"betterdefaultbiomes.subtitle.frog.ambient": "Frosch quakt",
+	
+	//Flowers
+	"block.betterdefaultbiomes.blue_poppy": "Blaumohn",
+	"block.betterdefaultbiomes.dark_violet": "Dunkles Veilchen",
+	"block.betterdefaultbiomes.purple_verbena": "Violettes Eisenkraut",
+	"block.betterdefaultbiomes.pink_cactus_flower": "Rosa Kaktusblüte",
+	
+	//Potted Flowers
+	"block.betterdefaultbiomes.potted_blue_poppy": "Eingetopter Blaumohn",
+	"block.betterdefaultbiomes.potted_dark_violet": "Eingetoptes Dunkles Veilchen",
+	"block.betterdefaultbiomes.potted_purple_verbena": "Eingetoptes Violettes Eisenkraut",
+	"block.betterdefaultbiomes.potted_pink_cactus_flower": "Eingetopte Rosa Kaktusblüte",
+	
+	//Mushrooms
+	"block.betterdefaultbiomes.white_mushroom": "Weißer Pilz",
+	"block.betterdefaultbiomes.yellow_mushroom": "Gelber Pilz",
+	"block.betterdefaultbiomes.gray_mushroom": "Grauer Pilz",
+	
+    //Tall Flowers
+	
+    //Vines
+    
+    //Plants
+	"block.betterdefaultbiomes.feather_reed_grass": "Federschilfgras",
+	"block.betterdefaultbiomes.dead_grass": "Totes Gras",
+	"block.betterdefaultbiomes.short_grass": "Kurzes Gras",
+	"block.betterdefaultbiomes.dune_grass": "Dünengras",
+	
+    //Tall Plants
+    "block.betterdefaultbiomes.tall_water_reeds": "Großes Schilf",
+    
+    //Potted Plants
+	"block.betterdefaultbiomes.potted_white_mushroom": "Eingetopter Weißer Pilz",
+	"block.betterdefaultbiomes.potted_yellow_mushroom": "Eingetopter Gelber Pilz",
+	"block.betterdefaultbiomes.potted_gray_mushroom": "Eingetopter Grauer Pilz",
+	"block.betterdefaultbiomes.potted_animal_grass": "Eingetoptes Tiergras",
+	"block.betterdefaultbiomes.potted_dead_grass": "Eingetoptes Totes Gras",
+	"block.betterdefaultbiomes.potted_short_grass": "Eingetoptes Kurzes Gras",
+	
+	//Trees
+    "block.betterdefaultbiomes.palm_sapling": "Palmensetzling",
+    "block.betterdefaultbiomes.palm_sapling_potted": "Eingetopter Palmensetzling",
+    "block.betterdefaultbiomes.palm_leaves": "Palmenblätter",
+    "block.betterdefaultbiomes.palm_log": "Palmenstamm",
+    "block.betterdefaultbiomes.palm_wood": "Palmenholz",
+    "block.betterdefaultbiomes.palm_log_stripped": "Entrindeter Palmenstamm",
+    "block.betterdefaultbiomes.palm_wood_stripped": "Entrindetes Palmenholz",
+    "block.betterdefaultbiomes.palm_planks": "Palmenholzbretter",
+    "block.betterdefaultbiomes.palm_stairs": "Palmenholztreppe",
+    "block.betterdefaultbiomes.palm_slab": "Palmenholzstufe",
+    "block.betterdefaultbiomes.palm_fence": "Palmenholzzaun",
+    "block.betterdefaultbiomes.palm_fence_gate": "Palmenholzzauntor",
+    "block.betterdefaultbiomes.palm_door": "Palmenholztür",
+    "block.betterdefaultbiomes.palm_trapdoor": "Palmenholzfalltür",
+    "block.betterdefaultbiomes.palm_pressure_plate": "Palmenholzdruckplatte",
+    "block.betterdefaultbiomes.palm_button": "Palmenholzknopf",
+    "block.betterdefaultbiomes.palm_ladder": "Palmenholzleiter",
+	"block.betterdefaultbiomes.palm_crafting_table": "Palmenholzwerkbank",
+   
+    
+    "block.betterdefaultbiomes.swamp_willow_sapling": "Moorweidensetzling",
+    "block.betterdefaultbiomes.swamp_willow_sapling_potted": "Eingetopter Moorweidensetzling",
+    "block.betterdefaultbiomes.swamp_willow_leaves": "Moorweidenblätter",
+    "block.betterdefaultbiomes.swamp_willow_log": "Moorweidenstamm",
+    "block.betterdefaultbiomes.swamp_willow_wood": "Moorweidenholz",
+    "block.betterdefaultbiomes.swamp_willow_log_stripped": "Entrindeter Moorweidenstamm",
+    "block.betterdefaultbiomes.swamp_willow_wood_stripped": "Entrindetes Moorweidenholz",
+    "block.betterdefaultbiomes.swamp_willow_planks": "Moorweidenholzbretter",
+    "block.betterdefaultbiomes.swamp_willow_stairs": "Moorweidenholztreppe",
+    "block.betterdefaultbiomes.swamp_willow_slab": "Moorweidenholzstufe",
+    "block.betterdefaultbiomes.swamp_willow_fence": "Moorweidenholzzaun",
+    "block.betterdefaultbiomes.swamp_willow_fence_gate": "Moorweidenholzzauntor",
+    "block.betterdefaultbiomes.swamp_willow_door": "Moorweidenholztür",
+    "block.betterdefaultbiomes.swamp_willow_trapdoor": "Moorweidenholzfalltür",
+    "block.betterdefaultbiomes.swamp_willow_pressure_plate": "Moorweidenholzdruckplatte",
+    "block.betterdefaultbiomes.swamp_willow_button": "Moorweidenholzknopf",
+    "block.betterdefaultbiomes.swamp_willow_ladder": "Moorweidenholzleiter",
+    "block.betterdefaultbiomes.swamp_willow_crafting_table": "Moorweidenholzwerkbank"
+}
