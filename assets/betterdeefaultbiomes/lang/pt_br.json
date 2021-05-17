@@ -29,8 +29,8 @@
 	"enchantment.betterdefaultbiomes.smelting_touch": "Toque escaldante",
 	"enchantment.betterdefaultbiomes.smelting_touch.desc": "Blocos minerados são automaticamente fundidos.",
 	"enchantment.betterdefaultbiomes.scout": "Vigilância",
-	"enchantment.betterdefaultbiomes.scout.desc": "Mobs em uma pequena área em volta do jogador recebem o efeito brilho.",
-	"enchantment.betterdefaultbiomes.hunting": "Predador",
+	"enchantment.betterdefaultbiomes.scout.desc": "Mobs em uma pequena área em volta do jogador recebem um efeito de brilho.",
+	"enchantment.betterdefaultbiomes.hunting": "Predação",
 	"enchantment.betterdefaultbiomes.hunting.desc": "Animais recebem uma maior quantidade de dano.",
 	"enchantment.betterdefaultbiomes.horse_protection": "Proteção para cavalos",
 	"enchantment.betterdefaultbiomes.horse_protection.desc": "Cavalos recebem uma maior resistência a danos em geral.",
@@ -53,7 +53,7 @@
 	"tooltip.betterdefaultbiomes.hold_shift": "Pressione [SHIFT] para ver mais.",
 	"tooltip.betterdefaultbiomes.bandit_arrow": "Largado por ladrões arqueiros.",
 	"tooltip.betterdefaultbiomes.hunter_arrow": "Largado por caçadores.",
-	"tooltip.betterdefaultbiomes.torch_arrow": "Posiciona uma tocha ao atingir um bloco.",
+	"tooltip.betterdefaultbiomes.torch_arrow": "Posiciona uma tocha ao atingir uma superfície sólida.",
 	
     //Arrows
 	"item.betterdefaultbiomes.hunter_arrow": "Flecha do caçador",
