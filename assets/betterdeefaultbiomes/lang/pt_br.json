@@ -4,14 +4,14 @@
 	
 	//Advancements
 	"advancements.betterdefaultbiomes.root.description": "Comece o jogo com o Better Default Biomes instalado.",
-	"advancements.betterdefaultbiomes.frozen_flesh.title": "Última opção",
+	"advancements.betterdefaultbiomes.frozen_flesh.title": "Sem opções",
 	"advancements.betterdefaultbiomes.frozen_flesh.description": "Coma carne podre congelada.",
 	"advancements.betterdefaultbiomes.this_is_new.title": "Isso é novo ...",
 	"advancements.betterdefaultbiomes.this_is_new.description": "Hora de um pouco de exploração!",
 	"advancements.betterdefaultbiomes.kill_all_mobs.title": "Impiedoso",
 	"advancements.betterdefaultbiomes.kill_all_mobs.description": "Mate todos os mobs do Better Default Biomes.",
 	"advancements.betterdefaultbiomes.axe_feather_reed_grass.title": "Trigo de graça!",
-	"advancements.betterdefaultbiomes.axe_feather_reed_grass.description": "Use um machado em capim-junco para obter trigo",
+	"advancements.betterdefaultbiomes.axe_feather_reed_grass.description": "Use um machado em grama-de-junco-empenada para obter trigo.",
 	"advancements.betterdefaultbiomes.eat_all_foods.title": "Uma dieta expandida",
 	"advancements.betterdefaultbiomes.eat_all_foods.description": "Coma todos os alimentos do mod.",
 	
@@ -172,9 +172,9 @@
     //Vines
     
     //Plants
-	"block.betterdefaultbiomes.feather_reed_grass": "Capim-junco",
+	"block.betterdefaultbiomes.feather_reed_grass": "Grama-de-junco-empenada",
 	"block.betterdefaultbiomes.dead_grass": "Grama morta",
-	"block.betterdefaultbiomes.short_grass": "Grama curta",
+	"block.betterdefaultbiomes.short_grass": "Grama baixa",
 	"block.betterdefaultbiomes.dune_grass": "Grama das dunas",
 	
     //Tall Plants
@@ -186,7 +186,7 @@
 	"block.betterdefaultbiomes.potted_gray_mushroom": "Cogumelo cinza envasado",
 	"block.betterdefaultbiomes.potted_animal_grass": "Grama para animais envasada",
 	"block.betterdefaultbiomes.potted_dead_grass": "Grama morta envasada",
-	"block.betterdefaultbiomes.potted_short_grass": "Grama curta envasada",
+	"block.betterdefaultbiomes.potted_short_grass": "Grama baixa envasada",
 	
 	//Trees
     "block.betterdefaultbiomes.palm_sapling": "Muda de palmeira",
