@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "betterdefaultbiomes:palm_log_stripped"
+    }
+  },
+  "result": {
+    "item": "betterdefaultbiomes:palm_wood_stripped",
+    "count": 3
+  }
+}
