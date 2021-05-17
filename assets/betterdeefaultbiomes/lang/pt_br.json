@@ -11,7 +11,7 @@
 	"advancements.betterdefaultbiomes.kill_all_mobs.title": "Impiedoso",
 	"advancements.betterdefaultbiomes.kill_all_mobs.description": "Mate todos os mobs do Better Default Biomes.",
 	"advancements.betterdefaultbiomes.axe_feather_reed_grass.title": "Trigo de graça!",
-	"advancements.betterdefaultbiomes.axe_feather_reed_grass.description": "Use um machado em grama-de-junco-empenada para obter trigo.",
+	"advancements.betterdefaultbiomes.axe_feather_reed_grass.description": "Use um machado em grama-de-junco-empenado para obter trigo.",
 	"advancements.betterdefaultbiomes.eat_all_foods.title": "Uma dieta expandida",
 	"advancements.betterdefaultbiomes.eat_all_foods.description": "Coma todos os alimentos do mod.",
 	
@@ -172,7 +172,7 @@
     //Vines
     
     //Plants
-	"block.betterdefaultbiomes.feather_reed_grass": "Grama-de-junco-empenada",
+	"block.betterdefaultbiomes.feather_reed_grass": "Grama-de-junco-empenado",
 	"block.betterdefaultbiomes.dead_grass": "Grama morta",
 	"block.betterdefaultbiomes.short_grass": "Grama baixa",
 	"block.betterdefaultbiomes.dune_grass": "Grama das dunas",
