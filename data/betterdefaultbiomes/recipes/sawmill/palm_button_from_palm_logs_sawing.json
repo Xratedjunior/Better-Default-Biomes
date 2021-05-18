@@ -1,0 +1,1 @@
+{"type": "environmental:sawing", "ingredient": {"tag": "betterdefaultbiomes:palm_logs"}, "result": "betterdefaultbiomes:palm_button", "count": 4, "conditions": [{"type": "forge:mod_loaded", "modid": "environmental"}]}

@@ -1,0 +1,1 @@
+{"type": "environmental:sawing", "ingredient": {"tag": "betterdefaultbiomes:swamp_willow_logs"}, "result": "betterdefaultbiomes:swamp_willow_button", "count": 4, "conditions": [{"type": "forge:mod_loaded", "modid": "environmental"}]}
