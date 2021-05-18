@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "betterdefaultbiomes:mushrooms"
+  },
+  "result": "enhanced_mushrooms:roasted_mushrooms",
+  "experience": 0.35,
+  "cookingtime": 200,
+  "conditions": [
+    {
+      "type": "enhanced_mushrooms:foods_enabled"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "enhanced_mushrooms"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "betterdefaultbiomes"
+  ]
+}

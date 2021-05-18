@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "beef_stew_bdb",
+  "ingredients": [
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "minecraft:cooked_beef"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "tag": "betterdefaultbiomes:mushrooms"
+    }
+  ],
+  "result": {
+    "item": "enhanced_mushrooms:beef_stew"
+  },
+  "conditions": [
+    {
+      "type": "enhanced_mushrooms:foods_enabled",
+    },
+    {
+      "type: "forge:mod_loaded",
+      "modid": "enhanced_mushrooms"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "betterdefaultbiomes"
+    }
+  ]
+}
