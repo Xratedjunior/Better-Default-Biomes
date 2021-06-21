@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smoking",
+	"ingredient": {
+		"item": "betterdefaultbiomes:frozen_flesh"
+	},
+	"result": "minecraft:rotten_flesh",
+  	"experience": 0.35,
+  	"cookingtime": 100
+}

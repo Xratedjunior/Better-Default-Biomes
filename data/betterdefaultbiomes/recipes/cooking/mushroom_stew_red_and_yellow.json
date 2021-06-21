@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "item": "minecraft:red_mushroom"
+    },
+    {
+      "item": "betterdefaultbiomes:yellow_mushroom"
+    }
+  ],
+  "result": {
+    "item": "minecraft:mushroom_stew"
+  },
+  "container": "minecraft:bowl"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "betterdefaultbiomes"
+    }
+  ]
+}
