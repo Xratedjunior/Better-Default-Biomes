@@ -1,0 +1,230 @@
+{
+	//ItemGroups
+	"itemGroup.betterdefaultbiomes": "Better Default Biomes",
+	
+	//Advancements
+	"advancements.betterdefaultbiomes.root.description": "Начните игру с установленным Better Default Biomes.",
+	"advancements.betterdefaultbiomes.frozen_flesh.title": "Последнее прибежище",
+	"advancements.betterdefaultbiomes.frozen_flesh.description": "Съешьте замороженную плоть.",
+	"advancements.betterdefaultbiomes.this_is_new.title": "Что-то новенькое",
+	"advancements.betterdefaultbiomes.this_is_new.description": "Самое время для путешествий.",
+	"advancements.betterdefaultbiomes.kill_all_mobs.title": "Окончание сезона охоты",
+	"advancements.betterdefaultbiomes.kill_all_mobs.description": "Убейте всех мобов BDB.",
+	"advancements.betterdefaultbiomes.axe_feather_reed_grass.title": "Пшено",
+	"advancements.betterdefaultbiomes.axe_feather_reed_grass.description": "Разрубите топором ковыль.",
+	"advancements.betterdefaultbiomes.eat_all_foods.title": "Диета №5",
+	"advancements.betterdefaultbiomes.eat_all_foods.description": "Съешьте все виды пищи BDB.",
+	
+	//Old Advancements
+	"advancements.betterdefaultbiomes.killed_by_hunter.title": "Потрачено",
+	"advancements.betterdefaultbiomes.killed_by_hunter.description": "Умрите от рук охотника.",
+	"advancements.betterdefaultbiomes.shoot_a_hunter.title": "Расплата",
+	"advancements.betterdefaultbiomes.shoot_a_hunter.description": "Застрелите и убейте охотника.",
+	"advancements.betterdefaultbiomes.killed_by_jungle_creeper.title": "Теневой преследователь",
+	"advancements.betterdefaultbiomes.killed_by_jungle_creeper.description": "Умрите от взрыва крипера джунглей.",
+	"advancements.betterdefaultbiomes.kill_a_jungle_creeper.title": "Даже не думай об этом!",
+	"advancements.betterdefaultbiomes.kill_a_jungle_creeper.description": "Убейте крипера джунглей.",
+	
+	//Enchantments
+	"enchantment.betterdefaultbiomes.smelting_touch": "Плавильное касание",
+	"enchantment.betterdefaultbiomes.smelting_touch.desc": "Добываемые блоки или ресурсы сразу плавятся (перерабатываются).",
+	"enchantment.betterdefaultbiomes.scout": "Разведчик",
+	"enchantment.betterdefaultbiomes.scout.desc": "Ближайшие к вам мобы подсвечиваются.",
+	"enchantment.betterdefaultbiomes.hunting": "Звероловство",
+	"enchantment.betterdefaultbiomes.hunting.desc": "Дополнительный урон животным.",
+	"enchantment.betterdefaultbiomes.horse_protection": "Лошадиная защита",
+	"enchantment.betterdefaultbiomes.horse_protection.desc": "Уменьшает получаемый урон лошади.",
+	"enchantment.betterdefaultbiomes.horse_fire_protection": "Лошадиная огнеупорность",
+	"enchantment.betterdefaultbiomes.horse_fire_protection.desc": "Уменьшает урон лошади, получаемый от огня.",
+	"enchantment.betterdefaultbiomes.horse_feather_falling": "Лошадиная невесомость",
+	"enchantment.betterdefaultbiomes.horse_feather_falling.desc": "Уменьшает урон лошади, получаемый от падения",
+	"enchantment.betterdefaultbiomes.horse_blast_protection": "Лошадиная взрывоустойчивость",
+	"enchantment.betterdefaultbiomes.horse_blast_protection.desc": "Уменьшает урон лошади, получаемый от взрывов.",
+	"enchantment.betterdefaultbiomes.horse_projectile_protection": "Лошадиная защита от снарядов",
+	"enchantment.betterdefaultbiomes.horse_projectile_protection.desc": "Уменьшает урон лошади, наносимый от снарядов.",
+	"enchantment.betterdefaultbiomes.spikes": "Заостренное покрытие",
+	"enchantment.betterdefaultbiomes.spikes.desc": "Щит с некоторым шансом наносит урон атакующему.",
+	"enchantment.betterdefaultbiomes.guard": "Телохранитель",
+	"enchantment.betterdefaultbiomes.guard.desc": "Отталкивание щитом мобов и игроков.",
+	"enchantment.betterdefaultbiomes.floating": "Плавучий",
+	"enchantment.betterdefaultbiomes.floating.desc": "Лошадь может плавать в воде.",
+	
+	//Item Tooltips
+	"tooltip.betterdefaultbiomes.hold_shift": "Зажимайте Shift для доп. информации.",
+	"tooltip.betterdefaultbiomes.bandit_arrow": "Выпадает с пустынного бандита-лучника.",
+	"tooltip.betterdefaultbiomes.hunter_arrow": "Выпадает с охотника.",
+	"tooltip.betterdefaultbiomes.torch_arrow": "Размещает факел, если касается блока.",
+	
+    //Arrows
+	"item.betterdefaultbiomes.hunter_arrow": "Стрела охотника",
+	"item.betterdefaultbiomes.bandit_arrow": "Стрела бандита",
+	"item.betterdefaultbiomes.torch_arrow": "Факельная стрела",
+	
+	"item.betterdefaultbiomes.duck_egg": "Утиное яйцо",
+	
+	//Food
+    "item.betterdefaultbiomes.frozen_flesh": "Замороженная плоть",
+    "item.betterdefaultbiomes.duck": "Утятина",
+    "item.betterdefaultbiomes.cooked_duck": "Жареная утка",
+    "item.betterdefaultbiomes.frog_leg": "Лягушачая лапка",
+    "item.betterdefaultbiomes.cooked_frog_leg": "Жареная лягушачая лапка",
+    
+	//Mob Equipment
+    "equipment.betterdefaultbiomes.hunter_bow": "Лук охотника",
+    "equipment.betterdefaultbiomes.head_hunter_bow": "Лук охотника",
+    "equipment.betterdefaultbiomes.miner_pickaxe": "Кирка шахтёра",
+    "equipment.betterdefaultbiomes.miner_helmet": "Каска шахтёра",
+    "equipment.betterdefaultbiomes.bandit_sword": "Меч бандита",
+    "equipment.betterdefaultbiomes.bandit_bow": "Лук бандита",
+    "equipment.betterdefaultbiomes.bandit_crossbow": "Арбалет бандита",
+    "equipment.betterdefaultbiomes.bandit_master_sword": "Меч главаря бандитов",
+	"equipment.betterdefaultbiomes.robin_hood_bow": "Лук Робина",
+	
+	//Entities
+	"entity.betterdefaultbiomes.hunter": "Охотник",
+	"entity.betterdefaultbiomes.head_hunter": "Охотник за головами",
+	"entity.betterdefaultbiomes.jungle_creeper": "Крипер джунглей",
+	"entity.betterdefaultbiomes.lost_miner": "Забытый шахтёр",
+	"entity.betterdefaultbiomes.frozen_zombie": "Замороженный зомби",
+	
+	"entity.betterdefaultbiomes.desert_bandit": "Пустынный бандит",
+	"entity.betterdefaultbiomes.desert_bandit_archer": "Пустынный бандит-лучник",
+	"entity.betterdefaultbiomes.desert_bandit_arbalist": "Пустынный бандит-арбалетчик",
+	"entity.betterdefaultbiomes.desert_bandit_master": "Пустынный главарь бандитов",
+	
+		//Passive
+		"entity.betterdefaultbiomes.muddy_pig": "Грязная свинья",
+		"entity.betterdefaultbiomes.camel": "Верблюд",
+		"entity.betterdefaultbiomes.duck": "Утка",
+		"entity.betterdefaultbiomes.zebra": "Зебра",
+		"entity.betterdefaultbiomes.frog": "Лягушка",
+
+	"entity.betterdefaultbiomes.robin_hood": "Робин Гуд",
+	"entity.betterdefaultbiomes.robin_hood_archer": "Робин Гуд",
+	"entity.betterdefaultbiomes.robin_hood_tanker": "Робин Гуд",
+	"entity.betterdefaultbiomes.robin_hood_swordsman": "Робин Гуд",
+	
+	//Entity Spawn Eggs
+	"item.betterdefaultbiomes.hunter_spawn_egg": "Яйцо призыва охотника",
+	"item.betterdefaultbiomes.head_hunter_spawn_egg": "Яйцо призыва охотника за головами",
+	"item.betterdefaultbiomes.jungle_creeper_spawn_egg": "Яйцо призыва крипера джунглей",
+	"item.betterdefaultbiomes.warthog_spawn_egg": "Яйцо призыва бородавочника",
+	"item.betterdefaultbiomes.lost_miner_spawn_egg": "Яйцо призыва забытого шахтёра",
+	"item.betterdefaultbiomes.frozen_zombie_spawn_egg": "Яйцо призыва замороженного зомби",
+	
+	"item.betterdefaultbiomes.desert_bandit_spawn_egg": "Яйцо призыва пустынного бандита",
+	"item.betterdefaultbiomes.desert_bandit_archer_spawn_egg": "Яйцо призыва пустынного бандита-лучника",
+	"item.betterdefaultbiomes.desert_bandit_arbalist_spawn_egg": "Яйцо пустынного бандита-арбалетчика",
+	"item.betterdefaultbiomes.desert_bandit_master_spawn_egg": "Яйцо призыва пустынного главаря бандитов",
+	
+		//passive
+		"item.betterdefaultbiomes.muddy_pig_spawn_egg": "Яйцо призыва грязной свиньи",
+		"item.betterdefaultbiomes.camel_spawn_egg": "Яйцо призыва верблюда",
+		"item.betterdefaultbiomes.duck_spawn_egg": "Яйцо призыва утки",
+		"item.betterdefaultbiomes.zebra_spawn_egg": "Яйцо призыва зебры",
+		"item.betterdefaultbiomes.frog_spawn_egg": "Яйцо призыва лягушки",
+	
+	"item.betterdefaultbiomes.robin_hood_spawn_egg": "Яйцо призыва Робина Гуда",
+	"item.betterdefaultbiomes.robin_hood_archer_spawn_egg": "Яйцо призыва Робина Гуда (лучника)",
+	"item.betterdefaultbiomes.robin_hood_tanker_spawn_egg": "Яйцо призыва Робина Гуда (танкера)",
+	"item.betterdefaultbiomes.robin_hood_swordsman_spawn_egg": "Яйцо призыва Робина Гуда (мечника)",
+	
+	//Block Sounds
+	"betterdefaultbiomes.subtitle.block.add": "Блок добавлен",
+	"betterdefaultbiomes.subtitle.block.remove": "Удалён блок",
+	"betterdefaultbiomes.subtitle.block.place": "Блок размещён",
+	"betterdefaultbiomes.subtitle.block.break": "Сломан блок",
+	"betterdefaultbiomes.subtitle.block.hit": "Стук по блоку",
+	"betterdefaultbiomes.subtitle.block.rotate": "Блок повёрнут",
+	
+	//Entity Sounds
+	"betterdefaultbiomes.subtitle.duck.hurt": "Утка ранена",
+	"betterdefaultbiomes.subtitle.duck.hurt.baby": "Утёнок ранен",
+	"betterdefaultbiomes.subtitle.duck.death": "Утка погибает",
+	"betterdefaultbiomes.subtitle.duck.death.baby": "Утёнок погибает",
+	"betterdefaultbiomes.subtitle.duck.ambient": "Утка крякает",
+	"betterdefaultbiomes.subtitle.zebra.hurt": "Зебра ранена",
+	"betterdefaultbiomes.subtitle.zebra.death": "Зебра погибает",
+	"betterdefaultbiomes.subtitle.zebra.ambient": "Рёв зебры",
+	"betterdefaultbiomes.subtitle.frog.hurt": "Лягушка ранена",
+	"betterdefaultbiomes.subtitle.frog.death": "Лягушка погибает",
+	"betterdefaultbiomes.subtitle.frog.ambient": "Лягушка квакает",
+	
+	//Flowers
+	"block.betterdefaultbiomes.blue_poppy": "Голубой мак",
+	"block.betterdefaultbiomes.dark_violet": "Тёмная фиалка",
+	"block.betterdefaultbiomes.purple_verbena": "Фиолетовая вербена",
+	"block.betterdefaultbiomes.pink_cactus_flower": "Розовый цветок кактуса",
+	
+	//Potted Flowers
+	"block.betterdefaultbiomes.potted_blue_poppy": "Голубой мак в горшке",
+	"block.betterdefaultbiomes.potted_dark_violet": "Тёмная фиалка в горшке",
+	"block.betterdefaultbiomes.potted_purple_verbena": "Фиолетовая вербена в горшке",
+	"block.betterdefaultbiomes.potted_pink_cactus_flower": "Розовый цветок кактуса в горшке",
+	
+	//Mushrooms
+	"block.betterdefaultbiomes.white_mushroom": "Белый гриб",
+	"block.betterdefaultbiomes.yellow_mushroom": "Жёлтый гриб",
+	"block.betterdefaultbiomes.gray_mushroom": "Серый гриб",
+	
+    //Tall Flowers
+	
+    //Vines
+    
+    //Plants
+	"block.betterdefaultbiomes.feather_reed_grass": "Ковыль",
+	"block.betterdefaultbiomes.dead_grass": "Сухая трава",
+	"block.betterdefaultbiomes.short_grass": "Короткая трава",
+	"block.betterdefaultbiomes.dune_grass": "Песколюбка",
+	
+    //Tall Plants
+    "block.betterdefaultbiomes.tall_water_reeds": "Высокий камыш",
+    
+    //Potted Plants
+	"block.betterdefaultbiomes.potted_white_mushroom": "Белый гриб в горшке",
+	"block.betterdefaultbiomes.potted_yellow_mushroom": "Жёлтый гриб в горшке",
+	"block.betterdefaultbiomes.potted_gray_mushroom": "Серый гриб в горшке",
+	"block.betterdefaultbiomes.potted_animal_grass": "Искусственная трава в горшке",
+	"block.betterdefaultbiomes.potted_dead_grass": "Сухая трава в горшке",
+	"block.betterdefaultbiomes.potted_short_grass": "Короткая трава в горшке",
+	
+	//Trees
+    "block.betterdefaultbiomes.palm_sapling": "Саженец пальмы",
+    "block.betterdefaultbiomes.palm_sapling_potted": "Саженец пальмы в горшке",
+    "block.betterdefaultbiomes.palm_leaves": "Пальмовые листья",
+    "block.betterdefaultbiomes.palm_log": "Пальмовое бревно",
+    "block.betterdefaultbiomes.palm_wood": "Пальма",
+    "block.betterdefaultbiomes.palm_log_stripped": "Обтёсанное пальмовое бревно",
+    "block.betterdefaultbiomes.palm_wood_stripped": "Обтёсанная пальмовая древесина",
+    "block.betterdefaultbiomes.palm_planks": "Пальмовые доски",
+    "block.betterdefaultbiomes.palm_stairs": "Пальмовые ступеньки",
+    "block.betterdefaultbiomes.palm_slab": "Пальмовая плита",
+    "block.betterdefaultbiomes.palm_fence": "Пальмовый забор",
+    "block.betterdefaultbiomes.palm_fence_gate": "Пальмовая калитка",
+    "block.betterdefaultbiomes.palm_door": "Пальмовая дверь",
+    "block.betterdefaultbiomes.palm_trapdoor": "Пальмовый люк",
+    "block.betterdefaultbiomes.palm_pressure_plate": "Пальмовая нажимная плита",
+    "block.betterdefaultbiomes.palm_button": "Пальмовая кнопка",
+    "block.betterdefaultbiomes.palm_ladder": "Пальмовая лестница",
+	"block.betterdefaultbiomes.palm_crafting_table": "Пальмовый верстак",
+   
+    
+    "block.betterdefaultbiomes.swamp_willow_sapling": "Саженец болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_sapling_potted": "Саженец болотной ивы в горшке",
+    "block.betterdefaultbiomes.swamp_willow_leaves": "Листья болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_log": "Бревно болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_wood": "Болотная ива",
+    "block.betterdefaultbiomes.swamp_willow_log_stripped": "Обтёсанное бревно болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_wood_stripped": "Обтёсанная древесина болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_planks": "Доски из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_stairs": "Ступеньки из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_slab": "Плита из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_fence": "Забор из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_fence_gate": "Калитка из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_door": "Дверь из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_trapdoor": "Люк из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_pressure_plate": "Нажимная плита из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_button": "Кнопка из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_ladder": "Лестница из болотной ивы",
+    "block.betterdefaultbiomes.swamp_willow_crafting_table": "Верстак из болотной ивы"
+}
