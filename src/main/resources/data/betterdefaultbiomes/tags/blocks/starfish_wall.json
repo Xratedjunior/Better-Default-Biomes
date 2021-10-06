@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+	"betterdefaultbiomes:starfish_wall_white",
+	"betterdefaultbiomes:starfish_wall_orange",
+	"betterdefaultbiomes:starfish_wall_magenta",
+	"betterdefaultbiomes:starfish_wall_light_blue",
+	"betterdefaultbiomes:starfish_wall_yellow",
+	"betterdefaultbiomes:starfish_wall_lime",
+	"betterdefaultbiomes:starfish_wall_pink",
+	"betterdefaultbiomes:starfish_wall_gray",
+	"betterdefaultbiomes:starfish_wall_light_gray",
+	"betterdefaultbiomes:starfish_wall_cyan",
+	"betterdefaultbiomes:starfish_wall_purple",
+	"betterdefaultbiomes:starfish_wall_blue",
+	"betterdefaultbiomes:starfish_wall_brown",
+	"betterdefaultbiomes:starfish_wall_green",
+	"betterdefaultbiomes:starfish_wall_red",
+	"betterdefaultbiomes:starfish_wall_black"
+  ]
+}

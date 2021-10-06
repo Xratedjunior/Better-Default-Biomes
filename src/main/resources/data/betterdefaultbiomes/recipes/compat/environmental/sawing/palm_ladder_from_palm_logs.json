@@ -1,0 +1,14 @@
+{
+  "type": "environmental:sawing",
+  "ingredient": {
+    "tag": "betterdefaultbiomes:palm_logs"
+  },
+  "result": "betterdefaultbiomes:palm_ladder",
+  "count": 8,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "environmental"
+    }
+  ]
+}

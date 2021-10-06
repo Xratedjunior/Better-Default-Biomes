@@ -1,0 +1,28 @@
+{
+"parent": "betterdefaultbiomes:root",
+  "display": {
+    "icon": {
+      "item": "betterdefaultbiomes:feather_reed_grass"
+    },
+    "title": {
+      "translate": "advancements.betterdefaultbiomes.axe_feather_reed_grass.title"
+    },
+    "description": {
+      "translate": "advancements.betterdefaultbiomes.axe_feather_reed_grass.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "axe_feather_reed_grass": {
+      "trigger": "betterdefaultbiomes:tool_special_drop"
+    }
+  },
+  "requirements": [
+    [
+      "axe_feather_reed_grass"
+    ]
+  ]
+}

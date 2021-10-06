@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "betterdefaultbiomes:palm_planks"
+    }
+  ],
+  "result": {
+    "item": "betterdefaultbiomes:palm_button"
+  }
+}

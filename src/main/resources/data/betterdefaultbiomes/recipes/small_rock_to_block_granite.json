@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "small_rock",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "betterdefaultbiomes:small_rock_granite"
+    }
+  },
+  "result": {
+    "item": "minecraft:granite"
+  }
+}

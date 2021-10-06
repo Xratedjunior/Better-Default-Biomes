@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:mushrooms",
+    "#betterdefaultbiomes:mushrooms"
+  ]
+}

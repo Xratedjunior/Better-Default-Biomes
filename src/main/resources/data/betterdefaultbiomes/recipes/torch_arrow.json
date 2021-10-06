@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "torch_arrow",
+  "pattern": [
+    "X",
+    "#",
+    "Y"
+  ],
+  "key": {
+    "X": {
+      "tag": "minecraft:coals"
+    },
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "Y": {
+      "tag": "forge:feathers"
+    }
+  },
+  "result": {
+    "item": "betterdefaultbiomes:torch_arrow",
+    "count": 4
+  }
+}

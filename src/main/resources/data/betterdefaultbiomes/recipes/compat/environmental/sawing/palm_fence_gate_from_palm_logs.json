@@ -1,0 +1,14 @@
+{
+  "type": "environmental:sawing",
+  "ingredient": {
+    "tag": "betterdefaultbiomes:palm_logs"
+  },
+  "result": "betterdefaultbiomes:palm_fence_gate",
+  "count": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "environmental"
+    }
+  ]
+}

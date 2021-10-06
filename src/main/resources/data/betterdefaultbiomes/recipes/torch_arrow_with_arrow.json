@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "torch_arrow",
+  "pattern": [
+    " Y ",
+    "YXY",
+    " Y "
+  ],
+  "key": {
+    "X": {
+      "tag": "minecraft:coals"
+    },
+    "Y": {
+      "item": "minecraft:arrow"
+    }
+  },
+  "result": {
+    "item": "betterdefaultbiomes:torch_arrow",
+    "count": 4
+  }
+}

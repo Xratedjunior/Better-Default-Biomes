@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "betterdefaultbiomes:swamp_willow_planks"
+    }
+  ],
+  "result": {
+    "item": "betterdefaultbiomes:swamp_willow_button"
+  }
+}

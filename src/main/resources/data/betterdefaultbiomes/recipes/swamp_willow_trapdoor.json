@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "betterdefaultbiomes:swamp_willow_planks"
+    }
+  },
+  "result": {
+    "item": "betterdefaultbiomes:swamp_willow_trapdoor",
+    "count": 2
+  }
+}

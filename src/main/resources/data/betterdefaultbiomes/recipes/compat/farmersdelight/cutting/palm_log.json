@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "betterdefaultbiomes:palm_log"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:tool",
+    "tool": "axe"
+  },
+  "result": [
+    {
+      "item": "betterdefaultbiomes:palm_log_stripped"
+    },
+    {
+      "item": "farmersdelight:tree_bark"
+    }
+  ],
+  "sound": "minecraft:item.axe.strip",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

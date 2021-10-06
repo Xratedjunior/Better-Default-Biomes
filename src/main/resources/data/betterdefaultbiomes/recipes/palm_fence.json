@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence",
+  "pattern": [
+    "W#W",
+    "W#W"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "betterdefaultbiomes:palm_planks"
+    }
+  },
+  "result": {
+    "item": "betterdefaultbiomes:palm_fence",
+    "count": 3
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "betterdefaultbiomes:swamp_willow_log_stripped"
+    }
+  },
+  "result": {
+    "item": "betterdefaultbiomes:swamp_willow_wood_stripped",
+    "count": 3
+  }
+}

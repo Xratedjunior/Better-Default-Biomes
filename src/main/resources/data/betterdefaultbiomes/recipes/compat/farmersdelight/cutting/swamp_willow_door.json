@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "betterdefaultbiomes:swamp_willow_door"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:tool",
+    "tool": "axe"
+  },
+  "result": [
+    {
+      "item": "betterdefaultbiomes:swamp_willow_planks"
+    }
+  ],
+   "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

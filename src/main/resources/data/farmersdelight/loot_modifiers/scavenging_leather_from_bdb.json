@@ -1,0 +1,36 @@
+{
+  "type": "betterdefaultbiomes:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "killer",
+      "predicate": {
+        "equipment": {
+          "mainhand": {
+            "tag": "farmersdelight:tools/knives"
+          }
+        }
+      }
+    },
+    {
+      "condition": "minecraft:alternative",
+      "terms": [
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "betterdefaultbiomes:camel"
+          }
+        },
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "betterdefaultbiomes:zebra"
+          }
+        }
+      ]
+    }
+  ],
+  "item": "minecraft:leather"
+}

@@ -1,0 +1,371 @@
+{
+"parent": "betterdefaultbiomes:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:campfire"
+    },
+    "title": {
+      "translate": "advancements.betterdefaultbiomes.this_is_new.title"
+    },
+    "description": {
+      "translate": "advancements.betterdefaultbiomes.this_is_new.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+  "betterdefaultbiomes:kill_muddy_pig": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:muddy_pig"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_camel": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:camel"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_duck": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:duck"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_zebra": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:zebra"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_frog": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:frog"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_hunter": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:hunter"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_head_hunter": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:head_hunter"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_jungle_creeper": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:jungle_creeper"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_lost_miner": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:lost_miner"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_frozen_zombie": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:frozen_zombie"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_desert_bandit": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:desert_bandit"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_desert_bandit_archer": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:desert_bandit_archer"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_desert_bandit_arbalist": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:desert_bandit_arbalist"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:kill_desert_bandit_master": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:desert_bandit_master"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:killed_by_hunter": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:hunter"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:killed_by_head_hunter": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:head_hunter"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:killed_by_jungle_creeper": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:jungle_creeper"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:killed_by_lost_miner": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:lost_miner"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:killed_by_frozen_zombie": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:frozen_zombie"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:killed_by_desert_bandit": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:desert_bandit"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:killed_by_desert_bandit_archer": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:desert_bandit_archer"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:killed_by_desert_bandit_arbalist": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:desert_bandit_arbalist"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    },
+    "betterdefaultbiomes:killed_by_desert_bandit_master": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "betterdefaultbiomes:desert_bandit_master"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "betterdefaultbiomes:kill_muddy_pig",
+      "betterdefaultbiomes:kill_camel",
+      "betterdefaultbiomes:kill_duck",
+      "betterdefaultbiomes:kill_zebra",
+      "betterdefaultbiomes:kill_frog",
+      
+      "betterdefaultbiomes:kill_hunter",
+      "betterdefaultbiomes:kill_head_hunter",
+      "betterdefaultbiomes:kill_jungle_creeper",
+      "betterdefaultbiomes:kill_lost_miner",
+      "betterdefaultbiomes:kill_frozen_zombie",
+      "betterdefaultbiomes:kill_desert_bandit",
+      "betterdefaultbiomes:kill_desert_bandit_archer",
+      "betterdefaultbiomes:kill_desert_bandit_arbalist",
+      "betterdefaultbiomes:kill_desert_bandit_master",
+      
+      "betterdefaultbiomes:killed_by_hunter",
+      "betterdefaultbiomes:killed_by_head_hunter",
+      "betterdefaultbiomes:killed_by_jungle_creeper",
+      "betterdefaultbiomes:killed_by_lost_miner",
+      "betterdefaultbiomes:killed_by_frozen_zombie",
+      "betterdefaultbiomes:killed_by_desert_bandit",
+      "betterdefaultbiomes:killed_by_desert_bandit_archer",
+      "betterdefaultbiomes:killed_by_desert_bandit_arbalist",
+      "betterdefaultbiomes:killed_by_desert_bandit_master"
+    ]
+  ]
+}

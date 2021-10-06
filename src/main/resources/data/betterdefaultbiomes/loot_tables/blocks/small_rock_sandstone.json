@@ -1,0 +1,40 @@
+{
+	"type": "minecraft:block",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "betterdefaultbiomes:small_rock_sandstone"
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:survives_explosion"
+				}
+			]
+		},
+		{	
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"conditions": [
+						{
+							"condition": "minecraft:block_state_property",
+							"block": "betterdefaultbiomes:small_rock_sandstone",
+							"properties": {
+								"size": "2"
+							}
+						},
+						{
+							"condition": "minecraft:survives_explosion"
+						}
+					],
+					"name": "betterdefaultbiomes:small_rock_sandstone"
+				}
+			]
+		}
+	]
+}

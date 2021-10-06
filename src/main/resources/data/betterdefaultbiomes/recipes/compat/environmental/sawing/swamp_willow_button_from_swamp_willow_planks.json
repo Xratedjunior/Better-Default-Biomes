@@ -1,0 +1,14 @@
+{
+  "type": "environmental:sawing",
+  "ingredient": {
+    "item": "betterdefaultbiomes:swamp_willow_planks"
+  },
+  "result": "betterdefaultbiomes:swamp_willow_button",
+  "count": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "environmental"
+    }
+  ]
+}

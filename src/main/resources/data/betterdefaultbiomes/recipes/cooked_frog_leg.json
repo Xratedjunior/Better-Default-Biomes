@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "betterdefaultbiomes:frog_leg"
+	},
+	"result": "betterdefaultbiomes:cooked_frog_leg",
+  	"experience": 0.35,
+  	"cookingtime": 200
+}

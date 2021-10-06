@@ -4,14 +4,14 @@
 
 	//Advancements
 	"advancements.betterdefaultbiomes.root.description": "Comece o jogo com o Better Default Biomes instalado.",
-	"advancements.betterdefaultbiomes.frozen_flesh.title": "Última opção",
+	"advancements.betterdefaultbiomes.frozen_flesh.title": "Sem opções",
 	"advancements.betterdefaultbiomes.frozen_flesh.description": "Coma carne podre congelada.",
 	"advancements.betterdefaultbiomes.this_is_new.title": "Isso é novo ...",
 	"advancements.betterdefaultbiomes.this_is_new.description": "Hora de um pouco de exploração!",
 	"advancements.betterdefaultbiomes.kill_all_mobs.title": "Impiedoso",
 	"advancements.betterdefaultbiomes.kill_all_mobs.description": "Mate todos os mobs do Better Default Biomes.",
 	"advancements.betterdefaultbiomes.axe_feather_reed_grass.title": "Trigo de graça!",
-	"advancements.betterdefaultbiomes.axe_feather_reed_grass.description": "Use um machado em capim-junco para obter trigo",
+	"advancements.betterdefaultbiomes.axe_feather_reed_grass.description": "Use um machado em grama-de-junco-empenado para obter trigo.",
 	"advancements.betterdefaultbiomes.eat_all_foods.title": "Uma dieta expandida",
 	"advancements.betterdefaultbiomes.eat_all_foods.description": "Coma todos os alimentos do mod.",
 
@@ -28,9 +28,9 @@
 	//Enchantments
 	"enchantment.betterdefaultbiomes.smelting_touch": "Toque escaldante",
 	"enchantment.betterdefaultbiomes.smelting_touch.desc": "Blocos minerados são automaticamente fundidos.",
-	"enchantment.betterdefaultbiomes.scout": "Vigilante",
-	"enchantment.betterdefaultbiomes.scout.desc": "Mobs em uma pequena área em volta do jogador recebem o efeito brilho.",
-	"enchantment.betterdefaultbiomes.hunting": "Predador",
+	"enchantment.betterdefaultbiomes.scout": "Vigilância",
+	"enchantment.betterdefaultbiomes.scout.desc": "Mobs em uma pequena área em volta do jogador recebem um efeito de brilho.",
+	"enchantment.betterdefaultbiomes.hunting": "Predação",
 	"enchantment.betterdefaultbiomes.hunting.desc": "Animais recebem uma maior quantidade de dano.",
 	"enchantment.betterdefaultbiomes.horse_protection": "Proteção para cavalos",
 	"enchantment.betterdefaultbiomes.horse_protection.desc": "Cavalos recebem uma maior resistência a danos em geral.",
@@ -53,7 +53,7 @@
 	"tooltip.betterdefaultbiomes.hold_shift": "Pressione [SHIFT] para ver mais.",
 	"tooltip.betterdefaultbiomes.bandit_arrow": "Largado por ladrões arqueiros.",
 	"tooltip.betterdefaultbiomes.hunter_arrow": "Largado por caçadores.",
-	"tooltip.betterdefaultbiomes.torch_arrow": "Posiciona uma tocha ao atingir um bloco.",
+	"tooltip.betterdefaultbiomes.torch_arrow": "Posiciona uma tocha ao atingir uma superfície sólida.",
 
     //Arrows
 	"item.betterdefaultbiomes.hunter_arrow": "Flecha do caçador",
@@ -71,7 +71,7 @@
 
 	//Mob Equipment
     "equipment.betterdefaultbiomes.hunter_bow": "Arco do caçador",
-    "equipment.betterdefaultbiomes.head_hunter_bow": "Arco do caçador chefe***",
+    "equipment.betterdefaultbiomes.head_hunter_bow": "Arco do caçador chefe",
     "equipment.betterdefaultbiomes.miner_pickaxe": "Picareta do minerador",
     "equipment.betterdefaultbiomes.miner_helmet": "Capacete do minerador",
     "equipment.betterdefaultbiomes.bandit_sword": "Espada do ladrão",
@@ -82,7 +82,7 @@
 
 	//Entities
 	"entity.betterdefaultbiomes.hunter": "Caçador",
-	"entity.betterdefaultbiomes.head_hunter": "Caçador chefe***",
+	"entity.betterdefaultbiomes.head_hunter": "Caçador chefe",
 	"entity.betterdefaultbiomes.jungle_creeper": "Creeper da selva",
 	"entity.betterdefaultbiomes.lost_miner": "Minerador perdido",
 	"entity.betterdefaultbiomes.frozen_zombie": "Zumbi congelado",
@@ -106,7 +106,7 @@
 
 	//Entity Spawn Eggs
 	"item.betterdefaultbiomes.hunter_spawn_egg": "Ovo gerador de caçador",
-	"item.betterdefaultbiomes.head_hunter_spawn_egg": "Ovo gerador de caçador chefe***",
+	"item.betterdefaultbiomes.head_hunter_spawn_egg": "Ovo gerador de caçador chefe",
 	"item.betterdefaultbiomes.jungle_creeper_spawn_egg": "Ovo gerador de creeper da selva",
 	"item.betterdefaultbiomes.warthog_spawn_egg": "Ovo gerador de facocero",
 	"item.betterdefaultbiomes.lost_miner_spawn_egg": "Ovo gerador de minerador perdido",
@@ -151,16 +151,16 @@
 	"betterdefaultbiomes.subtitle.frog.ambient": "Sapo coachando",
 
 	//Flowers
-	"block.betterdefaultbiomes.blue_poppy": "Papoula-azul",
+	"block.betterdefaultbiomes.blue_poppy": "Papoula azul",
 	"block.betterdefaultbiomes.dark_violet": "Violeta-escura",
-	"block.betterdefaultbiomes.purple_verbena": "Verbena-roxa",
-	"block.betterdefaultbiomes.pink_cactus_flower": "Flor de cacto rosa",
+	"block.betterdefaultbiomes.purple_verbena": "Verbena roxa",
+	"block.betterdefaultbiomes.pink_cactus_flower": "Flor de cacto cor-de-rosa",
 
 	//Potted Flowers
-	"block.betterdefaultbiomes.potted_blue_poppy": "Papoula-azul envasada",
+	"block.betterdefaultbiomes.potted_blue_poppy": "Papoula azul envasada",
 	"block.betterdefaultbiomes.potted_dark_violet": "Violeta-escura envasada",
-	"block.betterdefaultbiomes.potted_purple_verbena": "Verbena-roxa envasada",
-	"block.betterdefaultbiomes.potted_pink_cactus_flower": "Flor de cacto rosa envasada",
+	"block.betterdefaultbiomes.potted_purple_verbena": "Verbena roxa envasada",
+	"block.betterdefaultbiomes.potted_pink_cactus_flower": "Flor de cacto cor-de-rosa envasada",
 
 	//Mushrooms
 	"block.betterdefaultbiomes.white_mushroom": "Cogumelo branco",
@@ -172,9 +172,9 @@
     //Vines
 
     //Plants
-	"block.betterdefaultbiomes.feather_reed_grass": "Capim-junco",
+	"block.betterdefaultbiomes.feather_reed_grass": "Grama-de-junco-empenado",
 	"block.betterdefaultbiomes.dead_grass": "Grama morta",
-	"block.betterdefaultbiomes.short_grass": "Grama curta",
+	"block.betterdefaultbiomes.short_grass": "Grama baixa",
 	"block.betterdefaultbiomes.dune_grass": "Grama das dunas",
 
     //Tall Plants
@@ -186,7 +186,7 @@
 	"block.betterdefaultbiomes.potted_gray_mushroom": "Cogumelo cinza envasado",
 	"block.betterdefaultbiomes.potted_animal_grass": "Grama para animais envasada",
 	"block.betterdefaultbiomes.potted_dead_grass": "Grama morta envasada",
-	"block.betterdefaultbiomes.potted_short_grass": "Grama curta envasada",
+	"block.betterdefaultbiomes.potted_short_grass": "Grama baixa envasada",
 
 	//Trees
     "block.betterdefaultbiomes.palm_sapling": "Muda de palmeira",
@@ -210,7 +210,7 @@
 
 
     "block.betterdefaultbiomes.swamp_willow_sapling": "Muda de salgueiro-do-pântano",
-    "block.betterdefaultbiomes.swamp_willow_sapling_potted": "Muda de salgueiro-do-pântano envasado",
+    "block.betterdefaultbiomes.swamp_willow_sapling_potted": "Muda de salgueiro-do-pântano envasada",
     "block.betterdefaultbiomes.swamp_willow_leaves": "Folhas de salgueiro-do-pântano",
     "block.betterdefaultbiomes.swamp_willow_log": "Tronco de salgueiro-do-pântano",
     "block.betterdefaultbiomes.swamp_willow_wood": "Madeira de salgueiro-do-pântano",

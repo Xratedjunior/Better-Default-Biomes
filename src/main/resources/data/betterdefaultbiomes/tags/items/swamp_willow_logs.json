@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "betterdefaultbiomes:swamp_willow_log",
+    "betterdefaultbiomes:swamp_willow_wood",
+    "betterdefaultbiomes:swamp_willow_log_stripped",
+    "betterdefaultbiomes:swamp_willow_wood_stripped"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "conditions": [
+      {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "betterdefaultbiomes:swamp_willow_log"
+    }
+  ], 
+  "results": [
+    {
+      "item": "betterdefaultbiomes:swamp_willow_log_stripped"
+    }
+  ],
+  "processingTime": 50
+}

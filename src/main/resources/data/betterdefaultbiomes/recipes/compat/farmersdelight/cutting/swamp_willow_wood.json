@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "betterdefaultbiomes:swamp_willow_wood"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:tool",
+    "tool": "axe"
+  },
+  "result": [
+    {
+      "item": "betterdefaultbiomes:swamp_willow_wood_stripped"
+    },
+    {
+      "item": "farmersdelight:tree_bark"
+    }
+  ],
+  "sound": "minecraft:item.axe.strip",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

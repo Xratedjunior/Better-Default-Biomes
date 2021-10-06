@@ -1,0 +1,77 @@
+{
+"parent": "betterdefaultbiomes:this_is_new",
+  "display": {
+    "icon": {
+      "item": "betterdefaultbiomes:frog_leg"
+    },
+    "title": {
+      "translate": "advancements.betterdefaultbiomes.eat_all_foods.title"
+    },
+    "description": {
+      "translate": "advancements.betterdefaultbiomes.eat_all_foods.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "eat_frozen_flesh": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "betterdefaultbiomes:frozen_flesh"
+        }
+      }
+    },
+    "eat_duck": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "betterdefaultbiomes:duck"
+        }
+      }
+    },
+    "eat_cooked_duck": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "betterdefaultbiomes:cooked_duck"
+        }
+      }
+    },
+    "eat_frog_leg": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "betterdefaultbiomes:frog_leg"
+        }
+      }
+    },
+    "eat_cooked_frog_leg": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "betterdefaultbiomes:cooked_frog_leg"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "eat_frozen_flesh"
+    ],
+    [
+      "eat_duck"
+    ],
+    [
+      "eat_cooked_duck"
+    ],
+    [
+      "eat_frog_leg"
+    ],
+    [
+      "eat_cooked_frog_leg"
+    ]
+  ]
+}

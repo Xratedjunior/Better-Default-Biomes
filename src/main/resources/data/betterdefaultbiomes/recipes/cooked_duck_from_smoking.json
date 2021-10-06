@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smoking",
+	"ingredient": {
+		"item": "betterdefaultbiomes:duck"
+	},
+	"result": "betterdefaultbiomes:cooked_duck",
+  	"experience": 0.35,
+  	"cookingtime": 100
+}

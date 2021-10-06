@@ -6,6 +6,7 @@ run
 .settings
 .classpath
 .project
+.cache
 
 # gradle
 build

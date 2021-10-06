@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "betterdefaultbiomes:swamp_willow_logs"
+    }
+  ],
+  "result": {
+    "item": "betterdefaultbiomes:swamp_willow_planks",
+    "count": 4
+  }
+}
