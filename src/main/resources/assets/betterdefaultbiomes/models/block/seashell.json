@@ -1,0 +1,112 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"texture": "betterdefaultbiomes:block/seashell",
+		"particle": "#texture"
+	},
+	"elements": [
+		{
+			"name": "left",
+			"from": [5.51725, -0.0015, 5.536],
+			"to": [7.62025, 1.0015, 9.839],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [6.51875, 0.5, 9.9375]},
+			"faces": {
+				"north": {"uv": [0, 0, 2.1, 1], "texture": "#texture"},
+				"east": {"uv": [0, 0, 8.6, 2], "texture": "#texture"},
+				"south": {"uv": [0, 0, 4.2, 2], "texture": "#texture"},
+				"west": {"uv": [0, 0, 4, 1], "texture": "#texture"},
+				"up": {"uv": [0, 0, 4, 9], "texture": "#texture"},
+				"down": {"uv": [12, 0, 16, 9], "rotation": 180, "texture": "#texture"}
+			}
+		},
+		{
+			"name": "right",
+			"from": [8.31725, -0.0015, 5.536],
+			"to": [10.42025, 1.0015, 9.839],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [9.31875, 0.5, 9.9375]},
+			"faces": {
+				"north": {"uv": [0, 0, 2.1, 1], "texture": "#texture"},
+				"east": {"uv": [0, 0, 4.3, 1], "texture": "#texture"},
+				"south": {"uv": [0, 0, 2.1, 1], "texture": "#texture"},
+				"west": {"uv": [0, 0, 4.3, 1], "texture": "#texture"},
+				"up": {"uv": [12, 0, 16, 9], "texture": "#texture"},
+				"down": {"uv": [0, 0, 4, 9], "rotation": 180, "texture": "#texture"}
+			}
+		},
+		{
+			"name": "middle",
+			"from": [5.81575, -0.0035, 5.4345],
+			"to": [10.12175, 1.0025, 9.4405],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15.51875, 8, 16.3375]},
+			"faces": {
+				"north": {"uv": [0, 0, 4.3, 1], "texture": "#texture"},
+				"east": {"uv": [0, 0, 3, 1], "texture": "#texture"},
+				"south": {"uv": [0, 0, 3.4, 1], "texture": "#texture"},
+				"west": {"uv": [0, 0, 3, 1], "texture": "#texture"},
+				"up": {"uv": [4, 0, 12, 9], "texture": "#texture"},
+				"down": {"uv": [4, 0, 12, 9], "rotation": 180, "texture": "#texture"}
+			}
+		},
+		{
+			"name": "base",
+			"from": [5.51875, -0.001, 8.4375],
+			"to": [10.36875, 0.999, 10.9375],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15.01875, 8, 16.4375]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 1], "texture": "#texture"},
+				"east": {"uv": [0, 0, 2.5, 1], "texture": "#texture"},
+				"south": {"uv": [0, 0, 4, 1], "texture": "#texture"},
+				"west": {"uv": [0, 0, 2.5, 1], "texture": "#texture"},
+				"up": {"uv": [3, 11, 13, 16], "texture": "#texture"},
+				"down": {"uv": [3, 11, 13, 16], "rotation": 180, "texture": "#texture"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 1.25, 2.75],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 1.25, 3],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, 4.5, 1.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, 4.5, 1.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3.5, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"gui": {
+			"rotation": [43, 225, 0],
+			"translation": [0, 7, 0],
+			"scale": [1.4, 1.4, 1.4]
+		},
+		"head": {
+			"rotation": [0, 22, 0],
+			"translation": [0, 17.5, 0.5],
+			"scale": [1.4, 1.4, 1.4]
+		},
+		"fixed": {
+			"rotation": [-90, -180, 0],
+			"translation": [0, 0, -8.25]
+		}
+	},
+	"groups": [
+		{
+			"name": "seashell",
+			"origin": [8.98733, 0.5, 10.82379],
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "block/tinted_cross",
+    "textures": {
+        "cross": "betterdefaultbiomes:block/short_grass"
+    }
+}

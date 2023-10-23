@@ -1,0 +1,236 @@
+{
+	"block.small.add": {
+		"category": "block",
+		"subtitle": "subtitle.betterdefaultbiomes.block.add",
+		"sounds": [
+			{
+				"name": "minecraft:entity/itemframe/add_item2",
+				"volume": 1.0
+			}
+		]
+	},
+	"block.small.remove": {
+		"category": "block",
+		"subtitle": "subtitle.betterdefaultbiomes.block.remove",
+		"sounds": [
+			{
+				"name": "minecraft:entity/itemframe/add_item2",
+				"volume": 1.0
+			}
+		]
+	},
+	"block.small.place": {
+		"category": "block",
+		"subtitle": "subtitle.betterdefaultbiomes.block.place",
+		"sounds": [
+			{
+				"name": "minecraft:entity/itemframe/add_item2",
+				"volume": 1.0
+			}
+		]
+	},
+	"block.small.break": {
+		"category": "block",
+		"subtitle": "subtitle.betterdefaultbiomes.block.break",
+		"sounds": [
+			{
+				"name": "minecraft:entity/itemframe/add_item2",
+				"volume": 1.0
+			}
+		]
+	},
+	"block.small.hit": {
+		"category": "block",
+		"subtitle": "subtitle.betterdefaultbiomes.block.hit",
+		"sounds": [
+			{
+				"name": "minecraft:entity/itemframe/add_item2",
+				"volume": 1.0
+			}
+		]
+	},
+	"block.small.rotate": {
+		"category": "block",
+		"subtitle": "subtitle.betterdefaultbiomes.block.rotate",
+		"sounds": [
+			{
+				"name": "minecraft:entity/itemframe/rotate_item1"
+			},
+			{
+				"name": "minecraft:entity/itemframe/rotate_item2"
+			},
+			{
+				"name": "minecraft:entity/itemframe/rotate_item3"
+			},
+			{
+				"name": "minecraft:entity/itemframe/rotate_item4"
+			}
+		]
+	},
+	"entity.small_rock.throw": {
+		"category": "player",
+		"subtitle": "subtitle.betterdefaultbiomes.entity.small_rock.throw",
+		"sounds": [
+			{
+				"name": "minecraft:random/bow",
+				"volume": 1.0
+			}
+		]
+	},
+	"entity.small_rock.break": {
+		"category": "player",
+		"subtitle": "subtitle.betterdefaultbiomes.entity.small_rock.break",
+		"sounds": [
+			{
+				"name": "minecraft:dig/stone1",
+				"volume": 1.0
+			},
+			{
+				"name": "minecraft:dig/stone2",
+				"volume": 1.0
+			},
+			{
+				"name": "minecraft:dig/stone3",
+				"volume": 1.0
+			},
+			{
+				"name": "minecraft:dig/stone4",
+				"volume": 1.0
+			}
+		]
+	},
+	"entity.duck.hurt": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.duck.hurt",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/duck/hurt",
+				"volume": 0.55
+			}
+		]
+	},
+	"entity.duck.hurt.baby": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.duck.hurt.baby",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/duck/hurt_baby",
+				"volume": 0.45
+			}
+		]
+	},
+	"entity.duck.death": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.duck.death",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/duck/hurt",
+				"volume": 0.55
+			}
+		]
+	},
+	"entity.duck.death.baby": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.duck.death.baby",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/duck/hurt_baby",
+				"volume": 0.45
+			}
+		]
+	},
+	"entity.duck.ambient": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.duck.ambient",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/duck/talk1",
+				"volume": 0.45
+			},
+			{
+				"name": "betterdefaultbiomes:entity/duck/talk2",
+				"volume": 0.4
+			},
+			{
+				"name": "betterdefaultbiomes:entity/duck/talk3",
+				"volume": 0.4
+			}
+		]
+	},
+	"entity.zebra.hurt": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.zebra.hurt",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/zebra/hurt",
+				"volume": 0.2
+			}
+		]
+	},
+	"entity.zebra.death": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.zebra.death",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/zebra/death",
+				"volume": 0.2
+			}
+		]
+	},
+	"entity.zebra.ambient": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.zebra.ambient",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/zebra/ambient",
+				"volume": 0.2
+			}
+		]
+	},
+	"entity.frog.hurt": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.frog.hurt",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/frog/frog1",
+				"volume": 1.0
+			},
+			{
+				"name": "betterdefaultbiomes:entity/frog/frog2",
+				"volume": 1.0
+			}
+		]
+	},
+	"entity.frog.death": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.frog.death",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/frog/frog1",
+				"volume": 1.0
+			},
+			{
+				"name": "betterdefaultbiomes:entity/frog/frog2",
+				"volume": 1.0
+			}
+		]
+	},
+		"entity.frog.ambient": {
+		"category": "neutral",
+		"subtitle": "subtitle.betterdefaultbiomes.frog.ambient",
+		"sounds": [
+			{
+				"name": "betterdefaultbiomes:entity/frog/frog1",
+				"volume": 1.0
+			},
+			{
+				"name": "betterdefaultbiomes:entity/frog/frog2",
+				"volume": 1.0
+			},
+			{
+				"name": "betterdefaultbiomes:entity/frog/frog3",
+				"volume": 1.0
+			}
+		]
+	}
+}

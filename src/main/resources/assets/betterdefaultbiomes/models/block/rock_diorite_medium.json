@@ -1,0 +1,6 @@
+{
+	"parent": "betterdefaultbiomes:block/rock_medium",
+	"textures": {
+		"texture": "minecraft:block/diorite"
+	}
+}

@@ -1,0 +1,7 @@
+{
+  "_comment": "Blocks Sand Castles & Starfish will generate on.",
+  "replace": false,
+  "values": [
+    "minecraft:sand"
+  ]
+}

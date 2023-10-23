@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "betterdefaultbiomes:block/swamp_willow_planks",
+        "top": "betterdefaultbiomes:block/swamp_willow_planks",
+        "side": "betterdefaultbiomes:block/swamp_willow_planks"
+    }
+}

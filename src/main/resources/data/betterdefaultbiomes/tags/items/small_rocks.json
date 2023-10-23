@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "betterdefaultbiomes:small_rock_stone",
+    "betterdefaultbiomes:small_rock_cobble",
+    "betterdefaultbiomes:small_rock_mossy",
+    "betterdefaultbiomes:small_rock_andesite",
+    "betterdefaultbiomes:small_rock_diorite",
+    "betterdefaultbiomes:small_rock_granite",
+    "betterdefaultbiomes:small_rock_sandstone",
+    "betterdefaultbiomes:small_rock_red_sandstone",
+    "betterdefaultbiomes:small_rock_deepslate",
+    "betterdefaultbiomes:small_rock_cobbled_deepslate"
+  ]
+}

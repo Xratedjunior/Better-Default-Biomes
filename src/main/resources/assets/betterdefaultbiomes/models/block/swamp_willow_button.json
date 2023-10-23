@@ -1,0 +1,6 @@
+{
+    "parent": "block/button",
+    "textures": {
+        "texture": "betterdefaultbiomes:block/swamp_willow_planks"
+    }
+}

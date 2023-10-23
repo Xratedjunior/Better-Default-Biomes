@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":    { "model": "betterdefaultbiomes:block/palm_log_stripped" },
+        "axis=z":     { "model": "betterdefaultbiomes:block/palm_log_stripped", "x": 90 },
+        "axis=x":     { "model": "betterdefaultbiomes:block/palm_log_stripped", "x": 90, "y": 90 }
+    }
+}

@@ -20,7 +20,9 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "betterdefaultbiomes:frozen_flesh"
+          "items": [ 
+            "betterdefaultbiomes:frozen_flesh"
+          ]
         }
       }
     },
@@ -28,7 +30,9 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "betterdefaultbiomes:duck"
+          "items": [ 
+            "betterdefaultbiomes:duck"
+          ]
         }
       }
     },
@@ -36,7 +40,9 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "betterdefaultbiomes:cooked_duck"
+          "items": [ 
+            "betterdefaultbiomes:cooked_duck"
+          ]
         }
       }
     },
@@ -44,7 +50,9 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "betterdefaultbiomes:frog_leg"
+          "items": [ 
+            "betterdefaultbiomes:frog_leg"
+          ]
         }
       }
     },
@@ -52,7 +60,9 @@
       "trigger": "minecraft:consume_item",
       "conditions": {
         "item": {
-          "item": "betterdefaultbiomes:cooked_frog_leg"
+          "items": [ 
+            "betterdefaultbiomes:cooked_frog_leg"
+      	  ]
         }
       }
     }

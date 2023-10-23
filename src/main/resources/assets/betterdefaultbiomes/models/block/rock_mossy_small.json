@@ -1,0 +1,6 @@
+{
+	"parent": "betterdefaultbiomes:block/rock_small",
+	"textures": {
+		"texture": "minecraft:block/mossy_cobblestone"
+	}
+}

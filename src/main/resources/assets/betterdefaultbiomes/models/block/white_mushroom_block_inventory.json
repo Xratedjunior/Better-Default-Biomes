@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "betterdefaultbiomes:block/white_mushroom_block"
+	}
+}

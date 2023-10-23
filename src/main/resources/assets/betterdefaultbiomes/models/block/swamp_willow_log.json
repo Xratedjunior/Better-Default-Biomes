@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "betterdefaultbiomes:block/swamp_willow_log_top",
+        "side": "betterdefaultbiomes:block/swamp_willow_log"
+    }
+}

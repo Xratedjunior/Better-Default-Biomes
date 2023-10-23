@@ -1,0 +1,8 @@
+{
+    "variants": {
+    	"facing=north":  { "model": "betterdefaultbiomes:block/seashell"},
+    	"facing=east":  { "model": "betterdefaultbiomes:block/seashell", "y": 90 },
+    	"facing=south":  { "model": "betterdefaultbiomes:block/seashell", "y": 180},
+    	"facing=west":  { "model": "betterdefaultbiomes:block/seashell", "y": 270 }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+    	"facing=north":  { "model": "betterdefaultbiomes:block/sand_castle"},
+    	"facing=east":  { "model": "betterdefaultbiomes:block/sand_castle", "y": 90 },
+    	"facing=south":  { "model": "betterdefaultbiomes:block/sand_castle", "y": 180},
+    	"facing=west":  { "model": "betterdefaultbiomes:block/sand_castle", "y": 270 }
+    }
+}

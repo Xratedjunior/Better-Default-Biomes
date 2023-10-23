@@ -54,6 +54,7 @@
 	"tooltip.betterdefaultbiomes.bandit_arrow": "This is a drop from the Desert Bandit Archer.",
 	"tooltip.betterdefaultbiomes.hunter_arrow": "This is a drop from the Hunter.",
 	"tooltip.betterdefaultbiomes.torch_arrow": "Places a Torch when it hits a Block",
+	"tooltip.betterdefaultbiomes.torch_arrow_fire": "Sets Mobs on fire for 2 seconds",
 	
     //Arrows
 	"item.betterdefaultbiomes.hunter_arrow": "Hunter's Arrow",
@@ -62,7 +63,7 @@
 	
 	"item.betterdefaultbiomes.duck_egg": "Duck Egg",
 	
-	//Food
+	//FoodProperties
     "item.betterdefaultbiomes.frozen_flesh": "Frozen Flesh",
     "item.betterdefaultbiomes.duck": "Duck",
     "item.betterdefaultbiomes.cooked_duck": "Cooked Duck",
@@ -78,19 +79,19 @@
     "equipment.betterdefaultbiomes.bandit_bow": "Bandit's Bow",
     "equipment.betterdefaultbiomes.bandit_crossbow": "Bandit's Crossbow",
     "equipment.betterdefaultbiomes.bandit_master_sword": "Sword of the Bandit Master",
-	"equipment.betterdefaultbiomes.robin_hood_bow": "Robin's Bow",
 	
 	//Entities
-	"entity.betterdefaultbiomes.hunter": "Hunter",
-	"entity.betterdefaultbiomes.head_hunter": "Head Hunter",
-	"entity.betterdefaultbiomes.jungle_creeper": "Jungle Creeper",
-	"entity.betterdefaultbiomes.lost_miner": "Lost Miner",
-	"entity.betterdefaultbiomes.frozen_zombie": "Frozen Zombie",
-	
-	"entity.betterdefaultbiomes.desert_bandit": "Desert Bandit",
-	"entity.betterdefaultbiomes.desert_bandit_archer": "Desert Bandit Archer",
-	"entity.betterdefaultbiomes.desert_bandit_arbalist": "Desert Bandit Arbalist",
-	"entity.betterdefaultbiomes.desert_bandit_master": "Desert Bandit Master",
+		// Hostile
+		"entity.betterdefaultbiomes.hunter": "Hunter",
+		"entity.betterdefaultbiomes.head_hunter": "Head Hunter",
+		"entity.betterdefaultbiomes.jungle_creeper": "Jungle Creeper",
+		"entity.betterdefaultbiomes.lost_miner": "Lost Miner",
+		"entity.betterdefaultbiomes.frozen_zombie": "Frozen Zombie",
+		
+		"entity.betterdefaultbiomes.desert_bandit": "Desert Bandit",
+		"entity.betterdefaultbiomes.desert_bandit_archer": "Desert Bandit Archer",
+		"entity.betterdefaultbiomes.desert_bandit_arbalist": "Desert Bandit Arbalist",
+		"entity.betterdefaultbiomes.desert_bandit_master": "Desert Bandit Master",
 	
 		//Passive
 		"entity.betterdefaultbiomes.muddy_pig": "Muddy Pig",
@@ -101,25 +102,20 @@
 		"entity.betterdefaultbiomes.waterbuck": "Waterbuck",
 		
 		//Neutral
-		"entity.betterdefaultbiomes.orc": "Orc",
-
-	"entity.betterdefaultbiomes.robin_hood": "Robin Hood",
-	"entity.betterdefaultbiomes.robin_hood_archer": "Robin Hood",
-	"entity.betterdefaultbiomes.robin_hood_tanker": "Robin Hood",
-	"entity.betterdefaultbiomes.robin_hood_swordsman": "Robin Hood",
 	
 	//Entity Spawn Eggs
-	"item.betterdefaultbiomes.hunter_spawn_egg": "Hunter Spawn Egg",
-	"item.betterdefaultbiomes.head_hunter_spawn_egg": "Head Hunter Spawn Egg",
-	"item.betterdefaultbiomes.jungle_creeper_spawn_egg": "Jungle Creeper Spawn Egg",
-	"item.betterdefaultbiomes.warthog_spawn_egg": "Warthog Spawn Egg",
-	"item.betterdefaultbiomes.lost_miner_spawn_egg": "Lost Miner Spawn Egg",
-	"item.betterdefaultbiomes.frozen_zombie_spawn_egg": "Frozen Zombie Spawn Egg",
-	
-	"item.betterdefaultbiomes.desert_bandit_spawn_egg": "Desert Bandit Spawn Egg",
-	"item.betterdefaultbiomes.desert_bandit_archer_spawn_egg": "Desert Bandit Archer Spawn Egg",
-	"item.betterdefaultbiomes.desert_bandit_arbalist_spawn_egg": "Desert Bandit Arbalist Spawn Egg",
-	"item.betterdefaultbiomes.desert_bandit_master_spawn_egg": "Desert Bandit Master Spawn Egg",
+		// Hostile
+		"item.betterdefaultbiomes.hunter_spawn_egg": "Hunter Spawn Egg",
+		"item.betterdefaultbiomes.head_hunter_spawn_egg": "Head Hunter Spawn Egg",
+		"item.betterdefaultbiomes.jungle_creeper_spawn_egg": "Jungle Creeper Spawn Egg",
+		"item.betterdefaultbiomes.warthog_spawn_egg": "Warthog Spawn Egg",
+		"item.betterdefaultbiomes.lost_miner_spawn_egg": "Lost Miner Spawn Egg",
+		"item.betterdefaultbiomes.frozen_zombie_spawn_egg": "Frozen Zombie Spawn Egg",
+		
+		"item.betterdefaultbiomes.desert_bandit_spawn_egg": "Desert Bandit Spawn Egg",
+		"item.betterdefaultbiomes.desert_bandit_archer_spawn_egg": "Desert Bandit Archer Spawn Egg",
+		"item.betterdefaultbiomes.desert_bandit_arbalist_spawn_egg": "Desert Bandit Arbalist Spawn Egg",
+		"item.betterdefaultbiomes.desert_bandit_master_spawn_egg": "Desert Bandit Master Spawn Egg",
 	
 		//passive
 		"item.betterdefaultbiomes.muddy_pig_spawn_egg": "Muddy Pig Spawn Egg",
@@ -130,13 +126,6 @@
 		"item.betterdefaultbiomes.waterbuck_spawn_egg": "Waterbuck Spawn Egg",
 		
 		//Neutral
-		"item.betterdefaultbiomes.orc_spawn_egg": "Orc Spawn Egg",
-	
-	"item.betterdefaultbiomes.robin_hood_spawn_egg": "Robin Hood Spawn Egg",
-	"item.betterdefaultbiomes.robin_hood_archer_spawn_egg": "Robin Hood Archer Spawn Egg",
-	"item.betterdefaultbiomes.robin_hood_tanker_spawn_egg": "Robin Hood Tanker Spawn Egg",
-	"item.betterdefaultbiomes.robin_hood_swordsman_spawn_egg": "Robin Hood Swordsman Spawn Egg",
-	
 		
 	//	Entity Sounds
 	"subtitle.betterdefaultbiomes.duck.hurt": "Duck hurts",
@@ -177,6 +166,8 @@
 	"block.betterdefaultbiomes.small_rock_granite": "Small Granite Rock",
 	"block.betterdefaultbiomes.small_rock_sandstone": "Small Sandstone Rock",
 	"block.betterdefaultbiomes.small_rock_red_sandstone": "Small Red Sandstone Rock",
+	"block.betterdefaultbiomes.small_rock_deepslate": "Small Deepslate Rock",
+	"block.betterdefaultbiomes.small_rock_cobbled_deepslate": "Small Cobbled Deepslate Rock",
 	
 	//	Starfish
 	"block.betterdefaultbiomes.starfish_white": "White Starfish",

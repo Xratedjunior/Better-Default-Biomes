@@ -1,40 +1,35 @@
 {
-	"type": "minecraft:block",
-	"pools": [
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"name": "betterdefaultbiomes:small_rock_granite"
-				}
-			],
-			"conditions": [
-				{
-					"condition": "minecraft:survives_explosion"
-				}
-			]
-		},
-		{	
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"conditions": [
-						{
-							"condition": "minecraft:block_state_property",
-							"block": "betterdefaultbiomes:small_rock_granite",
-							"properties": {
-								"size": "2"
-							}
-						},
-						{
-							"condition": "minecraft:survives_explosion"
-						}
-					],
-					"name": "betterdefaultbiomes:small_rock_granite"
-				}
-			]
-		}
-	]
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "betterdefaultbiomes:small_rock_granite",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "betterdefaultbiomes:small_rock_granite",
+                  "properties": {
+                    "size": "2"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:survives_explosion"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

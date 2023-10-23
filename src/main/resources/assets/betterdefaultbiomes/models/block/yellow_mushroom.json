@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "betterdefaultbiomes:block/yellow_mushroom"
+    }
+}

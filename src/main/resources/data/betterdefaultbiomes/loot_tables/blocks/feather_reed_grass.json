@@ -1,45 +1,46 @@
 {
+  "_comment": "Drop Feather Reed Grass when broken with Shears. Chance of dropping Wheat when broken with an Axe.",
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 1.0,
       "entries": [
         {
           "type": "minecraft:alternatives",
           "children": [
             {
               "type": "minecraft:item",
+              "name": "betterdefaultbiomes:feather_reed_grass",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "item": "minecraft:shears"
+                    "tag": "forge:tools/shears"
                   }
                 }
-              ],
-              "name": "betterdefaultbiomes:feather_reed_grass"
+              ]
             },
             {
               "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "tag": "minecraft:axes"
-                    }
-                  },
-                {
-                  "condition": "minecraft:table_bonus",
-                  "enchantment": "minecraft:fortune",
-                  "chances": [
-                    0.4,
-                    0.5,
-                    0.7,
-                    0.9
-                  ]
-                }
-              ],
-              "name": "minecraft:wheat"
+              "name": "minecraft:wheat",
+	          "conditions": [
+	            {
+	              "condition": "minecraft:match_tool",
+	              "predicate": {
+	                "tag": "forge:tools/axes"
+	              }
+	            },
+		        {
+		          "condition": "minecraft:table_bonus",
+		          "enchantment": "minecraft:fortune",
+		          "chances": [
+		            0.4,
+		            0.5,
+		            0.7,
+		            0.9
+		          ]
+		        }
+	          ]
             }
           ]
         }

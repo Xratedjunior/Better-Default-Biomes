@@ -3,10 +3,10 @@
   "group": "mushroom_stew",
   "ingredients": [
     {
-      "tag": "forge:mushrooms"
+      "item": "minecraft:brown_mushroom"
     },
     {
-      "tag": "forge:mushrooms"
+      "item": "minecraft:red_mushroom"
     },
     {
       "item": "minecraft:bowl"

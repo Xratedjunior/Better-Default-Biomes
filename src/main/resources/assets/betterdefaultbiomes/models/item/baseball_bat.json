@@ -1,0 +1,110 @@
+{
+	"textures": {
+		"particle": "block/stripped_oak_log",
+		"texture": "block/stripped_oak_log"
+	},
+	"elements": [
+		{
+			"name": "bat_end",
+			"from": [6.1, 7.5875, 6.1],
+			"to": [9.9, 13.3875, 9.9],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8.4, 8]},
+			"faces": {
+				"north": {"uv": [4, 4, 8, 10], "texture": "#texture"},
+				"east": {"uv": [0, 4, 4, 10], "texture": "#texture"},
+				"south": {"uv": [12, 4, 16, 10], "texture": "#texture"},
+				"west": {"uv": [8, 4, 12, 10], "texture": "#texture"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#texture"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#texture"}
+			}
+		},
+		{
+			"name": "bat_base",
+			"from": [7.2, -0.0875, 7.2],
+			"to": [8.8, 8.5125, 8.8],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8.4, 8]},
+			"faces": {
+				"north": {"uv": [4, 4, 8, 15], "texture": "#texture"},
+				"east": {"uv": [0, 4, 4, 15], "texture": "#texture"},
+				"south": {"uv": [12, 4, 16, 15], "texture": "#texture"},
+				"west": {"uv": [8, 4, 12, 15], "texture": "#texture"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#texture"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#texture"}
+			}
+		},
+		{
+			"name": "bat_lower",
+			"from": [6.8, 7.5125, 6.8],
+			"to": [9.2, 9.9125, 9.2],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8.4, 8]},
+			"faces": {
+				"north": {"uv": [4, 11, 8, 15], "texture": "#texture"},
+				"east": {"uv": [0, 11, 4, 15], "texture": "#texture"},
+				"south": {"uv": [12, 11, 16, 15], "texture": "#texture"},
+				"west": {"uv": [8, 11, 12, 15], "texture": "#texture"},
+				"up": {"uv": [8, 11, 4, 7], "texture": "#texture"},
+				"down": {"uv": [12, 7, 8, 11], "texture": "#texture"}
+			}
+		},
+		{
+			"name": "bat_middle",
+			"from": [6.4, 5.5875, 6.4],
+			"to": [9.6, 12.7875, 9.6],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8.4, 8]},
+			"faces": {
+				"north": {"uv": [4, 7, 8, 15], "texture": "#texture"},
+				"east": {"uv": [0, 7, 4, 15], "texture": "#texture"},
+				"south": {"uv": [12, 7, 16, 15], "texture": "#texture"},
+				"west": {"uv": [8, 7, 12, 15], "texture": "#texture"},
+				"up": {"uv": [8, 7, 4, 3], "texture": "#texture"},
+				"down": {"uv": [12, 3, 8, 7], "texture": "#texture"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 5.25, 1.5],
+			"scale": [0.8, 1.3, 0.8]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 5.25, 1.5],
+			"scale": [0.8, 1.3, 0.8]
+		},
+		"firstperson_righthand": {
+			"rotation": [-12.25, 0, -15.75],
+			"translation": [1.25, 4.25, 0],
+			"scale": [1, 1.3, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-12.25, 0, -15.75],
+			"translation": [1.25, 4.25, 0],
+			"scale": [1, 1.3, 1]
+		},
+		"ground": {
+			"rotation": [-25, 0, 0],
+			"translation": [0, 3, 0]
+		},
+		"gui": {
+			"rotation": [4, 24.5, -45],
+			"translation": [0.5, 0.75, 0],
+			"scale": [1, 1.3, 1]
+		},
+		"head": {
+			"rotation": [0, 0, 90],
+			"translation": [-1.25, 0, 0],
+			"scale": [1.5, 1.5, 1.5]
+		},
+		"fixed": {
+			"translation": [0, 1.25, 0],
+			"scale": [1, 1.3, 1]
+		}
+	},
+	"groups": [
+		{
+			"name": "bat",
+			"origin": [0, -2.3, 0],
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

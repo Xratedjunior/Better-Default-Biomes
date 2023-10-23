@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "betterdefaultbiomes:block/tall_water_reeds_bottom" },
+        "half=upper":    { "model": "betterdefaultbiomes:block/tall_water_reeds_top" }
+    }
+}

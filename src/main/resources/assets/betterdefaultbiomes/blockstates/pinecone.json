@@ -1,0 +1,12 @@
+{
+    "variants": {
+    	"sideways=false,facing=north":  { "model": "betterdefaultbiomes:block/pinecone"},
+    	"sideways=false,facing=east":  { "model": "betterdefaultbiomes:block/pinecone", "y": 90 },
+    	"sideways=false,facing=south":  { "model": "betterdefaultbiomes:block/pinecone", "y": 180},
+    	"sideways=false,facing=west":  { "model": "betterdefaultbiomes:block/pinecone", "y": 270 },
+    	"sideways=true,facing=north":  { "model": "betterdefaultbiomes:block/pinecone_sideways"},
+    	"sideways=true,facing=east":  { "model": "betterdefaultbiomes:block/pinecone_sideways", "y": 90 },
+    	"sideways=true,facing=south":  { "model": "betterdefaultbiomes:block/pinecone_sideways", "y": 180},
+    	"sideways=true,facing=west":  { "model": "betterdefaultbiomes:block/pinecone_sideways", "y": 270 }
+    }
+}

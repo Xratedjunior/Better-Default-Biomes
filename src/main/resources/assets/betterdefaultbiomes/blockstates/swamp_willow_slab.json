@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "betterdefaultbiomes:block/swamp_willow_slab" },
+        "type=top": { "model": "betterdefaultbiomes:block/swamp_willow_slab_top" },
+        "type=double": { "model": "betterdefaultbiomes:block/swamp_willow_planks" }
+    }
+}

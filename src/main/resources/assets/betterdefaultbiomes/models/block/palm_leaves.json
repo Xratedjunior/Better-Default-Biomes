@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "betterdefaultbiomes:block/palm_leaves"
+    }
+}

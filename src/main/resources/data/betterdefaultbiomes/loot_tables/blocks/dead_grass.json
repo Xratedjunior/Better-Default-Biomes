@@ -1,24 +1,18 @@
 {
-  "type": "minecraft:block",
   "pools": [
     {
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
+          "type": "minecraft:item",
+          "name": "betterdefaultbiomes:dead_grass",
+          "conditions": [
             {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "item": "minecraft:shears"
-                  }
-                }
-              ],
-              "name": "betterdefaultbiomes:dead_grass"
-           	}
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "tag": "forge:tools/shears"
+              }
+            }
           ]
         }
       ]

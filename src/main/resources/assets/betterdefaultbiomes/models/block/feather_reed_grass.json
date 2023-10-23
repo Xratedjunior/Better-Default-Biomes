@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "betterdefaultbiomes:block/feather_reed_grass"
+    }
+}

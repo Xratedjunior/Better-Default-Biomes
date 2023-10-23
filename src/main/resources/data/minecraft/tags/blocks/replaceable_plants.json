@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "betterdefaultbiomes:feather_reed_grass",
+    "betterdefaultbiomes:dead_grass",
+    "betterdefaultbiomes:short_grass",
+    "betterdefaultbiomes:dune_grass"
+  ]
+}

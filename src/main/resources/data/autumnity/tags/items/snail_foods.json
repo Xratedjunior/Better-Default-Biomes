@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "betterdefaultbiomes:gray_mushroom",
-    "betterdefaultbiomes:white_mushroom",
-    "betterdefaultbiomes:yellow_mushroom"
+    "#betterdefaultbiomes:mushrooms"
   ]
 } 

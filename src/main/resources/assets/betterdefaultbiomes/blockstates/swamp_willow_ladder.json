@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "betterdefaultbiomes:block/swamp_willow_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "betterdefaultbiomes:block/swamp_willow_ladder"
+    },
+    "facing=south": {
+      "model": "betterdefaultbiomes:block/swamp_willow_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "betterdefaultbiomes:block/swamp_willow_ladder",
+      "y": 270
+    }
+  }
+}

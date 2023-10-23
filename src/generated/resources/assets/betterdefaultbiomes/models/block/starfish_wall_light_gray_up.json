@@ -1,0 +1,6 @@
+{
+  "parent": "betterdefaultbiomes:block/starfish_template_up",
+  "textures": {
+    "texture": "minecraft:block/light_gray_wool"
+  }
+}

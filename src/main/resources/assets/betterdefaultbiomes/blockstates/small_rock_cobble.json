@@ -1,0 +1,12 @@
+{
+    "variants": {
+    	"facing=north,size=1":  { "model": "betterdefaultbiomes:block/rock_cobble_small"},
+    	"facing=east,size=1":  { "model": "betterdefaultbiomes:block/rock_cobble_small", "y": 90 },
+    	"facing=south,size=1":  { "model": "betterdefaultbiomes:block/rock_cobble_small", "y": 180 },
+    	"facing=west,size=1":  { "model": "betterdefaultbiomes:block/rock_cobble_small", "y": 270 },
+    	"facing=north,size=2":  { "model": "betterdefaultbiomes:block/rock_cobble_medium"},
+    	"facing=east,size=2":  { "model": "betterdefaultbiomes:block/rock_cobble_medium", "y": 90 },
+    	"facing=south,size=2":  { "model": "betterdefaultbiomes:block/rock_cobble_medium", "y": 180 },
+    	"facing=west,size=2":  { "model": "betterdefaultbiomes:block/rock_cobble_medium", "y": 270 }
+    }
+}

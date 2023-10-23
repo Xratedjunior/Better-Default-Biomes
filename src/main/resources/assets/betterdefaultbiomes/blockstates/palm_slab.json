@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "betterdefaultbiomes:block/palm_slab" },
+        "type=top": { "model": "betterdefaultbiomes:block/palm_slab_top" },
+        "type=double": { "model": "betterdefaultbiomes:block/palm_planks" }
+    }
+}

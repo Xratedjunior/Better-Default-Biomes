@@ -1,0 +1,37 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"texture": "#texture",
+		"particle": "#texture"
+	},
+	"elements": [
+		{
+			"name": "medium_rock",
+			"from": [3.5, -0.001, 6.25],
+			"to": [9.5, 2.999, 12.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.5, 1, 9.25]},
+			"faces": {
+				"north": {"uv": [0, 0, 6, 5], "texture": "#texture"},
+				"east": {"uv": [0, 0, 6, 5], "texture": "#texture"},
+				"south": {"uv": [0, 0, 6, 5], "texture": "#texture"},
+				"west": {"uv": [0, 0, 6, 5], "texture": "#texture"},
+				"up": {"uv": [0, 0, 6, 6], "texture": "#texture"},
+				"down": {"uv": [0, 0, 6, 6], "texture": "#texture"}
+			}
+		},
+		{
+			"name": "small_rock",
+			"from": [6.5, 0, 4.25],
+			"to": [12.5, 2, 9.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.5, 1, 9.25]},
+			"faces": {
+				"north": {"uv": [0, 0, 6, 2], "texture": "#texture"},
+				"east": {"uv": [0, 0, 5, 2], "texture": "#texture"},
+				"south": {"uv": [0, 0, 6, 2], "texture": "#texture"},
+				"west": {"uv": [0, 0, 5, 2], "texture": "#texture"},
+				"up": {"uv": [0, 0, 6, 5], "texture": "#texture"},
+				"down": {"uv": [0, 0, 6, 5], "texture": "#texture"}
+			}
+		}
+	]
+}

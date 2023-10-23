@@ -1,0 +1,63 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"texture": "#texture",
+		"particle": "#texture"
+	},
+	"elements": [
+		{
+			"name": "small_rock",
+			"from": [5, 0, 5.5],
+			"to": [11, 2, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 1, 10.5]},
+			"faces": {
+				"north": {"uv": [0, 0, 6, 2], "texture": "#texture"},
+				"east": {"uv": [0, 0, 5, 2], "texture": "#texture"},
+				"south": {"uv": [0, 0, 6, 2], "texture": "#texture"},
+				"west": {"uv": [0, 0, 5, 2], "texture": "#texture"},
+				"up": {"uv": [0, 0, 6, 5], "texture": "#texture"},
+				"down": {"uv": [0, 0, 6, 5], "texture": "#texture"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 1.25, 2.75],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 1.25, 3],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, 4.5, 1.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, 4.5, 1.5],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3.5, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"gui": {
+			"rotation": [43, 225, 0],
+			"translation": [0, 7, 0],
+			"scale": [1.4, 1.4, 1.4]
+		},
+		"head": {
+			"rotation": [0, 22, 0],
+			"translation": [0, 17.5, 0.5],
+			"scale": [1.4, 1.4, 1.4]
+		},
+		"fixed": {
+			"rotation": [-90, -180, 0],
+			"translation": [0, 0, -8.25]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="All rights reserved"
+issueTrackerURL="https://github.com/Xratedjunior/Better-Default-Biomes/issues"
+
+[[mods]]
+    modId="betterdefaultbiomes"
+    version="3.0.0-Alpha"
+    displayName="Better Default Biomes"
+    displayURL="https://www.curseforge.com/minecraft/mc-mods/better-default-biomes"
+    logoFile="BetterDefaultBiomes.jpeg"
+    authors="Xrated_junior"
+    description='''
+    This mod tries to improve the vanilla biomes.
+    '''
+
+[[dependencies.betterdefaultbiomes]]
+    modId="forge"
+    mandatory=true
+    versionRange="[40,)"
+    ordering="NONE"
+    side="BOTH"

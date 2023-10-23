@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":    { "model": "betterdefaultbiomes:block/swamp_willow_log" },
+        "axis=z":     { "model": "betterdefaultbiomes:block/swamp_willow_log", "x": 90 },
+        "axis=x":     { "model": "betterdefaultbiomes:block/swamp_willow_log", "x": 90, "y": 90 }
+    }
+}

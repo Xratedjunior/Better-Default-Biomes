@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "betterdefaultbiomes:block/swamp_willow_ladder"
+  }
+}
