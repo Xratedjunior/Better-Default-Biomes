@@ -7,12 +7,14 @@ import com.google.common.collect.Lists;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import xratedjunior.betterdefaultbiomes.configuration.MobSpawningConfig;
+import xratedjunior.betterdefaultbiomes.configuration.entity.util.EntityConfigHelper;
+import xratedjunior.betterdefaultbiomes.configuration.entity.util.MobConfig;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
-public class LostMinerConfig {
+public class LostMinerConfig implements MobConfig {
 	public static ForgeConfigSpec.IntValue weight;
 	public static ConfigValue<Integer> min_group;
 	public static ConfigValue<Integer> max_group;
@@ -27,7 +29,7 @@ public class LostMinerConfig {
 	private static int minGroup = 1;
 	private static int maxGroup = 3;
 	private static int lostMinerDropChance = 8;
-	private static List<String> spawnBiomes = Lists.newArrayList("overworld");
+	private static List<String> spawnBiomes = Lists.newArrayList("minecraft:is_overworld");
 
 	public static void init(ForgeConfigSpec.Builder builder) {
 		weight = builder
@@ -52,5 +54,27 @@ public class LostMinerConfig {
 		spawn_biomes = builder
 			.comment(EntityConfigHelper.spawnBiomesComment(mobName))
 			.define("Lost_Miner.spawn_biomes", spawnBiomes);
+	}
+	
+	/*********************************************************** Implementation ********************************************************/
+	
+	@Override
+	public int getWeight() {
+		return weight.get();
+	}
+
+	@Override
+	public int getMinGroup() {
+		return min_group.get();
+	}
+
+	@Override
+	public int getMaxGroup() {
+		return max_group.get();
+	}
+
+	@Override
+	public List<String> getSpawnBiomes() {
+		return spawn_biomes.get();
 	}
 }

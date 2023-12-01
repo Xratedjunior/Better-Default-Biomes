@@ -8,15 +8,16 @@ import xratedjunior.betterdefaultbiomes.enchantment.util.CustomEnchantmentType;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class HorseProtectionEnchantment extends Enchantment {
 	public final HorseProtectionEnchantment.Type protectionType;
 
-	public HorseProtectionEnchantment(String name, HorseProtectionEnchantment.Type protectionType, Enchantment.Rarity rarity) {
-		super(rarity, CustomEnchantmentType.HORSE_ARMOR, new EquipmentSlot[] {EquipmentSlot.CHEST});
+	public HorseProtectionEnchantment(HorseProtectionEnchantment.Type protectionType, Enchantment.Rarity rarity) {
+		super(rarity, CustomEnchantmentType.HORSE_ARMOR, new EquipmentSlot[] {
+			EquipmentSlot.CHEST
+		});
 		this.protectionType = protectionType;
-		this.setRegistryName(name);
 	}
 
 	/**

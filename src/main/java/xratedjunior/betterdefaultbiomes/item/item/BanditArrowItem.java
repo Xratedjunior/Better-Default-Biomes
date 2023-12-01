@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -24,7 +23,7 @@ import xratedjunior.betterdefaultbiomes.util.BDBHelper;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class BanditArrowItem extends ArrowItem {
 
@@ -49,7 +48,7 @@ public class BanditArrowItem extends ArrowItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
 		if (Screen.hasShiftDown()) {
 			if (flagIn.isAdvanced()) {
-				tooltip.add(new TranslatableComponent("tooltip.betterdefaultbiomes.bandit_arrow").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY));
+				tooltip.add(Component.translatable("tooltip.betterdefaultbiomes.bandit_arrow").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY));
 			}
 
 			// Level 1 and duration of 10 seconds

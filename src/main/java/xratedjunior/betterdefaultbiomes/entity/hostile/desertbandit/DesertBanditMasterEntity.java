@@ -5,7 +5,7 @@ import java.util.Map;
 import com.google.common.collect.Maps;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -21,7 +21,7 @@ import net.minecraft.world.level.Level;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class DesertBanditMasterEntity extends DesertBanditEntity {
 
@@ -62,7 +62,7 @@ public class DesertBanditMasterEntity extends DesertBanditEntity {
 		}
 		EnchantmentHelper.setEnchantments(map, desertMasterSword);
 		entity.setItemSlot(EquipmentSlot.MAINHAND, desertMasterSword);
-		entity.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(new TranslatableComponent("equipment.betterdefaultbiomes.bandit_master_sword").withStyle(ChatFormatting.BLUE));
+		entity.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(Component.translatable("equipment.betterdefaultbiomes.bandit_master_sword").withStyle(ChatFormatting.BLUE));
 		float armorDropChance = DesertBanditEntity.armorDropChance;
 		entity.setDropChance(EquipmentSlot.MAINHAND, armorDropChance);
 	}

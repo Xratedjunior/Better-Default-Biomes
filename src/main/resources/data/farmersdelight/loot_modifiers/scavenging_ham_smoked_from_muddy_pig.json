@@ -34,5 +34,8 @@
       "looting_multiplier": 0.1
     }
   ],
-  "item": "farmersdelight:smoked_ham"
+  "result": {
+    "id": "farmersdelight:smoked_ham",
+    "Count": 1
+  }
 }

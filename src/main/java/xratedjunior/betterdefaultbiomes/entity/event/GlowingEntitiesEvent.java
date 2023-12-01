@@ -4,7 +4,7 @@ import java.util.function.Supplier;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import xratedjunior.betterdefaultbiomes.configuration.DebugConfig;
 import xratedjunior.betterdefaultbiomes.entity.BDBEntityTypes;
@@ -15,14 +15,14 @@ import xratedjunior.betterdefaultbiomes.entity.BDBEntityTypes;
  * This doesn't interfere with the glowing effect from spectral arrows. (Tested)
  * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class GlowingEntitiesEvent {
 
 	@SubscribeEvent
-	public void onEntityJoinWorld(EntityJoinWorldEvent event) {
+	public void onEntityJoinWorld(EntityJoinLevelEvent event) {
 		Entity entity = event.getEntity();
-		if (!event.getWorld().isClientSide()) {
+		if (!event.getLevel().isClientSide()) {
 
 			/*********************************************************** Hostile ********************************************************/
 

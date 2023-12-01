@@ -58,9 +58,8 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
- *          
- * TODO extend if possible {@link Chicken} or {@link BDBAnimalEntityAbstract} and adjust {@link DuckRenderer} after.
+ * @version 1.19.4-Alpha 4.0.0
+ *          TODO extend if possible {@link Chicken} or {@link BDBAnimalEntityAbstract} and adjust {@link DuckRenderer} after.
  */
 public class DuckEntity extends Animal {
 	private static final EntityDataAccessor<Integer> DATA_VARIANT_ID = SynchedEntityData.defineId(DuckEntity.class, EntityDataSerializers.INT);
@@ -311,8 +310,8 @@ public class DuckEntity extends Animal {
 	 * Get the experience points the entity currently has.
 	 */
 	@Override
-	protected int getExperienceReward(Player player) {
-		return this.isDuckJockey() ? 10 : super.getExperienceReward(player);
+	public int getExperienceReward() {
+		return this.isDuckJockey() ? 10 : super.getExperienceReward();
 	}
 
 	@Override

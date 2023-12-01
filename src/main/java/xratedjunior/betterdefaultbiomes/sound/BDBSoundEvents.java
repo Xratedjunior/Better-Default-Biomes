@@ -10,7 +10,7 @@ import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class BDBSoundEvents {
 
@@ -49,7 +49,7 @@ public class BDBSoundEvents {
 	 * Helper method for registering all SoundEvents
 	 */
 	private static RegistryObject<SoundEvent> registerSoundEvent(@Nonnull String registryName) {
-		SoundEvent soundEvent = new SoundEvent(BetterDefaultBiomes.locate(registryName));
+		SoundEvent soundEvent = SoundEvent.createVariableRangeEvent(BetterDefaultBiomes.locate(registryName));
 		return DEFERRED_SOUND_EVENTS.register(registryName, () -> soundEvent);
 	}
 }

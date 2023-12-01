@@ -20,7 +20,7 @@ import xratedjunior.betterdefaultbiomes.entity.passive.ZebraEntity;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 @OnlyIn(Dist.CLIENT)
 public class ZebraModel<E extends ZebraEntity> extends BDBAgeableModel<E> {
@@ -125,10 +125,9 @@ public class ZebraModel<E extends ZebraEntity> extends BDBAgeableModel<E> {
 		}
 	}
 
-	/*
+	/**
 	 * Animations for this model
 	 */
-	@SuppressWarnings("deprecation")
 	@Override
 	public void prepareMobModel(E entity, float limbSwing, float limbSwingAmount, float partialTick) {
 		super.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTick);
@@ -136,8 +135,8 @@ public class ZebraModel<E extends ZebraEntity> extends BDBAgeableModel<E> {
 
 		float ticks = (float) entity.tickCount + partialTick;
 
-		float yawOffset = Mth.rotlerp(entity.yBodyRotO, entity.yBodyRot, partialTick);
-		float yawRotation = Mth.rotlerp(entity.yHeadRotO, entity.yHeadRot, partialTick);
+		float yawOffset = this.rotlerp(entity.yBodyRotO, entity.yBodyRot, partialTick);
+		float yawRotation = this.rotlerp(entity.yHeadRotO, entity.yHeadRot, partialTick);
 		float netHeadYaw = yawRotation - yawOffset;
 
 		float headPitch = Mth.lerp(partialTick, entity.xRotO, entity.getXRot()); //Radials

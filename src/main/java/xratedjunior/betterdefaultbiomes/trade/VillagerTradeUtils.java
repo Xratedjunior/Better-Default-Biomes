@@ -1,7 +1,6 @@
 package xratedjunior.betterdefaultbiomes.trade;
 
-import java.util.Random;
-
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
@@ -13,7 +12,7 @@ import net.minecraft.world.level.block.Block;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public final class VillagerTradeUtils {
 	public static class ItemsForEmeraldsTrade implements VillagerTrades.ItemListing {
@@ -52,7 +51,8 @@ public final class VillagerTradeUtils {
 			this.priceMultiplier = priceMultiplier;
 		}
 
-		public MerchantOffer getOffer(Entity trader, Random random) {
+		@Override
+		public MerchantOffer getOffer(Entity trader, RandomSource random) {
 			return new MerchantOffer(new ItemStack(Items.EMERALD, this.emeraldCount), new ItemStack(this.itemstack.getItem(), this.recievedItemCount), this.maxTrades, this.givenExp, this.priceMultiplier);
 		}
 	}
@@ -90,7 +90,8 @@ public final class VillagerTradeUtils {
 			this.priceMultiplier = priceMultiplier;
 		}
 
-		public MerchantOffer getOffer(Entity trader, Random random) {
+		@Override
+		public MerchantOffer getOffer(Entity trader, RandomSource random) {
 			return new MerchantOffer(new ItemStack(this.tradeItem.getItem(), this.itemCount), new ItemStack(Items.EMERALD, this.emeraldCount), this.maxTrades, this.givenExp, this.priceMultiplier);
 		}
 	}
@@ -128,7 +129,8 @@ public final class VillagerTradeUtils {
 			this.priceMultiplier = priceMultiplier;
 		}
 
-		public MerchantOffer getOffer(Entity trader, Random random) {
+		@Override
+		public MerchantOffer getOffer(Entity trader, RandomSource random) {
 			return new MerchantOffer(new ItemStack(Items.EMERALD, this.emeraldCount), new ItemStack(this.buyingItem.getItem(), this.buyingItemCount), new ItemStack(this.sellingItem.getItem(), this.sellingItemCount), this.maxTrades, this.givenExp, this.priceMultiplier);
 		}
 	}
@@ -154,7 +156,8 @@ public final class VillagerTradeUtils {
 			this.priceMultiplier = priceMultiplier;
 		}
 
-		public MerchantOffer getOffer(Entity trader, Random rand) {
+		@Override
+		public MerchantOffer getOffer(Entity trader, RandomSource rand) {
 			int i = 5 + rand.nextInt(15);
 			ItemStack itemstack = EnchantmentHelper.enchantItem(rand, new ItemStack(this.sellingStack.getItem()), i, false);
 			int j = Math.min(this.emeraldCount + i, 64);

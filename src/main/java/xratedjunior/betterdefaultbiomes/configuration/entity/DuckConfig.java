@@ -7,19 +7,21 @@ import com.google.common.collect.Lists;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import xratedjunior.betterdefaultbiomes.configuration.MobSpawningConfig;
+import xratedjunior.betterdefaultbiomes.configuration.entity.util.EntityConfigHelper;
+import xratedjunior.betterdefaultbiomes.configuration.entity.util.MobConfig;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
-public class DuckConfig {
+public class DuckConfig implements MobConfig {
 	public static ForgeConfigSpec.IntValue weight;
 	public static ConfigValue<Integer> min_group;
 	public static ConfigValue<Integer> max_group;
 	public static ForgeConfigSpec.ConfigValue<List<String>> spawn_biomes;
 
 	public static ForgeConfigSpec.BooleanValue remove_vanilla_chickens;
-	public static ForgeConfigSpec.BooleanValue duck_jockey;
+//	public static ForgeConfigSpec.BooleanValue duck_jockey;
 
 	private static String mobConfigName = "Duck";
 	private static String mobName = "Duck";
@@ -29,7 +31,7 @@ public class DuckConfig {
 	private static int mobSpawnWeightMax = MobSpawningConfig.mobSpawnWeightMax;
 	private static int minGroup = 4;
 	private static int maxGroup = 4;
-	private static List<String> spawnBiomes = Lists.newArrayList("swamp");
+	private static List<String> spawnBiomes = Lists.newArrayList("forge:is_swamp");
 
 	private static String vanillaMobName = "Chicken";
 	private static boolean removeVanillaChickens = true;
@@ -57,9 +59,31 @@ public class DuckConfig {
 			.comment(EntityConfigHelper.removeVanillaMobComment(vanillaMobName, removeVanillaChickens))
 			.define(mobConfigName+".remove_vanilla_"+vanillaMobName.toLowerCase()+"s", removeVanillaChickens);
 		
-		duck_jockey = builder
-//			.comment(EntityConfigHelper.jockeyComment(mobName, duckJockey))
-			.comment(EntityConfigHelper.Disabled())
-			.define(mobConfigName+".jockey", duckJockey);
+//		duck_jockey = builder
+////			.comment(EntityConfigHelper.jockeyComment(mobName, duckJockey))
+//			.comment(EntityConfigHelper.Disabled())
+//			.define(mobConfigName+".jockey", duckJockey);
+	}
+	
+	/*********************************************************** Implementation ********************************************************/
+	
+	@Override
+	public int getWeight() {
+		return weight.get();
+	}
+
+	@Override
+	public int getMinGroup() {
+		return min_group.get();
+	}
+
+	@Override
+	public int getMaxGroup() {
+		return max_group.get();
+	}
+
+	@Override
+	public List<String> getSpawnBiomes() {
+		return spawn_biomes.get();
 	}
 }

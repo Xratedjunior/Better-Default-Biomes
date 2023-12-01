@@ -32,5 +32,8 @@
       ]
     }
   ],
-  "item": "minecraft:leather"
+  "result": {
+    "id": "minecraft:leather",
+    "Count": 1
+  }
 }

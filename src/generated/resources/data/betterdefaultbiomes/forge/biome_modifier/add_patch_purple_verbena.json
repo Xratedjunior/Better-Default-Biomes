@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_purple_verbena",
+  "features": "betterdefaultbiomes:purple_verbena_feature",
+  "step": "vegetal_decoration"
+}

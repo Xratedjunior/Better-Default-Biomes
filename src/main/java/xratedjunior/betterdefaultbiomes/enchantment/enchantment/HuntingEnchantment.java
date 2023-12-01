@@ -7,14 +7,15 @@ import xratedjunior.betterdefaultbiomes.configuration.EnchantmentConfig;
 import xratedjunior.betterdefaultbiomes.enchantment.util.CustomEnchantmentType;
 
 /**
- * @author 	Xrated_junior
- * @version	1.18.2-1.0.0
+ * @author  Xrated_junior
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class HuntingEnchantment extends Enchantment {
-	
-	public HuntingEnchantment(String name) {
-        super(Rarity.COMMON, CustomEnchantmentType.SHOOTER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-		this.setRegistryName(name);
+
+	public HuntingEnchantment() {
+		super(Rarity.COMMON, CustomEnchantmentType.SHOOTER, new EquipmentSlot[] {
+			EquipmentSlot.MAINHAND
+		});
 	}
 
 	/**

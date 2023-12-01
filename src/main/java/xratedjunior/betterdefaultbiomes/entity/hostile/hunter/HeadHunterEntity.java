@@ -1,7 +1,7 @@
 package xratedjunior.betterdefaultbiomes.entity.hostile.hunter;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -18,7 +18,7 @@ import xratedjunior.betterdefaultbiomes.configuration.entity.HunterConfig;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class HeadHunterEntity extends HunterEntity {
 
@@ -67,6 +67,6 @@ public class HeadHunterEntity extends HunterEntity {
 	@Override
 	protected void setDefaultEquipmentAndEnchants(DifficultyInstance difficulty) {
 		super.setDefaultEquipmentAndEnchants(difficulty);
-		this.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(new TranslatableComponent("equipment.betterdefaultbiomes.head_hunter_bow").withStyle(ChatFormatting.GREEN));
+		this.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(Component.translatable("equipment.betterdefaultbiomes.head_hunter_bow").withStyle(ChatFormatting.GREEN));
 	}
 }

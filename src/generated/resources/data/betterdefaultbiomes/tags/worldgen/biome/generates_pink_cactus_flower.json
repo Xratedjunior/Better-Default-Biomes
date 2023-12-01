@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:badlands",
+    "minecraft:eroded_badlands",
+    {
+      "id": "#forge:is_desert",
+      "required": false
+    }
+  ]
+}

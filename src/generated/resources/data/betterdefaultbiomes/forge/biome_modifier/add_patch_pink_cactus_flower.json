@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_pink_cactus_flower",
+  "features": "betterdefaultbiomes:pink_cactus_flower_feature",
+  "step": "vegetal_decoration"
+}

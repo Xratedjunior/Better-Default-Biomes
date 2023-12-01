@@ -1,6 +1,7 @@
 package xratedjunior.betterdefaultbiomes.entity.projectile;
 
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -18,7 +19,7 @@ import xratedjunior.betterdefaultbiomes.item.item.HunterArrowItem;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class BanditArrowEntity extends AbstractArrow {
 
@@ -72,7 +73,7 @@ public class BanditArrowEntity extends AbstractArrow {
 	/*********************************************************** Networking ********************************************************/
 
 	@Override
-	public Packet<?> getAddEntityPacket() {
+	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 }

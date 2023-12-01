@@ -36,7 +36,8 @@ import xratedjunior.betterdefaultbiomes.entity.BDBEntityTypes;
 import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
- * @author Xrated_junior
+ * @author  Xrated_junior
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class FrogEntity extends BDBAnimalEntityAbstract {
 	private static final float adultHealth = 8.0F;
@@ -157,7 +158,7 @@ public class FrogEntity extends BDBAnimalEntityAbstract {
 
 	@Override
 	public boolean doHurtTarget(Entity entityIn) {
-		return entityIn.hurt(DamageSource.mobAttack(this), 8.0F);
+		return entityIn.hurt(this.damageSources().mobAttack(this), 8.0F);
 	}
 
 	/*********************************************************** Living Tick ********************************************************/

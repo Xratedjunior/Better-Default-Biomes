@@ -1,7 +1,5 @@
 package xratedjunior.betterdefaultbiomes.entity.hostile;
 
-import java.util.Random;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -11,6 +9,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -64,7 +63,7 @@ import xratedjunior.betterdefaultbiomes.entity.hostile.desertbandit.DesertBandit
  * MINECRAFT REFERENCE: {@link Skeleton} & {@link Pillager}
  * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public abstract class AbstractHostileHumanoid extends Monster implements RangedAttackMob, CrossbowAttackMob {
 	private static final EntityDataAccessor<Boolean> DATA_CROSSBOW_CHARGING_STATE = SynchedEntityData.defineId(AbstractHostileHumanoid.class, EntityDataSerializers.BOOLEAN);
@@ -254,19 +253,20 @@ public abstract class AbstractHostileHumanoid extends Monster implements RangedA
 
 	/*********************************************************** Spawn Rules ********************************************************/
 
-	public static boolean checkHostileSpawnRules(EntityType<? extends AbstractHostileHumanoid> type, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random random) {
+	public static boolean checkHostileSpawnRules(EntityType<? extends AbstractHostileHumanoid> type, LevelAccessor world, MobSpawnType reason, BlockPos pos, RandomSource random) {
 		return Monster.checkAnyLightMonsterSpawnRules(type, world, reason, pos, random);
 	}
 
 	/*********************************************************** Spawning ********************************************************/
 
+	@SuppressWarnings("deprecation")
 	@Nullable
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor worldIn, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData spawnDataIn, @Nullable CompoundTag dataTag) {
 		spawnDataIn = super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
-		this.populateDefaultEquipmentSlots(difficultyIn);
+		this.populateDefaultEquipmentSlots(worldIn.getRandom(), difficultyIn);
 		// Enchants Entity's current equipments based on given DifficultyInstance.
-		this.populateDefaultEquipmentEnchantments(difficultyIn);
+		this.populateDefaultEquipmentEnchantments(worldIn.getRandom(), difficultyIn);
 		this.reassessCombatGoal();
 		this.setCanPickUpLoot(this.random.nextFloat() < 0.55F * difficultyIn.getSpecialMultiplier());
 
@@ -286,15 +286,12 @@ public abstract class AbstractHostileHumanoid extends Monster implements RangedA
 
 	/**
 	 * Gives armor or weapon for entity based on given DifficultyInstance
-	 * 
-	 * @deprecated Use {@link giveDefaultEquipment}
 	 */
-	@Deprecated
 	@Override
-	protected void populateDefaultEquipmentSlots(DifficultyInstance difficulty) {
+	protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
 		this.setDefaultEquipmentAndEnchants(difficulty);
 		// Fill equipment in empty slots.
-		super.populateDefaultEquipmentSlots(difficulty);
+		super.populateDefaultEquipmentSlots(random, difficulty);
 	}
 
 	@Override

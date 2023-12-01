@@ -15,7 +15,7 @@ import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -28,7 +28,7 @@ import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class BreedingConfigRegistry {
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -48,38 +48,34 @@ public class BreedingConfigRegistry {
 		BetterDefaultBiomes.LOGGER.debug("Constructing Breeding Config Files");
 
 		List<BreedingConfig> breedingConfigs = new ArrayList<>();
-    	
-    	breedingConfigs.add(new BreedingConfig(CAMEL_FOOD, Lists.newArrayList(
-    			new BreedingItem(getItemName(Items.WHEAT), true, 2, 20),
-    			new BreedingItem(getItemName(Items.HAY_BLOCK), true, 20, 180),
-    			new BreedingItem(getItemName(Items.SUGAR), false, 1, 30),
-    			new BreedingItem(getItemName(Items.APPLE), false, 3, 60),
-    			new BreedingItem(getItemName(Items.CARROT), false, 3, 60),
-    			new BreedingItem(getItemName(Items.GOLDEN_CARROT), false, 4, 60),
-    			new BreedingItem(getItemName(Items.GOLDEN_APPLE), false, 10, 240),
-    			new BreedingItem(getItemName(Items.ENCHANTED_GOLDEN_APPLE), false, 20, 240)
-    	)));
-		
-    	breedingConfigs.add(new BreedingConfig(DUCK_FOOD, Lists.newArrayList(
-    			new BreedingItem(getTagName(Tags.Items.SEEDS), true, 1, 30),
-    			new BreedingItem(getItemName(Items.SWEET_BERRIES), true, 1, 40)
-    	)));
-    	
-    	breedingConfigs.add(new BreedingConfig(ZEBRA_FOOD, Lists.newArrayList(
-    			new BreedingItem(getItemName(Items.WHEAT), true, 2, 20),
-    			new BreedingItem(getItemName(Items.HAY_BLOCK), true, 20, 180),
-    			new BreedingItem(getItemName(Items.SUGAR), false, 1, 30),
-    			new BreedingItem(getItemName(Items.APPLE), false, 3, 60),
-    			new BreedingItem(getItemName(Items.CARROT), false, 3, 60),
-    			new BreedingItem(getItemName(Items.GOLDEN_CARROT), false, 4, 60),
-    			new BreedingItem(getItemName(Items.GOLDEN_APPLE), false, 10, 240),
-    			new BreedingItem(getItemName(Items.ENCHANTED_GOLDEN_APPLE), false, 20, 240)
-    	)));
-    	
-    	breedingConfigs.add(new BreedingConfig(FROG_FOOD, Lists.newArrayList(
-    			new BreedingItem(getItemName(Items.SPIDER_EYE), true, 2, 40)
-    	)));
-    	
+
+		breedingConfigs.add(new BreedingConfig(CAMEL_FOOD, Lists.newArrayList(
+				new BreedingItem(getItemName(Items.WHEAT), true, 2, 20), 
+				new BreedingItem(getItemName(Items.HAY_BLOCK), true, 20, 180), 
+				new BreedingItem(getItemName(Items.SUGAR), false, 1, 30), 
+				new BreedingItem(getItemName(Items.APPLE), false, 3, 60), 
+				new BreedingItem(getItemName(Items.CARROT), false, 3, 60), 
+				new BreedingItem(getItemName(Items.GOLDEN_CARROT), false, 4, 60), 
+				new BreedingItem(getItemName(Items.GOLDEN_APPLE), false, 10, 240), 
+				new BreedingItem(getItemName(Items.ENCHANTED_GOLDEN_APPLE), false, 20, 240))));
+
+		breedingConfigs.add(new BreedingConfig(DUCK_FOOD, Lists.newArrayList(
+				new BreedingItem(getTagName(Tags.Items.SEEDS), true, 1, 30), 
+				new BreedingItem(getItemName(Items.SWEET_BERRIES), true, 1, 40))));
+
+		breedingConfigs.add(new BreedingConfig(ZEBRA_FOOD, Lists.newArrayList(
+				new BreedingItem(getItemName(Items.WHEAT), true, 2, 20), 
+				new BreedingItem(getItemName(Items.HAY_BLOCK), true, 20, 180), 
+				new BreedingItem(getItemName(Items.SUGAR), false, 1, 30), 
+				new BreedingItem(getItemName(Items.APPLE), false, 3, 60), 
+				new BreedingItem(getItemName(Items.CARROT), false, 3, 60), 
+				new BreedingItem(getItemName(Items.GOLDEN_CARROT), false, 4, 60), 
+				new BreedingItem(getItemName(Items.GOLDEN_APPLE), false, 10, 240), 
+				new BreedingItem(getItemName(Items.ENCHANTED_GOLDEN_APPLE), false, 20, 240))));
+
+		breedingConfigs.add(new BreedingConfig(FROG_FOOD, Lists.newArrayList(
+				new BreedingItem(getItemName(Items.SPIDER_EYE), true, 2, 40))));
+
 		//Generate .json files for the first time
 		if (!breedingConfigDirectory.exists()) {
 			breedingConfigDirectory.mkdirs();
@@ -128,7 +124,7 @@ public class BreedingConfigRegistry {
 	 * Returns the registry name of an Item.
 	 */
 	private static String getItemName(Item item) {
-		return item.getRegistryName().toString();
+		return ForgeRegistries.ITEMS.getKey(item).toString();
 	}
 
 	/*
@@ -172,7 +168,7 @@ public class BreedingConfigRegistry {
 		if (parts.length > 0) {
 			if (parts[0].equalsIgnoreCase("tag") && parts.length == 3) {
 				final ResourceLocation tagLocation = new ResourceLocation(parts[1], parts[2]);
-				TagKey<Item> tagkey = TagKey.create(Registry.ITEM_REGISTRY, tagLocation);
+				TagKey<Item> tagkey = TagKey.create(Registries.ITEM, tagLocation);
 				if (ForgeRegistries.ITEMS.tags().isKnownTagName(tagkey)) {
 					@NotNull
 					ITag<Item> tagContents = ForgeRegistries.ITEMS.tags().getTag(tagkey);

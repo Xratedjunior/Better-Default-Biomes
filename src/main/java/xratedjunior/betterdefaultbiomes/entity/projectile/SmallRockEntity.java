@@ -3,8 +3,8 @@ package xratedjunior.betterdefaultbiomes.entity.projectile;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -26,7 +26,7 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class SmallRockEntity extends ThrowableItemProjectile {
 	private final float damage = 2.0F; // 1 Heart
@@ -68,7 +68,7 @@ public class SmallRockEntity extends ThrowableItemProjectile {
 	protected void onHitEntity(EntityHitResult entityRayTraceResult) {
 		super.onHitEntity(entityRayTraceResult);
 		Entity targetEntity = entityRayTraceResult.getEntity();
-		targetEntity.hurt(DamageSource.thrown(this, this.getOwner()), this.damage);
+		targetEntity.hurt(this.damageSources().thrown(this, this.getOwner()), this.damage);
 		this.dropOrDestroyRock(targetEntity.getX(), targetEntity.getY(), targetEntity.getZ());
 	}
 
@@ -133,7 +133,7 @@ public class SmallRockEntity extends ThrowableItemProjectile {
 	/*********************************************************** Networking ********************************************************/
 
 	@Override
-	public Packet<?> getAddEntityPacket() {
+	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 }

@@ -1,9 +1,10 @@
 package xratedjunior.betterdefaultbiomes.block.block;
 
-import java.util.Random;
+import java.util.function.Supplier;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -22,13 +23,13 @@ import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class FlowerBlockBDB extends FlowerBlock implements BonemealableBlock {
 	private static final VoxelShape NORMAL = makeSquareShape(2.0D, 8.0D);
 	private static final VoxelShape LARGE = makeSquareShape(1.0D, 14.0D);
 
-	public FlowerBlockBDB(MobEffect effect, int effectDuration, BlockBehaviour.Properties properties) {
+	public FlowerBlockBDB(Supplier<MobEffect> effect, int effectDuration, BlockBehaviour.Properties properties) {
 		super(effect, effectDuration, properties);
 	}
 
@@ -63,12 +64,12 @@ public class FlowerBlockBDB extends FlowerBlock implements BonemealableBlock {
 	 * Enables spawning drops
 	 */
 	@Override
-	public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
 		return true;
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
 		return true;
 	}
 
@@ -76,7 +77,7 @@ public class FlowerBlockBDB extends FlowerBlock implements BonemealableBlock {
 	 * Drops Items
 	 */
 	@Override
-	public void performBonemeal(ServerLevel world, Random random, BlockPos pos, BlockState state) {
+	public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
 		popResource(world, pos, new ItemStack(this));
 	}
 }

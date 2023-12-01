@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_water_reeds",
+  "features": "betterdefaultbiomes:water_reeds_feature",
+  "step": "vegetal_decoration"
+}

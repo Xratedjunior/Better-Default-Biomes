@@ -15,7 +15,7 @@ import xratedjunior.betterdefaultbiomes.data.BDBTags;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class GrassBlockBDB extends BushBlock implements IPlantable {
 	protected static final VoxelShape NORMAL = makeSquareShape(2.0D, 13.0D);
@@ -55,11 +55,6 @@ public class GrassBlockBDB extends BushBlock implements IPlantable {
 		}
 
 		return super.mayPlaceOn(state, worldIn, pos);
-	}
-
-	@Override
-	public Block.OffsetType getOffsetType() {
-		return Block.OffsetType.XYZ;
 	}
 
 	@Override

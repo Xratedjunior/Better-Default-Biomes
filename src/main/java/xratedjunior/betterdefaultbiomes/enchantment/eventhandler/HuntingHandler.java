@@ -4,13 +4,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import xratedjunior.betterdefaultbiomes.enchantment.BDBEnchantments;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class HuntingHandler {
 
@@ -30,7 +29,7 @@ public class HuntingHandler {
 
 		LivingEntity attacker = (LivingEntity) damageSource;
 		ItemStack weapon = attacker.getItemInHand(attacker.getUsedItemHand());
-		int enchantmentLevel = EnchantmentHelper.getItemEnchantmentLevel(BDBEnchantments.HUNTING, weapon);
+		int enchantmentLevel = weapon.getEnchantmentLevel(BDBEnchantments.HUNTING.get());
 		if (enchantmentLevel == 0)
 			return;
 
@@ -38,6 +37,6 @@ public class HuntingHandler {
 		float newDamage = oldDamage + (oldDamage / 10 * enchantmentLevel);
 		event.setAmount(newDamage);
 
-		//System.out.println("Old: " + oldDamage + ", New: " + newDamage);
+		// System.out.println("Old: " + oldDamage + ", New: " + newDamage);
 	}
 }

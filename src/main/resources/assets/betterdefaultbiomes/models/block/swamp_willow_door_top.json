@@ -1,7 +1,0 @@
-{
-    "parent": "block/door_top",
-    "textures": {
-        "bottom": "betterdefaultbiomes:block/swamp_willow_door_bottom",
-        "top": "betterdefaultbiomes:block/swamp_willow_door_top"
-    }
-}

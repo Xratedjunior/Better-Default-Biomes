@@ -1,0 +1,31 @@
+{
+  "feature": "betterdefaultbiomes:palm_tree_random",
+  "placement": [
+    {
+      "type": "betterdefaultbiomes:count",
+      "count": 800
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "betterdefaultbiomes:palm_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

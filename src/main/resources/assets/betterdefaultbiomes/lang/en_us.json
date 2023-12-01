@@ -263,7 +263,6 @@
     "block.betterdefaultbiomes.palm_pressure_plate": "Palm Pressure Plate",
     "block.betterdefaultbiomes.palm_button": "Palm Button",
     "block.betterdefaultbiomes.palm_ladder": "Palm Ladder",
-	"block.betterdefaultbiomes.palm_crafting_table": "Palm Crafting Table",
    
 	// Swamp Willow Tree
     "block.betterdefaultbiomes.swamp_willow_sapling": "Swamp Willow Sapling",
@@ -282,6 +281,5 @@
     "block.betterdefaultbiomes.swamp_willow_trapdoor": "Swamp Willow Trapdoor",
     "block.betterdefaultbiomes.swamp_willow_pressure_plate": "Swamp Willow Pressure Plate",
     "block.betterdefaultbiomes.swamp_willow_button": "Swamp Willow Button",
-    "block.betterdefaultbiomes.swamp_willow_ladder": "Swamp Willow Ladder",
-    "block.betterdefaultbiomes.swamp_willow_crafting_table": "Swamp Willow Crafting Table"
+    "block.betterdefaultbiomes.swamp_willow_ladder": "Swamp Willow Ladder"
 }

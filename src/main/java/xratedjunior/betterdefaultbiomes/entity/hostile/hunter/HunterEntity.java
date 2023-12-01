@@ -1,10 +1,9 @@
 package xratedjunior.betterdefaultbiomes.entity.hostile.hunter;
 
-import java.util.Random;
-
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -31,6 +30,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
+import xratedjunior.betterdefaultbiomes.configuration.entity.HunterConfig;
 import xratedjunior.betterdefaultbiomes.entity.ai.attribute.BDBCreatureAttribute;
 import xratedjunior.betterdefaultbiomes.entity.hostile.AbstractHostileHumanoid;
 import xratedjunior.betterdefaultbiomes.entity.hostile.desertbandit.DesertBanditEntity;
@@ -38,7 +38,7 @@ import xratedjunior.betterdefaultbiomes.entity.projectile.HunterArrowEntity;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class HunterEntity extends AbstractHostileHumanoid {
 
@@ -88,7 +88,7 @@ public class HunterEntity extends AbstractHostileHumanoid {
 	 * Referenced from: {@link Monster#checkMonsterSpawnRules}
 	 */
 	@SuppressWarnings("deprecation")
-	public static boolean checkHunterSpawnRules(EntityType<? extends HunterEntity> type, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, Random randomIn) {
+	public static boolean checkHunterSpawnRules(EntityType<? extends HunterEntity> type, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
 		return AbstractHostileHumanoid.checkHostileSpawnRules(type, worldIn, reason, pos, randomIn)
 				// Prevent spawning underground in deep caves and open ravines.
 				&& pos.getY() > worldIn.getSeaLevel()
@@ -105,6 +105,7 @@ public class HunterEntity extends AbstractHostileHumanoid {
 	@Override
 	protected void setDefaultEquipmentAndEnchants(DifficultyInstance difficulty) {
 		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+		this.setDropChance(EquipmentSlot.MAINHAND, ((float) HunterConfig.hunter_bow_drop_chance.get() / 100.0f));
 		this.applyDefaultEnchantments();
 	}
 
@@ -114,7 +115,7 @@ public class HunterEntity extends AbstractHostileHumanoid {
 			this.getItemBySlot(EquipmentSlot.MAINHAND).enchant(Enchantments.POWER_ARROWS, 1);
 			this.getItemBySlot(EquipmentSlot.MAINHAND).enchant(Enchantments.PUNCH_ARROWS, 1);
 			// Set Item name
-			this.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(new TranslatableComponent("equipment.betterdefaultbiomes.hunter_bow").withStyle(ChatFormatting.GREEN));
+			this.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(Component.translatable("equipment.betterdefaultbiomes.hunter_bow").withStyle(ChatFormatting.GREEN));
 		}
 	}
 }

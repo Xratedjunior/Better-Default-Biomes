@@ -9,15 +9,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import xratedjunior.betterdefaultbiomes.advancement.BDBCriteriaTriggers;
 import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
 import xratedjunior.betterdefaultbiomes.data.BDBTags;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class AxeFeatherReedGrassHandler {
 	private static Boolean advancementCriteria = false;
@@ -37,7 +37,7 @@ public class AxeFeatherReedGrassHandler {
 	/**
 	 * Dispensers can cheat it, but doesn't really matter that much.
 	 */
-	public static void onEntityJoinWorldHandler(EntityJoinWorldEvent event) {
+	public static void onEntityJoinWorldHandler(EntityJoinLevelEvent event) {
 		Entity entity = event.getEntity();
 		if (entity.getType() == EntityType.ITEM && advancementCriteria) {
 			ItemEntity itemEntity = (ItemEntity) entity;

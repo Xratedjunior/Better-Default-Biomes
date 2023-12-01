@@ -8,13 +8,14 @@ import xratedjunior.betterdefaultbiomes.configuration.EnchantmentConfig;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class ScoutEnchantment extends Enchantment {
 
-	public ScoutEnchantment(String name) {
-        super(Rarity.RARE, EnchantmentCategory.ARMOR_HEAD, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-		this.setRegistryName(name);
+	public ScoutEnchantment() {
+		super(Rarity.RARE, EnchantmentCategory.ARMOR_HEAD, new EquipmentSlot[] {
+			EquipmentSlot.MAINHAND
+		});
 	}
 
 	/**

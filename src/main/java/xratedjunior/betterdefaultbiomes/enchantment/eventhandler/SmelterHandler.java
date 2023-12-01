@@ -16,7 +16,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -25,14 +24,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 import xratedjunior.betterdefaultbiomes.configuration.EnchantmentConfig;
 import xratedjunior.betterdefaultbiomes.enchantment.BDBEnchantments;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class SmelterHandler {
 	protected final static Random rand = new Random();
@@ -45,12 +44,12 @@ public class SmelterHandler {
 		ItemStack playerItem = player.getItemInHand(InteractionHand.MAIN_HAND);
 
 		// Checks for Smelting Touch on the Player
-		if (EnchantmentHelper.getItemEnchantmentLevel(BDBEnchantments.SMELTING_TOUCH, playerItem) == 0)
+		if (playerItem.getEnchantmentLevel(BDBEnchantments.SMELTING_TOUCH.get()) == 0)
 			return;
 
 		BlockState state = event.getState();
 		Block block = state.getBlock();
-		Level world = (Level) event.getWorld();
+		Level world = (Level) event.getLevel();
 		BlockPos pos = event.getPos();
 
 		// Cancels the Enchantment
@@ -61,7 +60,7 @@ public class SmelterHandler {
 		// Continue
 		else {
 			// TODO Use Mixin? {@link Block#getDrops}
-			
+
 			// Generate drops with Player Effects and Tool Enchantments.
 			List<ItemStack> blockDrops = Block.getDrops(state, (ServerLevel) world, pos, (BlockEntity) null, player, playerItem);
 			BetterDefaultBiomes.LOGGER.debug(blockDrops);
@@ -71,7 +70,7 @@ public class SmelterHandler {
 				Optional<SmeltingRecipe> furnaceRecipe = world.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(drop), world);
 				if (furnaceRecipe.isPresent()) {
 					// Get Smelting result.
-					ItemStack smeltedItem = furnaceRecipe.get().getResultItem();
+					ItemStack smeltedItem = furnaceRecipe.get().getResultItem(world.registryAccess());
 					if (!smeltedItem.isEmpty()) {
 						// Get drop count with Fortune, etc.
 						int itemCount = drop.getCount();
@@ -103,8 +102,8 @@ public class SmelterHandler {
 			return;
 		LivingEntity attacker = (LivingEntity) event.getSource().getEntity();
 		ItemStack stack = attacker.getItemInHand(attacker.getUsedItemHand());
-		int fortuneLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_FORTUNE, stack);
-		if ((EnchantmentHelper.getItemEnchantmentLevel(BDBEnchantments.SMELTING_TOUCH, stack) > 0 && EnchantmentConfig.smelting_touch_fire.get())) {
+		int fortuneLevel = stack.getEnchantmentLevel(Enchantments.BLOCK_FORTUNE);
+		if ((stack.getEnchantmentLevel(BDBEnchantments.SMELTING_TOUCH.get()) > 0 && EnchantmentConfig.smelting_touch_fire.get())) {
 			int multiplier = 1;
 			if (fortuneLevel > 1) {
 				multiplier = 2;

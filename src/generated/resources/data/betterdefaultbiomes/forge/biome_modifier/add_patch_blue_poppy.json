@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_blue_poppy",
+  "features": "betterdefaultbiomes:blue_poppy_feature",
+  "step": "vegetal_decoration"
+}

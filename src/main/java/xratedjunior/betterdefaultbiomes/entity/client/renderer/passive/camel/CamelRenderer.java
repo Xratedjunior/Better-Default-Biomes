@@ -13,7 +13,7 @@ import xratedjunior.betterdefaultbiomes.entity.passive.CamelEntity;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 @OnlyIn(Dist.CLIENT)
 public class CamelRenderer extends MobRenderer<CamelEntity, CamelModel<CamelEntity>> {
@@ -36,6 +36,6 @@ public class CamelRenderer extends MobRenderer<CamelEntity, CamelModel<CamelEnti
 	 */
 	@Override
 	public ResourceLocation getTextureLocation(CamelEntity entity) {
-		return CAMEL_TEXTURES[entity.getVariant()];
+		return CAMEL_TEXTURES[entity.getVariant().getId()];
 	}
 }

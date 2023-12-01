@@ -1,19 +1,16 @@
 package xratedjunior.betterdefaultbiomes.block.block;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.CactusBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -22,8 +19,11 @@ import net.minecraftforge.common.PlantType;
 import xratedjunior.betterdefaultbiomes.data.BDBTags;
 
 /**
+ * TODO Mob will path find through Block.
+ * {@link EntityType#isBlockDangerous} & {@link WalkNodeEvaluator#checkNeighbourBlocks}
+ * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class SmallCactusBlockBDB extends BushBlock implements IPlantable {
 	private static final VoxelShape SHAPE = makeSquareShape(2.0D, 15.0D);
@@ -60,18 +60,7 @@ public class SmallCactusBlockBDB extends BushBlock implements IPlantable {
 			return;
 		}
 
-		entityIn.hurt(DamageSource.CACTUS, 1.0F);
-	}
-
-	/**
-	 * Get the {@code BlockPathTypes} for this block. Return {@code null} for vanilla behavior.
-	 *
-	 * @return the BlockPathTypes
-	 */
-	@Nullable
-	@Override
-	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter world, BlockPos pos, @Nullable Mob entity) {
-		return BlockPathTypes.DAMAGE_CACTUS;
+		entityIn.hurt(worldIn.damageSources().cactus(), 1.0F);
 	}
 
 	/**

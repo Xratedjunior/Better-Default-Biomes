@@ -1,5 +1,6 @@
 {
     "parent": "block/tinted_cross",
+    "render_type": "minecraft:cutout",
     "textures": {
         "cross": "betterdefaultbiomes:block/short_grass"
     }

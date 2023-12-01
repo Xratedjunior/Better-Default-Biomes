@@ -1,0 +1,31 @@
+{
+  "feature": "betterdefaultbiomes:sand_castle",
+  "placement": [
+    {
+      "type": "betterdefaultbiomes:count",
+      "count": 10
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR_WG"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_block_tag",
+        "offset": [
+          0,
+          -1,
+          0
+        ],
+        "tag": "betterdefaultbiomes:beach_sand"
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_seashell",
+  "features": "betterdefaultbiomes:seashell_feature",
+  "step": "vegetal_decoration"
+}

@@ -1,7 +1,7 @@
 package xratedjunior.betterdefaultbiomes.advancement;
 
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -10,7 +10,7 @@ import xratedjunior.betterdefaultbiomes.advancement.eventhandler.AxeFeatherReedG
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 @Mod.EventBusSubscriber(modid = BetterDefaultBiomes.MOD_ID)
 public class AdvancementEventSubscriber {
@@ -21,7 +21,7 @@ public class AdvancementEventSubscriber {
 	}
 
 	@SubscribeEvent
-	public static void onEntityJoinWorld(EntityJoinWorldEvent event) {
+	public static void onEntityJoinWorld(EntityJoinLevelEvent event) {
 		AxeFeatherReedGrassHandler.onEntityJoinWorldHandler(event);
 	}
 }

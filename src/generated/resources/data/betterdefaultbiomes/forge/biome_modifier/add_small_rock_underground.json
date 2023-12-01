@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_small_rock",
+  "features": "betterdefaultbiomes:small_rock_underground_feature",
+  "step": "vegetal_decoration"
+}

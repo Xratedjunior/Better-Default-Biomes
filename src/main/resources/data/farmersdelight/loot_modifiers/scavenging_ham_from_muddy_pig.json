@@ -34,5 +34,8 @@
       "looting_multiplier": 0.1
     }
   ],
-  "item": "farmersdelight:ham"
+  "result": {
+    "id": "farmersdelight:ham",
+    "Count": 1
+  }
 }

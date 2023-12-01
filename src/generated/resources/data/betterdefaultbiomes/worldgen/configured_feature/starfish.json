@@ -1,0 +1,15 @@
+{
+  "type": "betterdefaultbiomes:starfish",
+  "config": {
+    "generation_colors": [
+      "white",
+      "orange",
+      "magenta",
+      "light_blue",
+      "pink",
+      "lime",
+      "blue",
+      "red"
+    ]
+  }
+}

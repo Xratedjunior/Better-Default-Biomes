@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_big_white_mushroom",
+  "features": "betterdefaultbiomes:big_white_mushroom_feature",
+  "step": "vegetal_decoration"
+}

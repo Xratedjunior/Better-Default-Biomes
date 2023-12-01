@@ -5,7 +5,7 @@ import java.util.Map;
 import com.google.common.collect.Maps;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -19,14 +19,14 @@ import net.minecraft.world.level.Level;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class DesertBanditArcherEntity extends DesertBanditEntity {
 
 	public DesertBanditArcherEntity(EntityType<? extends DesertBanditArcherEntity> desertArcher, Level worldIn) {
 		super(desertArcher, worldIn);
 	}
-	
+
 	/*********************************************************** Spawn Equipment ********************************************************/
 
 	@Override
@@ -54,7 +54,7 @@ public class DesertBanditArcherEntity extends DesertBanditEntity {
 		}
 		EnchantmentHelper.setEnchantments(map, desertArcherBow);
 		entity.setItemSlot(EquipmentSlot.MAINHAND, (desertArcherBow));
-		entity.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(new TranslatableComponent("equipment.betterdefaultbiomes.bandit_bow").withStyle(ChatFormatting.YELLOW));
+		entity.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(Component.translatable("equipment.betterdefaultbiomes.bandit_bow").withStyle(ChatFormatting.YELLOW));
 		float armorDropChance = DesertBanditEntity.armorDropChance;
 		entity.setDropChance(EquipmentSlot.MAINHAND, armorDropChance);
 	}

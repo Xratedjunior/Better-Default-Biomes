@@ -4,7 +4,6 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
 import xratedjunior.betterdefaultbiomes.configuration.TradingConfig;
@@ -12,13 +11,12 @@ import xratedjunior.betterdefaultbiomes.item.BDBItems;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
-@EventBusSubscriber(modid = BetterDefaultBiomes.MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
 public class BDBVillagerTradesEvent {
 
 	@SubscribeEvent
-	public static void onWandererTradesEvent(WandererTradesEvent event) {
+	public void onWandererTradesEvent(WandererTradesEvent event) {
 		if (TradingConfig.enable_trades.get()) {
 			//Grass
 			event.getGenericTrades().add(new VillagerTradeUtils.ItemsForEmeraldsTrade(BDBBlocks.FEATHER_REED_GRASS.get().asItem(), 1, 1, 8, 1));
@@ -48,7 +46,7 @@ public class BDBVillagerTradesEvent {
 	}
 
 	@SubscribeEvent
-	public static void onVillagerTradesEvent(VillagerTradesEvent event) {
+	public void onVillagerTradesEvent(VillagerTradesEvent event) {
 		//Enchanted Books for Librarian is added Automatically
 		if (event.getType() == VillagerProfession.FLETCHER) {
 			if (TradingConfig.enable_trades.get()) {

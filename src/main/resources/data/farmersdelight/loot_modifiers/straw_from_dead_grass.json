@@ -16,5 +16,8 @@
       "block": "betterdefaultbiomes:dead_grass"
     }
   ],
-  "item": "farmersdelight:straw"
+  "result": {
+    "id": "farmersdelight:straw",
+    "Count": 1
+  }
 } 

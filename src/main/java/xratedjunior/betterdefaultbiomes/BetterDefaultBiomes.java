@@ -6,13 +6,14 @@ import java.nio.file.Path;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -23,38 +24,44 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
+import xratedjunior.betterdefaultbiomes.block.property.BDBWoodTypes;
 import xratedjunior.betterdefaultbiomes.compat.BDBVanillaCompat;
 import xratedjunior.betterdefaultbiomes.configuration.BDBModConfig;
-import xratedjunior.betterdefaultbiomes.configuration.GenerationConfig;
 import xratedjunior.betterdefaultbiomes.configuration.entity.breeding.BreedingConfigRegistry;
-import xratedjunior.betterdefaultbiomes.configuration.extra.BiomeTypeInfo;
+import xratedjunior.betterdefaultbiomes.configuration.extra.InfoFileEventHandler;
+import xratedjunior.betterdefaultbiomes.datagen.BDBDataGenerators;
+import xratedjunior.betterdefaultbiomes.enchantment.BDBEnchantments;
+import xratedjunior.betterdefaultbiomes.enchantment.EnchantmentEventSubscriber;
 import xratedjunior.betterdefaultbiomes.entity.BDBEntityTypes;
 import xratedjunior.betterdefaultbiomes.entity.event.GlowingEntitiesEvent;
 import xratedjunior.betterdefaultbiomes.entity.projectile.dispenser.CustomDispenserBehavior;
 import xratedjunior.betterdefaultbiomes.item.BDBItems;
 import xratedjunior.betterdefaultbiomes.item.FuelEventHandler;
 import xratedjunior.betterdefaultbiomes.item.recipeconditions.EnhancedMushroomsCondition;
+import xratedjunior.betterdefaultbiomes.loot.BDBGlobalLootModifiers;
+import xratedjunior.betterdefaultbiomes.loot.conditions.ModLoadedCondition;
 import xratedjunior.betterdefaultbiomes.proxy.ClientProxy;
 import xratedjunior.betterdefaultbiomes.proxy.CommonProxy;
 import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
-import xratedjunior.betterdefaultbiomes.world.generation.feature.BDBConfiguredFeatures;
-import xratedjunior.betterdefaultbiomes.world.generation.feature.BDBFeaturePlacements;
-import xratedjunior.betterdefaultbiomes.world.generation.feature.BDBFeatures;
-import xratedjunior.betterdefaultbiomes.world.generation.feature.BDBPlacementModifierTypes;
+import xratedjunior.betterdefaultbiomes.trade.BDBVillagerTradesEvent;
+import xratedjunior.betterdefaultbiomes.world.BDBBiomeModifiers;
+import xratedjunior.betterdefaultbiomes.world.generation.BDBFeatures;
+import xratedjunior.betterdefaultbiomes.world.generation.BDBPlacementModifierTypes;
 
 /**
  * TODO Remove Biome Categories from Wiki sidebar and add 1.18 information. (Make sure older wiki info is still available)
  * TODO Initialize EventBusSubscribers from main class
+ * UPDATE Make datapack available for download on discord for people to configure
  * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 @Mod(value = BetterDefaultBiomes.MOD_ID)
 public class BetterDefaultBiomes {
 	public static final String MOD_ID = "betterdefaultbiomes";
-	public static final BDBItemGroup BETTERDEFAULTBIOMESTAB = new BDBItemGroup();
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
 	// Used to create the configuration folder
@@ -66,6 +73,8 @@ public class BetterDefaultBiomes {
 	public static CommonProxy proxy = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
 	public BetterDefaultBiomes() {
+		/*********************************************************** Config ********************************************************/
+
 		// Create BetterDefaultBiomes folder if it doesn't exist yet.
 		if (!BDBFolder.exists()) {
 			BDBFolder.mkdirs();
@@ -73,45 +82,65 @@ public class BetterDefaultBiomes {
 
 		// Register the configuration files.
 		ModLoadingContext.get().registerConfig(Type.COMMON, BDBModConfig.COMMON_SPEC, BDBFolderName + "/" + MOD_ID + ".toml");
-		ModLoadingContext.get().registerConfig(Type.COMMON, GenerationConfig.COMMON_SPEC, BDBFolderName + "/" + GenerationConfig.CONFIG_FILE_NAME + ".toml");
+
+		/*********************************************************** Deferred registers ********************************************************/
 
 		// List is in order of registration.
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		BDBEnchantments.DEFERRED_ENCHANTMENTS.register(modEventBus);
 		BDBSoundEvents.DEFERRED_SOUND_EVENTS.register(modEventBus);
 		BDBBlocks.DEFERRED_BLOCKS.register(modEventBus);
 		BDBItems.DEFERRED_ITEMS.register(modEventBus);
 		BDBEntityTypes.DEFERRED_ENTITY_TYPES.register(modEventBus);
-		BDBFeatures.DEFERRED_FEATURES.register(modEventBus);
-		BDBConfiguredFeatures.DEFERRED_CONFIGURED_FEATURES.register(modEventBus);
-		BDBFeaturePlacements.DEFERRED_PLACED_FEATURES.register(modEventBus);
-		BDBPlacementModifierTypes.DEFERRED_PLACEMENT_MODIFIER_TYPES.register(modEventBus);
 
-		modEventBus.addListener(this::gatherData);
+		BDBFeatures.DEFERRED_FEATURES.register(modEventBus);
+		BDBPlacementModifierTypes.DEFERRED_PLACEMENT_MODIFIER_TYPES.register(modEventBus);
+		BDBBiomeModifiers.DEFERRED_BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
+		BDBGlobalLootModifiers.DEFERRED_GLOBAL_LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
+
+		/*********************************************************** Event Listeners ********************************************************/
+
+		// General event listeners
 		modEventBus.addListener(this::clientSetup);
 		modEventBus.addListener(this::commonSetup);
 		modEventBus.addListener(this::loadComplete);
 
-		// Register Recipe Condition
-		CraftingHelper.register(new EnhancedMushroomsCondition.Serializer());
+		// Register Json Conditions
+		modEventBus.addListener(this::registerLootConditionTypes);
+		modEventBus.addListener(this::registerRecipeSerializers);
+
+		// Data generators
+		modEventBus.addListener(BDBDataGenerators::gatherData);
+
+		// Register and fill Creative Mode Tab
+		modEventBus.addListener(BDBCreativeModeTabs::registerCreativeModeTabs);
 	}
 
-	// TODO Can be after first release 
-	@SuppressWarnings("unused")
-	private void gatherData(final GatherDataEvent event) {
-		LOGGER.debug("Gathering Data");
-
-		DataGenerator generator = event.getGenerator();
-		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-
-		if (event.includeClient()) {
-			//			generator.addProvider(new BlockModelsBDB(generator, existingFileHelper));
-			//			generator.addProvider(new BlockStatesAndModelsBDB(generator, existingFileHelper));
+	/**
+	 * Register Recipe Condition
+	 * <blockquote> Copy: {@link ForgeMod#registerRecipeSerializers(RegisterEvent)} </blockquote>
+	 */
+	public void registerRecipeSerializers(RegisterEvent event) {
+		if (event.getRegistryKey().equals(ForgeRegistries.Keys.RECIPE_SERIALIZERS)) {
+			CraftingHelper.register(new EnhancedMushroomsCondition.Serializer());
 		}
+	}
 
-		LOGGER.debug("gatherData method completed");
+	/**
+	 * Reference: {@link ForgeMod#registerLootData(RegisterEvent)}
+	 */
+	public void registerLootConditionTypes(RegisterEvent event) {
+		if (event.getRegistryKey().equals(Registries.LOOT_CONDITION_TYPE)) {
+			LOGGER.debug("Register Loot Condition Types.");
+
+			event.register(Registries.LOOT_CONDITION_TYPE, locate("mod_loaded"), () -> ModLoadedCondition.MOD_LOADED_CONDITION_TYPE);
+		}
 	}
 
 	private void clientSetup(final FMLClientSetupEvent event) {
+		Sheets.addWoodType(BDBWoodTypes.PALM);
+		Sheets.addWoodType(BDBWoodTypes.SWAMP_WILLOW);
+
 		LOGGER.debug("clientSetup method completed");
 	}
 
@@ -119,9 +148,18 @@ public class BetterDefaultBiomes {
 	 * Will run at launch (preInit)
 	 */
 	private void commonSetup(final FMLCommonSetupEvent event) {
+		/*********************************************************** Event Subscribers ********************************************************/
+		
 		// Register event that gives Entities the Glowing effect.
 		MinecraftForge.EVENT_BUS.register(new GlowingEntitiesEvent());
+		// Register event for villager trades.
+		MinecraftForge.EVENT_BUS.register(new BDBVillagerTradesEvent());
+		// Register event for placing items in Furnace.
 		MinecraftForge.EVENT_BUS.register(new FuelEventHandler());
+		// Event for creating Biome Tag Info text file.
+		MinecraftForge.EVENT_BUS.register(new InfoFileEventHandler());
+		// Enchantment events
+		MinecraftForge.EVENT_BUS.register(new EnchantmentEventSubscriber());
 
 		// Run on the main thread after the 'FMLCommonSetupEvent' is completed
 		event.enqueueWork(() -> {
@@ -140,7 +178,8 @@ public class BetterDefaultBiomes {
 
 			// Add potted plants functionality.
 			BetterDefaultBiomes.LOGGER.debug("Register Potted Plants");
-			BDBBlocks.POTTED_PLANTS.forEach((flower, pottedFlower) -> ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(flower.get().getRegistryName(), pottedFlower));
+			BDBBlocks.POTTED_PLANTS.forEach((flower, pottedFlower) -> ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ForgeRegistries.BLOCKS.getKey(flower.get()), pottedFlower));
+
 		});
 
 		LOGGER.debug("commonSetup method completed");
@@ -150,9 +189,6 @@ public class BetterDefaultBiomes {
 	 * PostRegistrationEvent
 	 */
 	private void loadComplete(final FMLLoadCompleteEvent event) {
-		// Generate the text file with BiomeType information.
-		BiomeTypeInfo.makeInfoTextFiles();
-
 		proxy.init();
 		LOGGER.debug("loadComplete method completed");
 	}

@@ -1,0 +1,19 @@
+{
+  "feature": "betterdefaultbiomes:patch_short_grass",
+  "placement": [
+    {
+      "type": "betterdefaultbiomes:count",
+      "count": 200
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

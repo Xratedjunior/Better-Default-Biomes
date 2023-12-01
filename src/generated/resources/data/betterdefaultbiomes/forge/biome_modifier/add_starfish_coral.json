@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_starfish",
+  "features": "betterdefaultbiomes:starfish_coral_feature",
+  "step": "vegetal_decoration"
+}

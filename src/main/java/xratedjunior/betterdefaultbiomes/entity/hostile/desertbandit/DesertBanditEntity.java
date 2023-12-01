@@ -1,7 +1,6 @@
 package xratedjunior.betterdefaultbiomes.entity.hostile.desertbandit;
 
 import java.util.Map;
-import java.util.Random;
 
 import javax.annotation.Nullable;
 
@@ -10,7 +9,8 @@ import com.google.common.collect.Maps;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -57,7 +57,7 @@ import xratedjunior.betterdefaultbiomes.entity.projectile.BanditArrowEntity;
  * TODO Ride Horses and/or Camels?
  * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class DesertBanditEntity extends AbstractHostileHumanoid {
 	private static final Item BANDIT_SWORD = Items.IRON_SWORD;
@@ -117,7 +117,7 @@ public class DesertBanditEntity extends AbstractHostileHumanoid {
 	 * TODO Maybe make custom spawner like {@link PhantomSpawner} and {@link WanderingTraderSpawner}?
 	 */
 	@SuppressWarnings("deprecation")
-	public static boolean checkBanditSpawnRules(EntityType<? extends DesertBanditEntity> type, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, Random randomIn) {
+	public static boolean checkBanditSpawnRules(EntityType<? extends DesertBanditEntity> type, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
 		return AbstractHostileHumanoid.checkHostileSpawnRules(type, worldIn, reason, pos, randomIn)
 				// Prevent spawning underground in deep caves and open ravines.
 				&& pos.getY() > worldIn.getSeaLevel()
@@ -184,7 +184,7 @@ public class DesertBanditEntity extends AbstractHostileHumanoid {
 
 		EnchantmentHelper.setEnchantments(map, desertBanditSword);
 		this.setItemSlot(EquipmentSlot.MAINHAND, desertBanditSword);
-		this.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(new TranslatableComponent("equipment.betterdefaultbiomes.bandit_sword").withStyle(ChatFormatting.YELLOW));
+		this.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(Component.translatable("equipment.betterdefaultbiomes.bandit_sword").withStyle(ChatFormatting.YELLOW));
 		float armorDropChance = DesertBanditEntity.armorDropChance;
 		this.setDropChance(EquipmentSlot.MAINHAND, armorDropChance);
 	}

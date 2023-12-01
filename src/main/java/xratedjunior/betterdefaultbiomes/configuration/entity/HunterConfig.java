@@ -7,12 +7,14 @@ import com.google.common.collect.Lists;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import xratedjunior.betterdefaultbiomes.configuration.MobSpawningConfig;
+import xratedjunior.betterdefaultbiomes.configuration.entity.util.EntityConfigHelper;
+import xratedjunior.betterdefaultbiomes.configuration.entity.util.MobConfig;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
-public class HunterConfig {
+public class HunterConfig implements MobConfig {
 	//Hunter
 	public static ForgeConfigSpec.IntValue weight;
 	public static ConfigValue<Integer> min_group;
@@ -33,7 +35,7 @@ public class HunterConfig {
 	private static int minGroup = 1;
 	private static int maxGroup = 3;
 	private static int hunterBowDropChance = 8;
-	private static List<String> spawnBiomes = Lists.newArrayList("jungle");
+	private static List<String> spawnBiomes = Lists.newArrayList("minecraft:is_jungle");
 
 	private static String mobName = "Hunter";
 	private static String mobNameSpecial = "Head Hunter";
@@ -107,5 +109,27 @@ public class HunterConfig {
 		builder.pop();
 
 		builder.pop(2);
+	}
+	
+	/*********************************************************** Implementation ********************************************************/
+	
+	@Override
+	public int getWeight() {
+		return weight.get();
+	}
+
+	@Override
+	public int getMinGroup() {
+		return min_group.get();
+	}
+
+	@Override
+	public int getMaxGroup() {
+		return max_group.get();
+	}
+
+	@Override
+	public List<String> getSpawnBiomes() {
+		return spawn_biomes.get();
 	}
 }

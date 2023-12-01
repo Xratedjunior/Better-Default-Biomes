@@ -3,7 +3,7 @@ package xratedjunior.betterdefaultbiomes.entity.projectile;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
@@ -24,7 +24,7 @@ import xratedjunior.betterdefaultbiomes.item.BDBItems;
  * Referenced from {@link ThrownEgg}
  * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class DuckEggEntity extends ThrowableItemProjectile {
 
@@ -58,7 +58,7 @@ public class DuckEggEntity extends ThrowableItemProjectile {
 	@Override
 	protected void onHitEntity(EntityHitResult entityRayTraceResult) {
 		super.onHitEntity(entityRayTraceResult);
-		entityRayTraceResult.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 0.0F);
+		entityRayTraceResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 0.0F);
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class DuckEggEntity extends ThrowableItemProjectile {
 	/*********************************************************** Networking ********************************************************/
 
 	@Override
-	public Packet<?> getAddEntityPacket() {
+	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 }

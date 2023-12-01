@@ -1,11 +1,7 @@
 package xratedjunior.betterdefaultbiomes.block.block;
 
-import java.util.List;
-import java.util.Random;
+import com.mojang.serialization.Codec;
 
-import org.apache.commons.compress.utils.Lists;
-
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
@@ -30,15 +26,13 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
-import xratedjunior.betterdefaultbiomes.configuration.generation.other.SmallRocksConfig;
 import xratedjunior.betterdefaultbiomes.data.BDBTags;
 import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class SmallRockBlock extends SimpleBlock {
 	public static final int MAX_ROCK_SIZE = 2;
@@ -48,7 +42,7 @@ public class SmallRockBlock extends SimpleBlock {
 
 	public SmallRockBlock(Properties properties) {
 		super(properties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(ROCK_SIZE, 1));
+		this.registerDefaultState(this.stateDefinition.any().setValue(ROCK_SIZE, 1).setValue(WATERLOGGED, Boolean.valueOf(false)));
 	}
 
 	/*********************************************************** Hitbox ********************************************************/
@@ -132,9 +126,10 @@ public class SmallRockBlock extends SimpleBlock {
 		DEEPSLATE("deepslate", BDBBlocks.SMALL_ROCK_DEEPSLATE.get(), BDBTags.Blocks.GENERATE_SMALL_ROCK_DEEPSLATE),
 		COBBLED_DEEPSLATE("cobbled_deepslate", BDBBlocks.SMALL_ROCK_COBBLED_DEEPSLATE.get(), BDBTags.Blocks.GENERATE_SMALL_ROCK_COBBLED_DEEPSLATE);
 
-		public static RockVariant DEFAULT_VARIANT = STONE;
-		public static RockVariant[] ALL_VARIANTS = values();
-		public static RockVariant[] STONE_VARIANTS = new RockVariant[] {
+		public static final Codec<RockVariant> CODEC = StringRepresentable.fromEnum(RockVariant::values);
+		public static final RockVariant DEFAULT_VARIANT = STONE;
+		public static final RockVariant[] ALL_VARIANTS = values();
+		public static final RockVariant[] STONE_VARIANTS = new RockVariant[] {
 			STONE,
 			COBBLE,
 			MOSSY,
@@ -164,119 +159,6 @@ public class SmallRockBlock extends SimpleBlock {
 
 		public TagKey<Block> getPossibleFloorBlocks() {
 			return this.floorBlock;
-		}
-
-		/*********************************************************** Config Work ********************************************************/
-
-		private boolean getConfigValue(RockVariant variantIn) {
-			switch (variantIn) {
-			case STONE:
-			default:
-				return SmallRocksConfig.generate_stone.get();
-			case COBBLE:
-				return SmallRocksConfig.generate_cobble.get();
-			case MOSSY:
-				return SmallRocksConfig.generate_mossy.get();
-			case ANDESITE:
-				return SmallRocksConfig.generate_andesite.get();
-			case DIORITE:
-				return SmallRocksConfig.generate_diorite.get();
-			case GRANITE:
-				return SmallRocksConfig.generate_granite.get();
-			case SANDSTONE:
-				return SmallRocksConfig.generate_sandstone.get();
-			case RED_SANDSTONE:
-				return SmallRocksConfig.generate_red_sandstone.get();
-			case DEEPSLATE:
-				return SmallRocksConfig.generate_deepslate.get();
-			case COBBLED_DEEPSLATE:
-				return SmallRocksConfig.generate_cobbled_deepslate.get();
-			}
-		}
-
-		/**
-		 * Set the default Small Rock variant after loading or changing the config
-		 */
-		public static void setDefaultVariant() {
-			String configInput = SmallRocksConfig.default_rock.get().toLowerCase();
-
-			for (RockVariant variant : values()) {
-				if (variant.getSerializedName().equals(configInput)) {
-					BetterDefaultBiomes.LOGGER.debug("Set default Small Rock to \"" + variant.getSerializedName() + "\".");
-					DEFAULT_VARIANT = variant;
-					return;
-				}
-			}
-
-			// No valid config value
-			BetterDefaultBiomes.LOGGER.error("Set default Small Rock to \"" + STONE.getSerializedName() + "\", because the config is invalid.");
-			DEFAULT_VARIANT = STONE;
-		}
-
-		/**
-		 * Checks if some variants have been turned off in the config
-		 */
-		public static void setPossibleStoneVariants() {
-			List<RockVariant> variantList = Lists.newArrayList();
-			for (RockVariant variant : STONE_VARIANTS) {
-				if (variant.getConfigValue(variant)) {
-					variantList.add(variant);
-				}
-			}
-
-			STONE_VARIANTS = variantList.toArray(new RockVariant[variantList.size()]);
-		}
-
-		/**
-		 * Checks if variants have been turned off in the config
-		 */
-		public static void setAllPossibleVariants() {
-			List<RockVariant> variantList = Lists.newArrayList();
-			for (RockVariant variant : ALL_VARIANTS) {
-				if (variant.getConfigValue(variant)) {
-					variantList.add(variant);
-				}
-			}
-
-			ALL_VARIANTS = variantList.toArray(new RockVariant[variantList.size()]);
-		}
-
-		/*********************************************************** Placement Helpers ********************************************************/
-
-		/**
-		 * Get a random stone variant
-		 */
-		public static Block getRandomStoneVariant(Random rand) {
-			return Util.getRandom(STONE_VARIANTS, rand).getSmallRockBlock();
-		}
-
-		/**
-		 * Get a random variant from the list that matches the Block.
-		 * If list is empty, return the default variant
-		 */
-		public static Block getMatchingRockVariant(Block groundBlock) {
-			List<Block> matchingVariants = getMatchingRockVariants(groundBlock);
-			// If the list is empty, return the default variant.
-			return !matchingVariants.isEmpty() ? Util.getRandom(matchingVariants, new Random()) : DEFAULT_VARIANT.getSmallRockBlock();
-		}
-
-		/**
-		 * Get a list of variants that match the Block
-		 */
-		public static List<Block> getMatchingRockVariants(Block groundBlock) {
-			// Create list
-			List<Block> matchingVariants = Lists.newArrayList();
-
-			for (RockVariant variant : ALL_VARIANTS) {
-				// Check if the groundBlock matches with Block Tags.
-				if (groundBlock.defaultBlockState().is(variant.getPossibleFloorBlocks())) {
-					// Add the variant to the final list.
-					matchingVariants.add(variant.getSmallRockBlock());
-				}
-			}
-
-			// Return list
-			return matchingVariants;
 		}
 	}
 }

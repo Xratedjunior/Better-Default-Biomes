@@ -65,13 +65,14 @@ public class MobSpawningConfig {
 				LostMinerConfig.init(builder);
 				DesertBanditConfig.init(builder);
 				FrozenZombieConfig.init(builder);
-				
+
 				// Passive
 				MuddyPigConfig.init(builder);
 				CamelConfig.init(builder);
 				DuckConfig.init(builder);
 				ZebraConfig.init(builder);
 				FrogConfig.init(builder);
+				
 			builder.pop();
 		
 		builder.pop();

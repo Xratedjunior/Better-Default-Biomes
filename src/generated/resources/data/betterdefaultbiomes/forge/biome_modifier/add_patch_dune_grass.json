@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_dune_grass",
+  "features": "betterdefaultbiomes:dune_grass_feature",
+  "step": "vegetal_decoration"
+}

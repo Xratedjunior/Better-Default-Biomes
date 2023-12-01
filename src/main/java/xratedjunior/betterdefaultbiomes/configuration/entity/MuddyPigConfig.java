@@ -7,12 +7,14 @@ import com.google.common.collect.Lists;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import xratedjunior.betterdefaultbiomes.configuration.MobSpawningConfig;
+import xratedjunior.betterdefaultbiomes.configuration.entity.util.EntityConfigHelper;
+import xratedjunior.betterdefaultbiomes.configuration.entity.util.MobConfig;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
-public class MuddyPigConfig {
+public class MuddyPigConfig implements MobConfig {
 	public static ForgeConfigSpec.IntValue weight;
 	public static ConfigValue<Integer> min_group;
 	public static ConfigValue<Integer> max_group;
@@ -26,7 +28,7 @@ public class MuddyPigConfig {
 	private static int mobSpawnWeightMax = MobSpawningConfig.mobSpawnWeightMax;
 	private static int minGroup = 4;
 	private static int maxGroup = 4;
-	private static List<String> spawnBiomes = Lists.newArrayList("swamp");
+	private static List<String> spawnBiomes = Lists.newArrayList("forge:is_swamp");
 
 	private static String vanillaMobName = "Pig";
 	private static boolean removeVanillaPigs = true;
@@ -56,5 +58,27 @@ public class MuddyPigConfig {
 			//.comment("Removes Vanilla Pig Spawning in these Biomes (Default: " + removeVanillaPigs + ")")
 			.comment(EntityConfigHelper.removeVanillaMobComment(vanillaMobName, removeVanillaPigs))
 			.define("Muddy_Pig.remove_vanilla_pigs", removeVanillaPigs);
+	}
+	
+	/*********************************************************** Implementation ********************************************************/
+	
+	@Override
+	public int getWeight() {
+		return weight.get();
+	}
+
+	@Override
+	public int getMinGroup() {
+		return min_group.get();
+	}
+
+	@Override
+	public int getMaxGroup() {
+		return max_group.get();
+	}
+
+	@Override
+	public List<String> getSpawnBiomes() {
+		return spawn_biomes.get();
 	}
 }

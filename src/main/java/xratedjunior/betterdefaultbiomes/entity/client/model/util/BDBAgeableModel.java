@@ -12,7 +12,7 @@ import net.minecraft.world.entity.AgeableMob;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public abstract class BDBAgeableModel<E extends AgeableMob> extends BDBEntityModel<E> {
 	private final boolean doScaleHead;
@@ -80,4 +80,20 @@ public abstract class BDBAgeableModel<E extends AgeableMob> extends BDBEntityMod
 	protected abstract Iterable<ModelPart> headParts();
 
 	protected abstract Iterable<ModelPart> bodyParts();
+	
+	
+	/**
+	 * Copy of old code
+	 */
+	public float rotlerp(float p_14202_, float p_14203_, float p_14204_) {
+		float f;
+		for (f = p_14203_ - p_14202_; f < -180.0F; f += 360.0F) {
+		}
+
+		while (f >= 180.0F) {
+			f -= 360.0F;
+		}
+
+		return p_14202_ + p_14204_ * f;
+	}
 }

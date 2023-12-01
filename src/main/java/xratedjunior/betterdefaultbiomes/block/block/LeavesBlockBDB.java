@@ -1,15 +1,14 @@
 package xratedjunior.betterdefaultbiomes.block.block;
 
-import java.util.Random;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class LeavesBlockBDB extends LeavesBlock {
 
@@ -21,7 +20,7 @@ public class LeavesBlockBDB extends LeavesBlock {
 	 * Performs a random tick on a block.
 	 */
 	@Override
-	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
+	public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
 		if (!state.getValue(PERSISTENT) && state.getValue(DISTANCE) == 7 && this.despawnPalmDistance(pos, worldIn)) {
 			dropResources(state, worldIn, pos);
 			worldIn.removeBlock(pos, false);

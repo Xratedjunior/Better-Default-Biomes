@@ -1,0 +1,79 @@
+1.19.x Changelog
+Alpha 4.0
+====
+ - Alpha 4.0.0	
+		Updated to Minecraft 1.19.4
+		Generation:
+		- Generation Config removed!!
+		+ All old config values have Datapack support with Json files
+		+ Biome Tags for easy generation configuration
+
+		Other changes:
+		* Tweaked placement and right-click rotation of Starfish
+		* Tweaked map colours for Blocks
+		-> (White Mushroom Block, Gray Mushroom Block, Purple Verbena, Blue Poppy, Dark Violet, Feather Reed Grass, Short Grass)
+		
+		Data generation:
+		* Fixed Block State and Model generator
+		+ Added Biome Tag generator
+		+ World Generation generator
+		+ Mob Spawning generator
+
+1.18.x Changelog
+Alpha 3.0
+====
+ - Alpha 3.0.0	
+		Updated to Minecraft 1.18.2
+		* Changed ‘changelog’ format. 
+		* Changed mod logo (Background picture by Brass_McCrafty)
+	
+		Config Changes:
+		* Changed Frozen Zombie spawn biomes, because old biome categories no longer exist. (Old: “taiga”, “icy” / New: "coniferous", "snowy")
+		* Changed all “desert” inputs in the config to “hot & sandy”, because “desert” no longer exists.
+		* Changed “extreme_hills” config values to “mountain”.
+		* Lost Miner config changed. (Now takes spawn biomes instead of excluding biomes)
+		* Moved all mob config options. (All values will be reset)
+	
+	
+		Additions:
+		+ Added tooltip for Torch Arrow fire damage to translation file.
+		+ Torch Arrow tip now glows.
+		+ Added flame particle to Torch Arrows.
+		+ Added Small Rock Deepslate variants.
+		+ Small Rocks now use ‘block’ Tags to specify generation. (In folder: “small_rock_generation”)
+		+ “small_rocks” ‘item’ and ‘block’ Tags.
+		+ Pink Cactus Flower, Dead Grass, Dune Grass and Palm Sapling now use ‘block’ Tag for possible ground blocks.
+		+ Sand Castle & Starfish now use ‘block’ tag to specify generation blocks. (“beach_sand”)
+		+ Pink Cactus Flower now uses ‘entity_type’ Tag “cactus_immune” to identify mobs that should not take damage.
+		+ Added support for configurable Camel breeding items.
+	
+		Data Fixes:
+		* Fixed incorrect tooltip when fire damage is disabled for the Torch Arrow.
+		* Fixed incorrect tooltip for Head Hunter’s Bow.
+		* All arrows now use translations in their tooltip.
+		* Added all arrows to ‘entity_type’ tag “arrows”.
+		* Changed ‘item’ tag “minecraft:axes” to “forge:tools/axes”.
+		* Tweaked Mushroom Stew recipes.
+		* Tweaked Small Rock loot tables.
+		* Loot tables now use “forge:tools/shears” instead of the Shears item.
+		* Muddy Pigs now use vanilla Pig loot table. (However, extra items can still be added to the loot table)
+		
+		Block Fixes:
+		* Changed Starfish horizontal placement direction. (Now points away from the player)
+		* Changed Tall Water Reeds sounds.
+		* Fixed Tall Water Reeds placement and block updates.
+		* Fix Bonemeal use on Pinecones when ground block is not valid.
+		
+		Entity Fixes:
+		* Frozen Zombie now causes Slowness for 4 seconds on Easy difficulty.
+		* Changed Frozen Zombie effect durations to 8 & 16 seconds. (Was 7 & 15). 
+		* Tweaked Desert Bandit Arbalist attributes.
+		* Fixed Jungle Creeper not flashing when exploding after using Flint and Steel in Creative Mode.
+		* Fixed spawn rules for Desert Bandits, Hunters and Jungle Creepers. (Spawning can now be prevented by placing Torches and similar blocks. However, this may affect spawn rates in your world)
+		
+		Texture Changes:
+		* Changed models and textures to the Steve player template for: Hunter, Head Hunter, Desert Bandit, Desert Bandit Archer, Desert Bandit Arbalist & Desert Bandit Master.
+		* Renamed Duck textures.
+		
+		Enchantment Changes:
+		* Tweaked Smelting Touch. (Fortune should work correct on all blocks now) 

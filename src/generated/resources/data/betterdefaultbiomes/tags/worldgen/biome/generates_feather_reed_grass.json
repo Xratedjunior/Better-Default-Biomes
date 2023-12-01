@@ -1,0 +1,17 @@
+{
+  "values": [
+    "minecraft:beach",
+    "minecraft:river",
+    "#minecraft:is_jungle",
+    "#minecraft:is_savanna",
+    "#minecraft:is_forest",
+    {
+      "id": "#forge:is_plains",
+      "required": false
+    },
+    {
+      "id": "#forge:is_swamp",
+      "required": false
+    }
+  ]
+}

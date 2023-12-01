@@ -23,14 +23,14 @@ import xratedjunior.betterdefaultbiomes.entity.hostile.AbstractHostileHumanoid;
  * MINECRAFT REFERENCE: {@link PlayerRenderer}
  * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 @OnlyIn(Dist.CLIENT)
 public abstract class HostileHumanoidRenderer<E extends AbstractHostileHumanoid> extends HumanoidMobRenderer<E, HostileHumanoidModel<E>> {
 
 	public HostileHumanoidRenderer(EntityRendererProvider.Context context, float shadowSize) {
 		super(context, new HostileHumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER)), shadowSize);
-		this.addLayer(new HumanoidArmorLayer<>(this, new HostileHumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_INNER_ARMOR)), new HostileHumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_OUTER_ARMOR))));
+		this.addLayer(new HumanoidArmorLayer<>(this, new HostileHumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_INNER_ARMOR)), new HostileHumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_OUTER_ARMOR)), context.getModelManager()));
 	}
 
 	public HostileHumanoidRenderer(EntityRendererProvider.Context context) {

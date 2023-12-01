@@ -8,20 +8,19 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import xratedjunior.betterdefaultbiomes.enchantment.BDBEnchantments;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class ScoutHandler {
 
 	public static void playerTickHandler(Player player) {
 		ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
-		int enchantmentLevel = EnchantmentHelper.getItemEnchantmentLevel(BDBEnchantments.SCOUT, helmet);
+		int enchantmentLevel = helmet.getEnchantmentLevel(BDBEnchantments.SCOUT.get());
 		if (enchantmentLevel == 0) {
 			return;
 		}
@@ -33,8 +32,6 @@ public class ScoutHandler {
 		if (!mobList.isEmpty()) {
 			MobEffectInstance glowing = new MobEffectInstance(MobEffects.GLOWING, 2, 0);
 			mobList.forEach(mob -> mob.addEffect(glowing));
-
-			//RenderPlayerEvent.Pre
 		} else
 			return;
 	}

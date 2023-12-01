@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -34,7 +33,7 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class SimpleBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -66,16 +65,6 @@ public class SimpleBlock extends HorizontalDirectionalBlock implements SimpleWat
 		} else {
 			return SEASHELL.move(vector3d.x, vector3d.y, vector3d.z);
 		}
-	}
-
-	/*********************************************************** Offset ********************************************************/
-
-	/**
-	 * Get the OffsetType for this Block. Determines if the model is rendered slightly offset.
-	 */
-	@Override
-	public BlockBehaviour.OffsetType getOffsetType() {
-		return BlockBehaviour.OffsetType.XZ;
 	}
 
 	/*********************************************************** Block State ********************************************************/

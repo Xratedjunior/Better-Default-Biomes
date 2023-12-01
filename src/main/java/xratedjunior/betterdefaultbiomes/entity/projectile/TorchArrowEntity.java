@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -32,7 +33,7 @@ import xratedjunior.betterdefaultbiomes.item.BDBItems;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class TorchArrowEntity extends AbstractArrow {
 	private static final Supplier<Item> ARROW_TYPE = BDBItems.TORCH_ARROW;
@@ -215,7 +216,7 @@ public class TorchArrowEntity extends AbstractArrow {
 	/*********************************************************** Networking ********************************************************/
 
 	@Override
-	public Packet<?> getAddEntityPacket() {
+	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 }

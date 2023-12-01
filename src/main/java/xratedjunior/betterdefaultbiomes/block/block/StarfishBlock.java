@@ -1,13 +1,12 @@
 package xratedjunior.betterdefaultbiomes.block.block;
 
-import java.util.Random;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -26,7 +25,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.AttachFace;
@@ -44,7 +42,7 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class StarfishBlock extends FaceAttachedHorizontalDirectionalBlock implements SimpleWaterloggedBlock {
 	public static final EnumProperty<WallFacing> WALL_FACING = EnumProperty.create("wall_facing", WallFacing.class);
@@ -110,16 +108,6 @@ public class StarfishBlock extends FaceAttachedHorizontalDirectionalBlock implem
 		}
 	}
 
-	/*********************************************************** Offset ********************************************************/
-
-	/**
-	 * Get the OffsetType for this Block. Determines if the model is rendered slightly offset.
-	 */
-	@Override
-	public BlockBehaviour.OffsetType getOffsetType() {
-		return BlockBehaviour.OffsetType.XZ;
-	}
-
 	/*********************************************************** Block State ********************************************************/
 
 	@Override
@@ -127,6 +115,7 @@ public class StarfishBlock extends FaceAttachedHorizontalDirectionalBlock implem
 		return canAttach(worldIn, pos, getConnectedDirection(state).getOpposite());
 	}
 
+	// TODO Optimize. Many double checks and code
 	@Nullable
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -137,7 +126,7 @@ public class StarfishBlock extends FaceAttachedHorizontalDirectionalBlock implem
 				if (fluidstate.getType() == Fluids.WATER) {
 					blockstate = blockstate.setValue(FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR).setValue(FACING, context.getHorizontalDirection().getOpposite());
 				} else {
-					blockstate = blockstate.setValue(FACE, AttachFace.FLOOR).setValue(FACING, context.getHorizontalDirection().getOpposite());
+					blockstate = blockstate.setValue(FACE, AttachFace.FLOOR).setValue(FACING, context.getHorizontalDirection());
 				}
 			} else if (fluidstate.getType() == Fluids.WATER) {
 				blockstate = getWallBlockByColor(this.starfishColor).defaultBlockState();
@@ -225,7 +214,8 @@ public class StarfishBlock extends FaceAttachedHorizontalDirectionalBlock implem
 		if (this instanceof StarfishWallBlock) {
 			worldIn.setBlockAndUpdate(pos, state.setValue(WALL_FACING, WallFacing.rotateClockwise(state.getValue(WALL_FACING))));
 			return;
-		} else {
+		} else if (state.getValue(FACE).equals(AttachFace.FLOOR)) {
+			// If Starfish is on the floor
 			switch (state.getValue(FACING)) {
 			case NORTH:
 			default:
@@ -239,6 +229,23 @@ public class StarfishBlock extends FaceAttachedHorizontalDirectionalBlock implem
 				break;
 			case WEST:
 				worldIn.setBlockAndUpdate(pos, state.setValue(FACING, Direction.NORTH));
+				break;
+			}
+		} else {
+			// If Starfish is on the ceiling
+			switch (state.getValue(FACING)) {
+			case NORTH:
+			default:
+				worldIn.setBlockAndUpdate(pos, state.setValue(FACING, Direction.WEST));
+				break;
+			case EAST:
+				worldIn.setBlockAndUpdate(pos, state.setValue(FACING, Direction.NORTH));
+				break;
+			case SOUTH:
+				worldIn.setBlockAndUpdate(pos, state.setValue(FACING, Direction.EAST));
+				break;
+			case WEST:
+				worldIn.setBlockAndUpdate(pos, state.setValue(FACING, Direction.SOUTH));
 				break;
 			}
 		}
@@ -340,7 +347,7 @@ public class StarfishBlock extends FaceAttachedHorizontalDirectionalBlock implem
 			return this.name;
 		}
 
-		public static WallFacing getRandomWallFacingDirection(Random rand) {
+		public static WallFacing getRandomWallFacingDirection(RandomSource rand) {
 			return Util.getRandom(WALLFACING_DIRECTIONS, rand);
 		}
 

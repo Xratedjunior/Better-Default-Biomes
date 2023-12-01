@@ -1,22 +1,21 @@
 package xratedjunior.betterdefaultbiomes.enchantment;
 
 import java.util.Map;
+import java.util.function.Supplier;
+
+import javax.annotation.Nonnull;
 
 import com.google.common.collect.Maps;
 
-import net.minecraft.util.Tuple;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantment.Rarity;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 import xratedjunior.betterdefaultbiomes.enchantment.enchantment.FloatingEnchantment;
 import xratedjunior.betterdefaultbiomes.enchantment.enchantment.GuardEnchantment;
 import xratedjunior.betterdefaultbiomes.enchantment.enchantment.HorseProtectionEnchantment;
-import xratedjunior.betterdefaultbiomes.enchantment.enchantment.HorseProtectionEnchantment.Type;
 import xratedjunior.betterdefaultbiomes.enchantment.enchantment.HuntingEnchantment;
 import xratedjunior.betterdefaultbiomes.enchantment.enchantment.ScoutEnchantment;
 import xratedjunior.betterdefaultbiomes.enchantment.enchantment.SmeltingTouchEnchantment;
@@ -24,49 +23,37 @@ import xratedjunior.betterdefaultbiomes.enchantment.enchantment.SpikesEnchantmen
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
-@ObjectHolder(BetterDefaultBiomes.MOD_ID)
 public class BDBEnchantments {
-	public static final Enchantment SMELTING_TOUCH;
-	public static final Enchantment SCOUT;
-	public static final Enchantment HUNTING;
-	public static final Enchantment HORSE_PROTECTION;
-	public static final Enchantment HORSE_FIRE_PROTECTION;
-	public static final Enchantment HORSE_FEATHER_FALLING;
-	public static final Enchantment HORSE_BLAST_PROTECTION;
-	public static final Enchantment HORSE_PROJECTILE_PROTECTION;
-	public static final Enchantment SPIKES;
-	public static final Enchantment GUARD;
-	public static final Enchantment FLOATING;
-	public static Map<String, Tuple<Enchantment, String>> enchantments = Maps.newHashMap();
+	public static final DeferredRegister<Enchantment> DEFERRED_ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, BetterDefaultBiomes.MOD_ID);
+	// Map of Enchantment descriptions.
+	public static Map<String, String> ENCHANTMENTS = Maps.newHashMap();
 
-	static {
-		enchantments.put("smelting_touch", new Tuple<>(SMELTING_TOUCH = new SmeltingTouchEnchantment("smelting_touch"), "Smelt blocks when mining."));
-		enchantments.put("scout", new Tuple<>(SCOUT = new ScoutEnchantment("scout"), "Mobs in a small area around the Player get the Glowing effect."));
-		enchantments.put("hunting", new Tuple<>(HUNTING = new HuntingEnchantment("hunting"), "Bows/Crossbows do more damage against animals."));
-		enchantments.put("horse_protection", new Tuple<>(HORSE_PROTECTION = new HorseProtectionEnchantment("horse_protection", Type.ALL, Rarity.COMMON), "Horse Protection Enchantments like the Vanilla Protection Enchantments for the Player."));
-		enchantments.put("horse_fire_protection", new Tuple<>(HORSE_FIRE_PROTECTION = new HorseProtectionEnchantment("horse_fire_protection", Type.FIRE, Rarity.UNCOMMON), getComment("horse_protection")));
-		enchantments.put("horse_feather_falling", new Tuple<>(HORSE_FEATHER_FALLING = new HorseProtectionEnchantment("horse_feather_falling", Type.FALL, Rarity.UNCOMMON), getComment("horse_protection")));
-		enchantments.put("horse_blast_protection", new Tuple<>(HORSE_BLAST_PROTECTION = new HorseProtectionEnchantment("horse_blast_protection", Type.EXPLOSION, Rarity.RARE), getComment("horse_protection")));
-		enchantments.put("horse_projectile_protection", new Tuple<>(HORSE_PROJECTILE_PROTECTION = new HorseProtectionEnchantment("horse_projectile_protection", Type.PROJECTILE, Rarity.UNCOMMON), getComment("horse_protection")));
-		enchantments.put("spikes", new Tuple<>(SPIKES = new SpikesEnchantment("spikes"), "Thorns for Shields."));
-		enchantments.put("guard", new Tuple<>(GUARD = new GuardEnchantment("guard"), "Knockback for Shields."));
-		enchantments.put("floating", new Tuple<>(FLOATING = new FloatingEnchantment("floating"), "Horses float in water."));
+	public static final RegistryObject<Enchantment> SMELTING_TOUCH = registerEnchantment("smelting_touch", "Smelt blocks when mining.", () -> new SmeltingTouchEnchantment());
+	public static final RegistryObject<Enchantment> SCOUT = registerEnchantment("scout", "Mobs in a small area around the Player get the Glowing effect.", () -> new ScoutEnchantment());
+	public static final RegistryObject<Enchantment> HUNTING = registerEnchantment("hunting", "Bows/Crossbows do more damage against animals.", () -> new HuntingEnchantment());
+	public static final RegistryObject<Enchantment> HORSE_PROTECTION = registerEnchantment("horse_protection", "Horse Protection Enchantments like the Vanilla Protection Enchantments for the Player.", () -> new HorseProtectionEnchantment(HorseProtectionEnchantment.Type.ALL, Rarity.COMMON));
+	public static final RegistryObject<Enchantment> HORSE_FIRE_PROTECTION = registerEnchantment("horse_fire_protection", getComment("horse_protection"), () -> new HorseProtectionEnchantment(HorseProtectionEnchantment.Type.FIRE, Rarity.UNCOMMON));
+	public static final RegistryObject<Enchantment> HORSE_FEATHER_FALLING = registerEnchantment("horse_feather_falling", getComment("horse_protection"), () -> new HorseProtectionEnchantment(HorseProtectionEnchantment.Type.FALL, Rarity.UNCOMMON));
+	public static final RegistryObject<Enchantment> HORSE_BLAST_PROTECTION = registerEnchantment("horse_blast_protection", getComment("horse_protection"), () -> new HorseProtectionEnchantment(HorseProtectionEnchantment.Type.EXPLOSION, Rarity.RARE));
+	public static final RegistryObject<Enchantment> HORSE_PROJECTILE_PROTECTION = registerEnchantment("horse_projectile_protection", getComment("horse_protection"), () -> new HorseProtectionEnchantment(HorseProtectionEnchantment.Type.PROJECTILE, Rarity.UNCOMMON));
+	public static final RegistryObject<Enchantment> SPIKES = registerEnchantment("spikes", "Thorns for Shields.", () -> new SpikesEnchantment());
+	public static final RegistryObject<Enchantment> GUARD = registerEnchantment("guard", "Knockback for Shields.", () -> new GuardEnchantment());
+	public static final RegistryObject<Enchantment> FLOATING = registerEnchantment("floating", "Horses float in water.", () -> new FloatingEnchantment());
 
+	/**
+	 * Used in config builder
+	 */
+	public static String getComment(String enchantmentName) {
+		return ENCHANTMENTS.get(enchantmentName);
 	}
 
-	public static String getComment(String name) {
-		return enchantments.get(name).getB();
-	}
-
-	@Mod.EventBusSubscriber(modid = BetterDefaultBiomes.MOD_ID, bus = Bus.MOD)
-	public static class EnchantmentRegistryEvent {
-
-		@SubscribeEvent
-		public static void registerEnchantments(RegistryEvent.Register<Enchantment> registryEvent) {
-			enchantments.values().forEach(triple -> registryEvent.getRegistry().register(triple.getA()));
-			BetterDefaultBiomes.LOGGER.debug("Enchantments registered");
-		}
+	/**
+	 * Helper method for registering all Items
+	 */
+	public static <E extends Enchantment> RegistryObject<E> registerEnchantment(@Nonnull String registryName, @Nonnull String comment, Supplier<E> enchantment) {
+		ENCHANTMENTS.put(registryName, comment);
+		return DEFERRED_ENCHANTMENTS.register(registryName, enchantment);
 	}
 }

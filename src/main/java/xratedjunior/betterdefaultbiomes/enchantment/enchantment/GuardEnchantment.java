@@ -7,14 +7,16 @@ import xratedjunior.betterdefaultbiomes.configuration.EnchantmentConfig;
 import xratedjunior.betterdefaultbiomes.enchantment.util.CustomEnchantmentType;
 
 /**
- * @author 	Xrated_junior
- * @version	1.18.2-1.0.0
+ * @author  Xrated_junior
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class GuardEnchantment extends Enchantment {
 
-	public GuardEnchantment(String name) {
-        super(Rarity.UNCOMMON, CustomEnchantmentType.SHIELD, new EquipmentSlot[]{EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND});
-		this.setRegistryName(name);
+	public GuardEnchantment() {
+		super(Rarity.UNCOMMON, CustomEnchantmentType.SHIELD, new EquipmentSlot[] {
+			EquipmentSlot.MAINHAND,
+			EquipmentSlot.OFFHAND
+		});
 	}
 
 	/**

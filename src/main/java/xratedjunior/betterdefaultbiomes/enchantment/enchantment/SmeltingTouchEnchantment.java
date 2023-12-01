@@ -8,14 +8,15 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import xratedjunior.betterdefaultbiomes.configuration.EnchantmentConfig;
 
 /**
- * @author 	Xrated_junior
- * @version	1.18.2-1.0.0
+ * @author  Xrated_junior
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class SmeltingTouchEnchantment extends Enchantment {
 
-	public SmeltingTouchEnchantment(String name) {
-        super(Rarity.VERY_RARE, EnchantmentCategory.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-		this.setRegistryName(name);
+	public SmeltingTouchEnchantment() {
+		super(Rarity.VERY_RARE, EnchantmentCategory.DIGGER, new EquipmentSlot[] {
+			EquipmentSlot.MAINHAND
+		});
 	}
 
 	/**

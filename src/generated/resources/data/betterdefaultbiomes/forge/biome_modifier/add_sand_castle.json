@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_sand_castle",
+  "features": "betterdefaultbiomes:sand_castle_feature",
+  "step": "vegetal_decoration"
+}

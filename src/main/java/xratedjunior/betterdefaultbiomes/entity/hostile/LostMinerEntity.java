@@ -1,10 +1,9 @@
 package xratedjunior.betterdefaultbiomes.entity.hostile;
 
-import java.util.Random;
-
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -17,11 +16,11 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.event.world.StructureSpawnListGatherEvent;
+import xratedjunior.betterdefaultbiomes.configuration.entity.LostMinerConfig;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class LostMinerEntity extends Skeleton {
 
@@ -35,13 +34,15 @@ public class LostMinerEntity extends Skeleton {
 	 * Gives armor or weapon for entity based on given DifficultyInstance
 	 */
 	@Override
-	protected void populateDefaultEquipmentSlots(DifficultyInstance difficulty) {
-		super.populateDefaultEquipmentSlots(difficulty);
+	protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
+		super.populateDefaultEquipmentSlots(random, difficulty);
 		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_PICKAXE));
 		this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.GOLDEN_HELMET));
 		this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.TORCH));
-		this.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(new TextComponent("equipment.betterdefaultbiomes.miner_pickaxe").withStyle(ChatFormatting.WHITE));
-		this.getItemBySlot(EquipmentSlot.HEAD).setHoverName(new TextComponent("equipment.betterdefaultbiomes.miner_helmet").withStyle(ChatFormatting.WHITE));
+		this.getItemBySlot(EquipmentSlot.MAINHAND).setHoverName(Component.translatable("equipment.betterdefaultbiomes.miner_pickaxe").withStyle(ChatFormatting.WHITE));
+		this.getItemBySlot(EquipmentSlot.HEAD).setHoverName(Component.translatable("equipment.betterdefaultbiomes.miner_helmet").withStyle(ChatFormatting.WHITE));
+		this.setDropChance(EquipmentSlot.MAINHAND, ((float) LostMinerConfig.lost_miner_drop_chance.get() / 100.0f));
+		this.setDropChance(EquipmentSlot.HEAD, ((float) LostMinerConfig.lost_miner_drop_chance.get() / 100.0f));
 		// this.setDropChance(EquipmentSlot.MAINHAND, 1);
 		// this.setDropChance(EquipmentSlot.HEAD, 1);
 		this.setDefaultEnchantments();
@@ -63,10 +64,10 @@ public class LostMinerEntity extends Skeleton {
 
 	/**
 	 * TODO Remove and make spawn in the structures instead of like this.
-	 * Use {@link StructureSpawnListGatherEvent} but not used in 1.18.2
+	 * Use {@link StructureSpawnListGatherEvent} but not used in 1.18.2 and removed 1.19.4
 	 */
 	@SuppressWarnings("deprecation")
-	public static boolean checkLostMinerSpawnRules(EntityType<? extends LostMinerEntity> type, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, Random randomIn) {
+	public static boolean checkLostMinerSpawnRules(EntityType<? extends LostMinerEntity> type, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
 		return worldIn.getDifficulty() != Difficulty.PEACEFUL && (worldIn.getBlockState(pos.north()).getBlock() == Blocks.RAIL || worldIn.getBlockState(pos.south()).getBlock() == Blocks.RAIL || worldIn.getBlockState(pos.west()).getBlock() == Blocks.RAIL || worldIn.getBlockState(pos.east()).getBlock() == Blocks.RAIL) && checkMobSpawnRules(type, worldIn, reason, pos, randomIn) && pos.getY() < worldIn.getSeaLevel() && isDarkEnoughToSpawn(worldIn, pos, randomIn);
 	}
 }

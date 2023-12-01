@@ -1,0 +1,6 @@
+{
+  "type": "betterdefaultbiomes:add_features",
+  "biomes": "#betterdefaultbiomes:generates_swamp_willow_tree",
+  "features": "betterdefaultbiomes:swamp_willow_tree_feature",
+  "step": "vegetal_decoration"
+}

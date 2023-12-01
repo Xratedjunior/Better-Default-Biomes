@@ -13,7 +13,7 @@ import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
  * Prevent unknown recipe condition errors of the Enhanced Mushrooms mod.
  * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class EnhancedMushroomsCondition implements ICondition {
 	private final ResourceLocation location;
@@ -57,13 +57,5 @@ public class EnhancedMushroomsCondition implements ICondition {
 		public ResourceLocation getID() {
 			return this.location;
 		}
-	}
-
-	/**
-	 * Old and never used
-	 */
-	@Override
-	public boolean test() {
-		return false;
 	}
 }

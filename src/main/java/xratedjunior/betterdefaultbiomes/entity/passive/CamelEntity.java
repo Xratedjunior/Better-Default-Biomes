@@ -1,7 +1,6 @@
 package xratedjunior.betterdefaultbiomes.entity.passive;
 
 import java.util.List;
-import java.util.Random;
 
 import javax.annotation.Nullable;
 
@@ -15,12 +14,14 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.goal.BreedGoal;
@@ -48,6 +49,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 import xratedjunior.betterdefaultbiomes.configuration.entity.breeding.BreedingConfig;
 import xratedjunior.betterdefaultbiomes.configuration.entity.breeding.BreedingConfigRegistry;
 import xratedjunior.betterdefaultbiomes.configuration.entity.breeding.BreedingItem;
@@ -58,9 +60,10 @@ import xratedjunior.betterdefaultbiomes.entity.ai.goal.CamelFollowCaravanGoal;
  * Reference: {@link Llama}
  * TODO Replace Llama from WanderingTrader with Camel
  * TODO Add custom sounds
+ * TODO Disconnect from Llama. Maybe put together with Vanilla Camel?
  * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class CamelEntity extends Llama {
 	protected Ingredient foodItems = Ingredient.of(BreedingConfigRegistry.getTemptationItemStacks(this.getBreedingConfig()).stream());
@@ -150,7 +153,7 @@ public class CamelEntity extends Llama {
 	 * 
 	 * @param camel The Camel entity to be spawned
 	 */
-	public static boolean canCamelSpawn(EntityType<CamelEntity> camel, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random random) {
+	public static boolean canCamelSpawn(EntityType<CamelEntity> camel, LevelAccessor world, MobSpawnType reason, BlockPos pos, RandomSource random) {
 		BlockState blockstate = world.getBlockState(pos.below());
 		return (blockstate.is(Blocks.GRASS_BLOCK) || blockstate.is(Blocks.SAND)) && world.getRawBrightness(pos, 0) > 8;
 	}
@@ -197,13 +200,17 @@ public class CamelEntity extends Llama {
 
 	/*********************************************************** Riding ********************************************************/
 
-	/**
-	 * returns true if all the conditions for steering the entity are met. For pigs, this is true if it is being ridden
-	 * by a player and the player is holding a carrot-on-a-stick
-	 */
 	@Override
-	public boolean canBeControlledByRider() {
-		return true;
+	@Nullable
+	public LivingEntity getControllingPassenger() {
+		if (this.isSaddled()) {
+			Entity entity = this.getFirstPassenger();
+			if (entity instanceof LivingEntity) {
+				return (LivingEntity) entity;
+			}
+		}
+
+		return null;
 	}
 
 	/**
@@ -260,7 +267,10 @@ public class CamelEntity extends Llama {
 	public InteractionResult mobInteract(Player player, InteractionHand hand) {
 		ItemStack itemStack = player.getItemInHand(hand);
 		Item item = itemStack.getItem();
-		if (this.isTamed() && !this.isBaby() && item == Items.BUCKET && this.canWater() && this.getHasEaten()) {
+
+		if (this.isTamed() && !this.isBaby() && item == Items.BUCKET && this.canWater()) {
+			BetterDefaultBiomes.LOGGER.info("water!!!");
+
 			player.playSound(SoundEvents.COW_MILK, 1.0F, 1.0F);
 			ItemStack waterBucket = ItemUtils.createFilledResult(itemStack, player, Items.WATER_BUCKET.getDefaultInstance());
 			player.setItemInHand(hand, waterBucket);
@@ -346,7 +356,7 @@ public class CamelEntity extends Llama {
 
 					// Play SoundEvent
 					if (eat) {
-						this.gameEvent(GameEvent.MOB_INTERACT, this.eyeBlockPosition());
+						this.gameEvent(GameEvent.EAT);
 						if (!this.isSilent()) {
 							SoundEvent soundevent = this.getEatingSound();
 							if (soundevent != null) {

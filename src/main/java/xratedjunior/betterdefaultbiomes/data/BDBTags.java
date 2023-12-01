@@ -1,18 +1,19 @@
 package xratedjunior.betterdefaultbiomes.data;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class BDBTags {
 
@@ -36,10 +37,10 @@ public class BDBTags {
 		public static final TagKey<Block> DEAD_GRASS_SOIL = bdbTag("plant_soil/dead_grass");
 		public static final TagKey<Block> DUNE_GRASS_SOIL = bdbTag("plant_soil/dune_grass");
 		public static final TagKey<Block> PINK_CACTUS_FLOWER_SOIL = bdbTag("plant_soil/pink_cactus_flower");
-		
+
 		// Blocks Sand Castles & Starfish will generate on.
 		public static final TagKey<Block> BEACH_SAND = bdbTag("beach_sand");
-		
+
 		public static final TagKey<Block> SWAMP_WILLOW_TREE_REPLACEABLES = bdbTag("swamp_willow_tree_replaceables");
 
 		/*********************************************************** Helper Methods ********************************************************/
@@ -88,7 +89,59 @@ public class BDBTags {
 		/*********************************************************** Helper Methods ********************************************************/
 
 		private static TagKey<EntityType<?>> bdbTag(String name) {
-			return TagKey.create(Registry.ENTITY_TYPE_REGISTRY, BetterDefaultBiomes.locate(name));
+			return TagKey.create(Registries.ENTITY_TYPE, BetterDefaultBiomes.locate(name));
+		}
+	}
+
+	public static class Biomes {
+		/*********************************************************** Configured Plants ********************************************************/
+
+		//	Grass Features
+		public static final TagKey<Biome> FEATHER_REED_GRASS = bdbTag("generates_feather_reed_grass");
+		public static final TagKey<Biome> DEAD_GRASS = bdbTag("generates_dead_grass");
+		public static final TagKey<Biome> SHORT_GRASS = bdbTag("generates_short_grass");
+		public static final TagKey<Biome> DUNE_GRASS = bdbTag("generates_dune_grass");
+	
+		//	Water Features
+		public static final TagKey<Biome> WATER_REEDS = bdbTag("generates_water_reeds");
+	
+		/*********************************************************** Flowers ********************************************************/
+	
+		public static final TagKey<Biome> PINK_CACTUS_FLOWER = bdbTag("generates_pink_cactus_flower");
+		public static final TagKey<Biome> PURPLE_VERBENA = bdbTag("generates_purple_verbena");
+		public static final TagKey<Biome> BLUE_POPPY = bdbTag("generates_blue_poppy");
+		public static final TagKey<Biome> DARK_VIOLET = bdbTag("generates_dark_violet");
+	
+		/*********************************************************** Configured Mushrooms ********************************************************/
+	
+		//	Mushrooms
+		public static final TagKey<Biome> WHITE_MUSHROOM = bdbTag("generates_white_mushroom");
+		public static final TagKey<Biome> YELLOW_MUSHROOM = bdbTag("generates_yellow_mushroom");
+		public static final TagKey<Biome> GRAY_MUSHROOM = bdbTag("generates_gray_mushroom");
+	
+		//	Big Mushrooms
+		public static final TagKey<Biome> BIG_WHITE_MUSHROOM = bdbTag("generates_big_white_mushroom");
+		public static final TagKey<Biome> BIG_YELLOW_MUSHROOM = bdbTag("generates_big_yellow_mushroom");
+		public static final TagKey<Biome> BIG_GRAY_MUSHROOM = bdbTag("generates_big_gray_mushroom");
+	
+		/*********************************************************** Configured Small Features ********************************************************/
+	
+		public static final TagKey<Biome> SMALL_ROCK = bdbTag("generates_small_rock");
+		public static final TagKey<Biome> PINECONE = bdbTag("generates_pinecone");
+		public static final TagKey<Biome> SAND_CASTLE = bdbTag("generates_sand_castle");
+		public static final TagKey<Biome> SEASHELL = bdbTag("generates_seashell");
+		public static final TagKey<Biome> STARFISH = bdbTag("generates_starfish");
+	
+		/*********************************************************** Configured Trees ********************************************************/
+	
+		public static final TagKey<Biome> PALM_TREE = bdbTag("generates_palm_tree");
+		public static final TagKey<Biome> SWAMP_WILLOW_TREE = bdbTag("generates_swamp_willow_tree");
+
+
+		/*********************************************************** Helper Methods ********************************************************/
+
+		private static TagKey<Biome> bdbTag(String name) {
+			return TagKey.create(Registries.BIOME, BetterDefaultBiomes.locate(name));
 		}
 	}
 }

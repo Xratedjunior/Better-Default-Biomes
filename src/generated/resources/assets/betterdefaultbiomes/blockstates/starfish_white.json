@@ -1,152 +1,139 @@
 {
   "variants": {
-    "face=floor,facing=north,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up"
-    },
-    "face=wall,facing=north,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
-      "x": 90
-    },
-    "face=ceiling,facing=north,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
-      "x": 180,
-      "y": 180
-    },
-    "face=floor,facing=south,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
-      "y": 180
-    },
-    "face=wall,facing=south,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
-      "x": 90,
-      "y": 180
-    },
-    "face=ceiling,facing=south,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
-      "x": 180
-    },
-    "face=floor,facing=west,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
-      "y": 270
-    },
-    "face=wall,facing=west,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
-      "x": 90,
-      "y": 270
-    },
-    "face=ceiling,facing=west,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+    "face=ceiling,facing=east,wall_facing=down": {
+      "model": "betterdefaultbiomes:block/starfish_white",
       "x": 180,
       "y": 90
     },
-    "face=floor,facing=east,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
-      "y": 90
-    },
-    "face=wall,facing=east,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
-      "x": 90,
-      "y": 90
-    },
-    "face=ceiling,facing=east,wall_facing=up": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+    "face=ceiling,facing=east,wall_facing=left": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
       "x": 180,
-      "y": 270
-    },
-    "face=floor,facing=north,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right"
-    },
-    "face=wall,facing=north,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "x": 90
-    },
-    "face=ceiling,facing=north,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "x": 180,
-      "y": 180
-    },
-    "face=floor,facing=south,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "y": 180
-    },
-    "face=wall,facing=south,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "x": 90,
-      "y": 180
-    },
-    "face=ceiling,facing=south,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "x": 180
-    },
-    "face=floor,facing=west,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "y": 270
-    },
-    "face=wall,facing=west,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "x": 90,
-      "y": 270
-    },
-    "face=ceiling,facing=west,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "x": 180,
-      "y": 90
-    },
-    "face=floor,facing=east,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "y": 90
-    },
-    "face=wall,facing=east,wall_facing=right": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
-      "x": 90,
       "y": 90
     },
     "face=ceiling,facing=east,wall_facing=right": {
       "model": "betterdefaultbiomes:block/starfish_wall_white_right",
       "x": 180,
-      "y": 270
+      "y": 90
     },
-    "face=floor,facing=north,wall_facing=down": {
-      "model": "betterdefaultbiomes:block/starfish_white"
-    },
-    "face=wall,facing=north,wall_facing=down": {
-      "model": "betterdefaultbiomes:block/starfish_white",
-      "x": 90
+    "face=ceiling,facing=east,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "x": 180,
+      "y": 90
     },
     "face=ceiling,facing=north,wall_facing=down": {
+      "model": "betterdefaultbiomes:block/starfish_white",
+      "x": 180
+    },
+    "face=ceiling,facing=north,wall_facing=left": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+      "x": 180
+    },
+    "face=ceiling,facing=north,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
+      "x": 180
+    },
+    "face=ceiling,facing=north,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "x": 180
+    },
+    "face=ceiling,facing=south,wall_facing=down": {
       "model": "betterdefaultbiomes:block/starfish_white",
       "x": 180,
       "y": 180
     },
-    "face=floor,facing=south,wall_facing=down": {
-      "model": "betterdefaultbiomes:block/starfish_white",
+    "face=ceiling,facing=south,wall_facing=left": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+      "x": 180,
       "y": 180
     },
-    "face=wall,facing=south,wall_facing=down": {
-      "model": "betterdefaultbiomes:block/starfish_white",
-      "x": 90,
+    "face=ceiling,facing=south,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
+      "x": 180,
       "y": 180
     },
-    "face=ceiling,facing=south,wall_facing=down": {
-      "model": "betterdefaultbiomes:block/starfish_white",
-      "x": 180
-    },
-    "face=floor,facing=west,wall_facing=down": {
-      "model": "betterdefaultbiomes:block/starfish_white",
-      "y": 270
-    },
-    "face=wall,facing=west,wall_facing=down": {
-      "model": "betterdefaultbiomes:block/starfish_white",
-      "x": 90,
-      "y": 270
+    "face=ceiling,facing=south,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "x": 180,
+      "y": 180
     },
     "face=ceiling,facing=west,wall_facing=down": {
       "model": "betterdefaultbiomes:block/starfish_white",
       "x": 180,
-      "y": 90
+      "y": 270
+    },
+    "face=ceiling,facing=west,wall_facing=left": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=west,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=west,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "x": 180,
+      "y": 270
     },
     "face=floor,facing=east,wall_facing=down": {
       "model": "betterdefaultbiomes:block/starfish_white",
+      "y": 270
+    },
+    "face=floor,facing=east,wall_facing=left": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+      "y": 270
+    },
+    "face=floor,facing=east,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
+      "y": 270
+    },
+    "face=floor,facing=east,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "y": 270
+    },
+    "face=floor,facing=north,wall_facing=down": {
+      "model": "betterdefaultbiomes:block/starfish_white",
+      "y": 180
+    },
+    "face=floor,facing=north,wall_facing=left": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+      "y": 180
+    },
+    "face=floor,facing=north,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
+      "y": 180
+    },
+    "face=floor,facing=north,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "y": 180
+    },
+    "face=floor,facing=south,wall_facing=down": {
+      "model": "betterdefaultbiomes:block/starfish_white"
+    },
+    "face=floor,facing=south,wall_facing=left": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_left"
+    },
+    "face=floor,facing=south,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right"
+    },
+    "face=floor,facing=south,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up"
+    },
+    "face=floor,facing=west,wall_facing=down": {
+      "model": "betterdefaultbiomes:block/starfish_white",
+      "y": 90
+    },
+    "face=floor,facing=west,wall_facing=left": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+      "y": 90
+    },
+    "face=floor,facing=west,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
+      "y": 90
+    },
+    "face=floor,facing=west,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
       "y": 90
     },
     "face=wall,facing=east,wall_facing=down": {
@@ -154,25 +141,40 @@
       "x": 90,
       "y": 90
     },
-    "face=ceiling,facing=east,wall_facing=down": {
-      "model": "betterdefaultbiomes:block/starfish_white",
-      "x": 180,
-      "y": 270
+    "face=wall,facing=east,wall_facing=left": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+      "x": 90,
+      "y": 90
     },
-    "face=floor,facing=north,wall_facing=left": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_left"
+    "face=wall,facing=east,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=east,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=north,wall_facing=down": {
+      "model": "betterdefaultbiomes:block/starfish_white",
+      "x": 90
     },
     "face=wall,facing=north,wall_facing=left": {
       "model": "betterdefaultbiomes:block/starfish_wall_white_left",
       "x": 90
     },
-    "face=ceiling,facing=north,wall_facing=left": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
-      "x": 180,
-      "y": 180
+    "face=wall,facing=north,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
+      "x": 90
     },
-    "face=floor,facing=south,wall_facing=left": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+    "face=wall,facing=north,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "x": 90
+    },
+    "face=wall,facing=south,wall_facing=down": {
+      "model": "betterdefaultbiomes:block/starfish_white",
+      "x": 90,
       "y": 180
     },
     "face=wall,facing=south,wall_facing=left": {
@@ -180,12 +182,19 @@
       "x": 90,
       "y": 180
     },
-    "face=ceiling,facing=south,wall_facing=left": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
-      "x": 180
+    "face=wall,facing=south,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
+      "x": 90,
+      "y": 180
     },
-    "face=floor,facing=west,wall_facing=left": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+    "face=wall,facing=south,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=west,wall_facing=down": {
+      "model": "betterdefaultbiomes:block/starfish_white",
+      "x": 90,
       "y": 270
     },
     "face=wall,facing=west,wall_facing=left": {
@@ -193,23 +202,14 @@
       "x": 90,
       "y": 270
     },
-    "face=ceiling,facing=west,wall_facing=left": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
-      "x": 180,
-      "y": 90
-    },
-    "face=floor,facing=east,wall_facing=left": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
-      "y": 90
-    },
-    "face=wall,facing=east,wall_facing=left": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
+    "face=wall,facing=west,wall_facing=right": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_right",
       "x": 90,
-      "y": 90
+      "y": 270
     },
-    "face=ceiling,facing=east,wall_facing=left": {
-      "model": "betterdefaultbiomes:block/starfish_wall_white_left",
-      "x": 180,
+    "face=wall,facing=west,wall_facing=up": {
+      "model": "betterdefaultbiomes:block/starfish_wall_white_up",
+      "x": 90,
       "y": 270
     }
   }

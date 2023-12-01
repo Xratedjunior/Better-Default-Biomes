@@ -1,0 +1,26 @@
+{
+  "type": "betterdefaultbiomes:small_rock",
+  "config": {
+    "all_variants": [
+      "stone",
+      "cobble",
+      "mossy",
+      "andesite",
+      "diorite",
+      "granite",
+      "sandstone",
+      "red_sandstone",
+      "deepslate",
+      "cobbled_deepslate"
+    ],
+    "default_variant": "stone",
+    "stone_variants": [
+      "stone",
+      "cobble",
+      "mossy",
+      "andesite",
+      "diorite",
+      "granite"
+    ]
+  }
+}

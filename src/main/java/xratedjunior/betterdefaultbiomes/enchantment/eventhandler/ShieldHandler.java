@@ -1,22 +1,21 @@
 package xratedjunior.betterdefaultbiomes.enchantment.eventhandler;
 
-import java.util.Random;
-
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ThornsEnchantment;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import xratedjunior.betterdefaultbiomes.enchantment.BDBEnchantments;
 
 /**
- * @author 	Xrated_junior
- * @version	1.18.2-1.0.0
+ * @author  Xrated_junior
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class ShieldHandler {
 
@@ -27,26 +26,26 @@ public class ShieldHandler {
 			return;
 
 		LivingEntity attacker = (LivingEntity) trueSource;
-		LivingEntity target = event.getEntityLiving();
+		LivingEntity target = event.getEntity();
 
 		ItemStack stackMainHand = target.getMainHandItem();
 		ItemStack stackOffHand = target.getOffhandItem();
 
-		int guardLevelMain = EnchantmentHelper.getItemEnchantmentLevel(BDBEnchantments.GUARD, stackMainHand);
-		int guardLevelOff = EnchantmentHelper.getItemEnchantmentLevel(BDBEnchantments.GUARD, stackOffHand);
+		int guardLevelMain = stackMainHand.getEnchantmentLevel(BDBEnchantments.GUARD.get());
+		int guardLevelOff = stackOffHand.getEnchantmentLevel(BDBEnchantments.GUARD.get());
 		int guardLevel = Math.max(guardLevelMain, guardLevelOff);
 
-		int spikesLevelMain = EnchantmentHelper.getItemEnchantmentLevel(BDBEnchantments.SPIKES, stackMainHand);
-		int spikesLevelOff = EnchantmentHelper.getItemEnchantmentLevel(BDBEnchantments.SPIKES, stackOffHand);
+		int spikesLevelMain = stackMainHand.getEnchantmentLevel(BDBEnchantments.SPIKES.get());
+		int spikesLevelOff = stackOffHand.getEnchantmentLevel(BDBEnchantments.SPIKES.get());
 		int spikesLevel = Math.max(spikesLevelMain, spikesLevelOff);
 
 		if (guardLevel == 0 && spikesLevel == 0)
 			return;
 		float damageAmount = event.getAmount();
 		if (damageAmount > 0.0F && canBlockDamageSource(source, target)) {
-			Random random = target.getRandom();
+			RandomSource random = target.getRandom();
 			if (spikesLevel > 0)
-				attacker.hurt(DamageSource.thorns(target), (float) ThornsEnchantment.getDamage(spikesLevel, random));
+				attacker.hurt(attacker.damageSources().thorns(target), (float) ThornsEnchantment.getDamage(spikesLevel, random));
 			if (guardLevel > 0) {
 				double xRatio = (double) Mth.sin(target.getYRot() * ((float) Math.PI / 180F));
 				double zRatio = (double) (-Mth.cos(target.getYRot() * ((float) Math.PI / 180F)));
@@ -69,7 +68,8 @@ public class ShieldHandler {
 			}
 		}
 
-		if (!damageSourceIn.isBypassArmor() && livingEntity.isBlocking() && !flag) {
+		// TODO: Change to 'BYPASS_SHIELD'?
+		if (!damageSourceIn.is(DamageTypeTags.BYPASSES_ARMOR) && livingEntity.isBlocking() && !flag) {
 			Vec3 Vector3d2 = damageSourceIn.getSourcePosition();
 			if (Vector3d2 != null) {
 				Vec3 Vec3 = livingEntity.getViewVector(1.0F);

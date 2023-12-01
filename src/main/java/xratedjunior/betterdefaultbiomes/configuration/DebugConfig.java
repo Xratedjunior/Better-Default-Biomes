@@ -5,11 +5,12 @@ import net.minecraftforge.common.ForgeConfigSpec;
 /**
  * 
  * @author 	Xrated_junior
- * @version	1.18.2-Alpha 3.0.0
+ * @version	1.19.4-Alpha 4.0.0
  */
 public class DebugConfig {
 	public static ForgeConfigSpec.BooleanValue extra_info_files;
 
+	public static ForgeConfigSpec.BooleanValue generation_logger;
 	public static ForgeConfigSpec.BooleanValue spawn_logger;
 	public static ForgeConfigSpec.BooleanValue spawn_logger_all;
 	public static ForgeConfigSpec.BooleanValue remove_vanilla_spawn_logger;
@@ -44,6 +45,10 @@ public class DebugConfig {
 		builder
 		.comment("Logger options.")
 		.push("Loggers");
+		
+		generation_logger = builder
+			.comment("Prints a message to the log for each Biome that has been registered for generation. (Default: " + spawnLogger + ")")
+			.define("generation_logger", spawnLogger);
 		
 		spawn_logger = builder
 			.comment("Enables a logger visualizing the registration of Mob spawns. (Default: " + spawnLogger + ")")

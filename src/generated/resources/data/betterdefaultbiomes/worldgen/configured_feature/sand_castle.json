@@ -1,0 +1,15 @@
+{
+  "type": "betterdefaultbiomes:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "betterdefaultbiomes:sand_castle",
+        "Properties": {
+          "facing": "north",
+          "waterlogged": "false"
+        }
+      }
+    }
+  }
+}

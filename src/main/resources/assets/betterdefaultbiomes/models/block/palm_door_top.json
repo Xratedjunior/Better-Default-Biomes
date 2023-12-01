@@ -1,7 +1,0 @@
-{
-    "parent": "block/door_top",
-    "textures": {
-        "bottom": "betterdefaultbiomes:block/palm_door_bottom",
-        "top": "betterdefaultbiomes:block/palm_door_top"
-    }
-}

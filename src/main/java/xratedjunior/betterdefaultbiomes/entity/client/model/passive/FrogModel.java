@@ -20,7 +20,7 @@ import xratedjunior.betterdefaultbiomes.entity.passive.FrogEntity;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 @OnlyIn(Dist.CLIENT)
 public class FrogModel<E extends FrogEntity> extends BDBAgeableModel<E> {
@@ -115,10 +115,9 @@ public class FrogModel<E extends FrogEntity> extends BDBAgeableModel<E> {
 		}
 	}
 
-	/*
+	/**
 	 * Animations for this model
 	 */
-	@SuppressWarnings("deprecation")
 	@Override
 	public void prepareMobModel(E entity, float limbSwing, float limbSwingAmount, float partialTick) {
 		super.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTick);
@@ -126,8 +125,8 @@ public class FrogModel<E extends FrogEntity> extends BDBAgeableModel<E> {
 		float pi = (float) Math.PI;
 		float radian = pi / 180;
 
-		float yawOffset = Mth.rotlerp(entity.yBodyRotO, entity.yBodyRot, partialTick);
-		float yawRotation = Mth.rotlerp(entity.yHeadRotO, entity.yHeadRot, partialTick);
+		float yawOffset = this.rotlerp(entity.yBodyRotO, entity.yBodyRot, partialTick);
+		float yawRotation = this.rotlerp(entity.yHeadRotO, entity.yHeadRot, partialTick);
 		float netHeadYaw = yawRotation - yawOffset;
 
 		float headPitch = Mth.lerp(partialTick, entity.xRotO, entity.getXRot()); //Radials
@@ -199,5 +198,4 @@ public class FrogModel<E extends FrogEntity> extends BDBAgeableModel<E> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

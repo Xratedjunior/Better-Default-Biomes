@@ -7,14 +7,16 @@ import xratedjunior.betterdefaultbiomes.configuration.EnchantmentConfig;
 import xratedjunior.betterdefaultbiomes.enchantment.util.CustomEnchantmentType;
 
 /**
- * @author 	Xrated_junior
- * @version	1.18.2-1.0.0
+ * @author  Xrated_junior
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class FloatingEnchantment extends Enchantment {
 
-	public FloatingEnchantment(String name) {
-        super(Rarity.RARE, CustomEnchantmentType.HORSE_ARMOR, new EquipmentSlot[]{EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND});
-		this.setRegistryName(name);
+	public FloatingEnchantment() {
+		super(Rarity.RARE, CustomEnchantmentType.HORSE_ARMOR, new EquipmentSlot[] {
+			EquipmentSlot.MAINHAND,
+			EquipmentSlot.OFFHAND
+		});
 	}
 
 	/**

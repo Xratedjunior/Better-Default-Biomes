@@ -1,20 +1,19 @@
 package xratedjunior.betterdefaultbiomes.block.block.grower;
 
-import java.util.Random;
-
-import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import xratedjunior.betterdefaultbiomes.world.generation.feature.BDBConfiguredFeatures;
+import xratedjunior.betterdefaultbiomes.world.generation.BDBConfiguredFeatures;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class SwampWillowTreeGrower extends AbstractTreeGrower {
 
 	@Override
-	protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random random, boolean hasFlowersCloseby) {
-		return BDBConfiguredFeatures.SWAMP_WILLOW_TREE.getHolder().orElseThrow();
+	protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean hasFlowersCloseby) {
+		return BDBConfiguredFeatures.SWAMP_WILLOW_TREE;
 	}
 }

@@ -20,5 +20,8 @@
       }
     }
   ],
-  "item": "minecraft:feather"
+  "result": {
+    "id": "minecraft:feather",
+    "Count": 1
+  }
 } 

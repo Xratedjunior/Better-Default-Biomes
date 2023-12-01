@@ -5,6 +5,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.SpawnPlacements.Type;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.horse.Llama;
@@ -12,10 +13,11 @@ import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraftforge.common.ForgeSpawnEggItem;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent.Operation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -48,7 +50,7 @@ import xratedjunior.betterdefaultbiomes.item.BDBItems;
  * Register EntityTypes, Spawn Eggs, Entity Attributes and Entity Spawn Placement.
  * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  * @info    Extra info about 'clientTrackingRange': {@linkplain https://forums.minecraftforge.net/topic/110926-setting-clienttrackingrange-to-adequate-value/#comment-494765}
  *          -> In short: The server will only send the entity data to the client when it is within the specified range. Once the entity leaves that range, it is despawned from the client and not rendered or loaded there at all.
  *          For reference check {@link EntityType}
@@ -56,7 +58,7 @@ import xratedjunior.betterdefaultbiomes.item.BDBItems;
 @Mod.EventBusSubscriber(modid = BetterDefaultBiomes.MOD_ID, bus = Bus.MOD)
 public class BDBEntityTypes {
 
-	public static final DeferredRegister<EntityType<?>> DEFERRED_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, BetterDefaultBiomes.MOD_ID);
+	public static final DeferredRegister<EntityType<?>> DEFERRED_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, BetterDefaultBiomes.MOD_ID);
 
 	/*********************************************************** Hostile ********************************************************/
 
@@ -93,34 +95,35 @@ public class BDBEntityTypes {
 	public static final RegistryObject<EntityType<TorchArrowEntity>> TORCH_ARROW = registerEntityType("torch_arrow", EntityType.Builder.<TorchArrowEntity>of(TorchArrowEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
 
 	@SubscribeEvent
-	public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
+	public static void registerEntitySpawnPlacement(SpawnPlacementRegisterEvent event) {
+
 		/*********************************************************** Hostile ********************************************************/
 
-		registerSpawnPlacement(HUNTER.get(), HunterEntity::checkHunterSpawnRules);
-		registerSpawnPlacement(HEAD_HUNTER.get(), HunterEntity::checkHunterSpawnRules);
-		registerSpawnPlacement(JUNGLE_CREEPER.get(), JungleCreeperEntity::checkJungleCreeperSpawnRules);
-		registerSpawnPlacement(LOST_MINER.get(), LostMinerEntity::checkLostMinerSpawnRules);
-		registerSpawnPlacement(FROZEN_ZOMBIE.get(), Monster::checkMonsterSpawnRules);
+		registerSpawnPlacement(event, HUNTER.get(), HunterEntity::checkHunterSpawnRules);
+		registerSpawnPlacement(event, HEAD_HUNTER.get(), HunterEntity::checkHunterSpawnRules);
+		registerSpawnPlacement(event, JUNGLE_CREEPER.get(), JungleCreeperEntity::checkJungleCreeperSpawnRules);
+		registerSpawnPlacement(event, LOST_MINER.get(), LostMinerEntity::checkLostMinerSpawnRules);
+		registerSpawnPlacement(event, FROZEN_ZOMBIE.get(), Monster::checkMonsterSpawnRules);
 
-		registerSpawnPlacement(DESERT_BANDIT.get(), DesertBanditEntity::checkBanditSpawnRules);
-		registerSpawnPlacement(DESERT_BANDIT_ARCHER.get(), DesertBanditEntity::checkBanditSpawnRules);
-		registerSpawnPlacement(DESERT_BANDIT_ARBALIST.get(), DesertBanditEntity::checkBanditSpawnRules);
-		registerSpawnPlacement(DESERT_BANDIT_MASTER.get(), DesertBanditEntity::checkBanditSpawnRules);
+		registerSpawnPlacement(event, DESERT_BANDIT.get(), DesertBanditEntity::checkBanditSpawnRules);
+		registerSpawnPlacement(event, DESERT_BANDIT_ARCHER.get(), DesertBanditEntity::checkBanditSpawnRules);
+		registerSpawnPlacement(event, DESERT_BANDIT_ARBALIST.get(), DesertBanditEntity::checkBanditSpawnRules);
+		registerSpawnPlacement(event, DESERT_BANDIT_MASTER.get(), DesertBanditEntity::checkBanditSpawnRules);
 
 		/*********************************************************** Passive ********************************************************/
 
-		registerSpawnPlacement(MUDDY_PIG.get(), Animal::checkAnimalSpawnRules);
-		registerSpawnPlacement(CAMEL.get(), CamelEntity::canCamelSpawn);
-		registerSpawnPlacement(DUCK.get(), DuckEntity::checkAnimalSpawnRules);
-		registerSpawnPlacement(ZEBRA.get(), Animal::checkAnimalSpawnRules);
-		registerSpawnPlacement(FROG.get(), Animal::checkAnimalSpawnRules);
+		registerSpawnPlacement(event, MUDDY_PIG.get(), Animal::checkAnimalSpawnRules);
+		registerSpawnPlacement(event, CAMEL.get(), CamelEntity::canCamelSpawn);
+		registerSpawnPlacement(event, DUCK.get(), DuckEntity::checkAnimalSpawnRules);
+		registerSpawnPlacement(event, ZEBRA.get(), Animal::checkAnimalSpawnRules);
+		registerSpawnPlacement(event, FROG.get(), Animal::checkAnimalSpawnRules);
 
 		/*********************************************************** Neutral ********************************************************/
 
 	}
 
 	@SubscribeEvent
-	public static void addEntityAttributes(EntityAttributeCreationEvent event) {
+	public static void buildEntityAttributes(EntityAttributeCreationEvent event) {
 
 		/*********************************************************** Hostile ********************************************************/
 
@@ -152,9 +155,9 @@ public class BDBEntityTypes {
 	 */
 	private static <T extends Mob> RegistryObject<EntityType<T>> registerEntityType(String registryName, int eggBackgroundColor, int eggHighlightColor, EntityType.Builder<T> builder) {
 		// Register Mob
-		RegistryObject<EntityType<T>> entityType = DEFERRED_ENTITY_TYPES.register(registryName, () -> builder.build(BetterDefaultBiomes.find(registryName)));
+		RegistryObject<EntityType<T>> entityType = registerEntityType(registryName, builder);
 		// Register Spawn Egg
-		BDBItems.registerItem(registryName + "_spawn_egg", () -> new ForgeSpawnEggItem(entityType, eggBackgroundColor, eggHighlightColor, new Item.Properties().tab(BetterDefaultBiomes.BETTERDEFAULTBIOMESTAB)));
+		BDBItems.registerItem(registryName + "_spawn_egg", () -> new ForgeSpawnEggItem(entityType, eggBackgroundColor, eggHighlightColor, new Item.Properties()));
 		return entityType;
 	}
 
@@ -162,10 +165,10 @@ public class BDBEntityTypes {
 	 * Helper method for registering all EntityTypes
 	 */
 	private static <T extends Entity> RegistryObject<EntityType<T>> registerEntityType(String registryName, EntityType.Builder<T> builder) {
-		return DEFERRED_ENTITY_TYPES.register(registryName, () -> builder.build(registryName));
+		return DEFERRED_ENTITY_TYPES.register(registryName, () -> builder.build(BetterDefaultBiomes.find(registryName)));
 	}
 
-	private static <T extends Mob> void registerSpawnPlacement(EntityType<T> entityType, SpawnPlacements.SpawnPredicate<T> placementPredicate) {
-		SpawnPlacements.register(entityType, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, placementPredicate);
+	private static <T extends Mob> void registerSpawnPlacement(SpawnPlacementRegisterEvent event, EntityType<T> entityType, SpawnPlacements.SpawnPredicate<T> placementPredicate) {
+		event.register(entityType, Type.ON_GROUND, Types.MOTION_BLOCKING_NO_LEAVES, placementPredicate, Operation.OR);
 	}
 }

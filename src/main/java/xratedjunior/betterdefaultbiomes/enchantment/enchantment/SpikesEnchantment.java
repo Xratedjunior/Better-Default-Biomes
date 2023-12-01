@@ -7,14 +7,16 @@ import xratedjunior.betterdefaultbiomes.configuration.EnchantmentConfig;
 import xratedjunior.betterdefaultbiomes.enchantment.util.CustomEnchantmentType;
 
 /**
- * @author 	Xrated_junior
- * @version	1.18.2-1.0.0
+ * @author  Xrated_junior
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class SpikesEnchantment extends Enchantment {
 
-	public SpikesEnchantment(String name) {
-        super(Rarity.VERY_RARE, CustomEnchantmentType.SHIELD, new EquipmentSlot[]{EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND});
-		this.setRegistryName(name);
+	public SpikesEnchantment() {
+		super(Rarity.VERY_RARE, CustomEnchantmentType.SHIELD, new EquipmentSlot[] {
+			EquipmentSlot.MAINHAND,
+			EquipmentSlot.OFFHAND
+		});
 	}
 
 	/**

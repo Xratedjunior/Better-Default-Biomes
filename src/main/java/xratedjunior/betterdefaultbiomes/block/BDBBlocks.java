@@ -8,20 +8,15 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.Maps;
 
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -34,16 +29,13 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraft.world.level.block.WoodButtonBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -65,17 +57,15 @@ import xratedjunior.betterdefaultbiomes.block.block.StarfishWallBlock;
 import xratedjunior.betterdefaultbiomes.block.block.grower.PalmTreeGrower;
 import xratedjunior.betterdefaultbiomes.block.block.grower.PineconeTreeGrower;
 import xratedjunior.betterdefaultbiomes.block.block.grower.SwampWillowTreeGrower;
-import xratedjunior.betterdefaultbiomes.block.property.PlankProperties;
+import xratedjunior.betterdefaultbiomes.block.property.BDBWoodTypes;
 import xratedjunior.betterdefaultbiomes.item.BDBItems;
 import xratedjunior.betterdefaultbiomes.item.item.SmallRockItem;
 import xratedjunior.betterdefaultbiomes.sound.BDBSoundTypes;
-import xratedjunior.betterdefaultbiomes.world.generation.feature.BDBConfiguredFeatures;
+import xratedjunior.betterdefaultbiomes.world.generation.BDBConfiguredFeatures;
 
 /**
- * TODO Check if map colors are correct.
- * 
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 @Mod.EventBusSubscriber(modid = BetterDefaultBiomes.MOD_ID, bus = Bus.MOD)
 public class BDBBlocks {
@@ -84,61 +74,47 @@ public class BDBBlocks {
 
 	/*********************************************************** Trees ********************************************************/
 
-	public static final RegistryObject<Block> PALM_SAPLING = registerBlockAndBlockItem("palm_sapling", () -> new SaplingBlockBDB(new PalmTreeGrower(), Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> PALM_SAPLING = registerBlockAndBlockItem("palm_sapling", () -> new SaplingBlockBDB(new PalmTreeGrower(), Properties.copy(Blocks.OAK_SAPLING)));
 	public static final RegistryObject<Block> PALM_SAPLING_POTTED = registerBlock("palm_sapling_potted", () -> flowerPot(PALM_SAPLING));
 	public static final RegistryObject<Block> PALM_LEAVES = registerBlockAndBlockItem("palm_leaves", () -> new LeavesBlockBDB(Properties.copy(Blocks.OAK_LEAVES)));
 	public static final RegistryObject<Block> PALM_LOG = registerBlockAndBlockItem("palm_log", () -> log(MaterialColor.WOOD, MaterialColor.WOOD));
 	public static final RegistryObject<Block> PALM_WOOD = registerBlockAndBlockItem("palm_wood", () -> wood(MaterialColor.WOOD));
 	public static final RegistryObject<Block> PALM_LOG_STRIPPED = registerBlockAndBlockItem("palm_log_stripped", () -> log(MaterialColor.WOOD, MaterialColor.WOOD));
 	public static final RegistryObject<Block> PALM_WOOD_STRIPPED = registerBlockAndBlockItem("palm_wood_stripped", () -> wood(MaterialColor.TERRACOTTA_WHITE));
-	// Store plank properties. Solves working with long suppliers.
-	private static final PlankProperties PALM_PLANKS_PROPERTIES = new PlankProperties(MaterialColor.WOOD);
-	public static final RegistryObject<Block> PALM_PLANKS = registerBlockAndBlockItem("palm_planks", () -> planks(PALM_PLANKS_PROPERTIES.getMaterialColor()));
-	public static final RegistryObject<Block> PALM_STAIRS = registerBlockAndBlockItem("palm_stairs", () -> new StairBlock(() -> PALM_PLANKS.get().defaultBlockState(), PALM_PLANKS_PROPERTIES.getProperties()));
-	public static final RegistryObject<Block> PALM_SLAB = registerBlockAndBlockItem("palm_slab", () -> new SlabBlock(PALM_PLANKS_PROPERTIES.getProperties()));
-	public static final RegistryObject<Block> PALM_FENCE = registerBlockAndBlockItem("palm_fence", () -> new FenceBlock(PALM_PLANKS_PROPERTIES.getProperties()));
-	public static final RegistryObject<Block> PALM_FENCE_GATE = registerBlockAndBlockItem("palm_fence_gate", () -> new FenceGateBlock(PALM_PLANKS_PROPERTIES.getProperties()));
-	public static final RegistryObject<Block> PALM_DOOR = registerBlockAndBlockItem("palm_door", () -> new DoorBlock(Properties.of(Material.WOOD, PALM_PLANKS_PROPERTIES.getMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
-	public static final RegistryObject<Block> PALM_TRAPDOOR = registerBlockAndBlockItem("palm_trapdoor", () -> new TrapDoorBlock(Properties.of(Material.WOOD, PALM_PLANKS_PROPERTIES.getMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(BDBBlocks::never)));
-	public static final RegistryObject<Block> PALM_PRESSURE_PLATE = registerBlockAndBlockItem("palm_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Properties.of(Material.WOOD, PALM_PLANKS_PROPERTIES.getMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)));
-	public static final RegistryObject<Block> PALM_BUTTON = registerBlockAndBlockItem("palm_button", () -> new WoodButtonBlock(Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)));
-	public static final RegistryObject<Block> PALM_LADDER = registerBlockAndBlockItem("palm_ladder", () -> new LadderBlock(Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion()));
-	//	//	public static Block palm_crafting_table;
+	public static final RegistryObject<Block> PALM_PLANKS = registerBlockAndBlockItem("palm_planks", () -> new Block(Properties.copy(Blocks.OAK_PLANKS)));
+	public static final RegistryObject<Block> PALM_STAIRS = registerBlockAndBlockItem("palm_stairs", () -> new StairBlock(() -> PALM_PLANKS.get().defaultBlockState(), Properties.copy(PALM_PLANKS.get())));
+	public static final RegistryObject<Block> PALM_SLAB = registerBlockAndBlockItem("palm_slab", () -> new SlabBlock(Properties.copy(PALM_PLANKS.get())));
+	public static final RegistryObject<Block> PALM_FENCE = registerBlockAndBlockItem("palm_fence", () -> new FenceBlock(Properties.copy(PALM_PLANKS.get())));
+	public static final RegistryObject<Block> PALM_FENCE_GATE = registerBlockAndBlockItem("palm_fence_gate", () -> new FenceGateBlock(Properties.copy(PALM_PLANKS.get()), BDBWoodTypes.PALM));
+	public static final RegistryObject<Block> PALM_DOOR = registerBlockAndBlockItem("palm_door", () -> new DoorBlock(Properties.copy(Blocks.OAK_DOOR), BDBWoodTypes.PALM.setType()));
+	public static final RegistryObject<Block> PALM_TRAPDOOR = registerBlockAndBlockItem("palm_trapdoor", () -> new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR), BDBWoodTypes.PALM.setType()));
+	public static final RegistryObject<Block> PALM_PRESSURE_PLATE = registerBlockAndBlockItem("palm_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Properties.copy(Blocks.OAK_PRESSURE_PLATE), BDBWoodTypes.PALM.setType()));
+	public static final RegistryObject<Block> PALM_BUTTON = registerBlockAndBlockItem("palm_button", () -> new ButtonBlock(Properties.copy(Blocks.OAK_BUTTON), BDBWoodTypes.PALM.setType(), 30, true));
+	public static final RegistryObject<Block> PALM_LADDER = registerBlockAndBlockItem("palm_ladder", () -> new LadderBlock(Properties.copy(Blocks.LADDER)));
 
-	public static final RegistryObject<Block> SWAMP_WILLOW_SAPLING = registerBlockAndBlockItem("swamp_willow_sapling", () -> new SaplingBlockBDB(new SwampWillowTreeGrower(), Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> SWAMP_WILLOW_SAPLING = registerBlockAndBlockItem("swamp_willow_sapling", () -> new SaplingBlockBDB(new SwampWillowTreeGrower(), Properties.copy(Blocks.OAK_SAPLING)));
 	public static final RegistryObject<Block> SWAMP_WILLOW_SAPLING_POTTED = registerBlock("swamp_willow_sapling_potted", () -> flowerPot(SWAMP_WILLOW_SAPLING));
 	public static final RegistryObject<Block> SWAMP_WILLOW_LEAVES = registerBlockAndBlockItem("swamp_willow_leaves", () -> new LeavesBlockBDB(Properties.copy(Blocks.OAK_LEAVES)));
 	public static final RegistryObject<Block> SWAMP_WILLOW_LOG = registerBlockAndBlockItem("swamp_willow_log", () -> log(MaterialColor.WOOD, MaterialColor.WOOD));
 	public static final RegistryObject<Block> SWAMP_WILLOW_WOOD = registerBlockAndBlockItem("swamp_willow_wood", () -> wood(MaterialColor.WOOD));
 	public static final RegistryObject<Block> SWAMP_WILLOW_LOG_STRIPPED = registerBlockAndBlockItem("swamp_willow_log_stripped", () -> log(MaterialColor.WOOD, MaterialColor.WOOD));
 	public static final RegistryObject<Block> SWAMP_WILLOW_WOOD_STRIPPED = registerBlockAndBlockItem("swamp_willow_wood_stripped", () -> wood(MaterialColor.TERRACOTTA_WHITE));
-	// Store plank properties. Solves working with long suppliers.
-	private static final PlankProperties SWAMP_WILLOW_PLANKS_PROPERTIES = new PlankProperties(MaterialColor.WOOD);
-	public static final RegistryObject<Block> SWAMP_WILLOW_PLANKS = registerBlockAndBlockItem("swamp_willow_planks", () -> new Block(SWAMP_WILLOW_PLANKS_PROPERTIES.getProperties()));
-	public static final RegistryObject<Block> SWAMP_WILLOW_STAIRS = registerBlockAndBlockItem("swamp_willow_stairs", () -> new StairBlock(() -> SWAMP_WILLOW_PLANKS.get().defaultBlockState(), SWAMP_WILLOW_PLANKS_PROPERTIES.getProperties()));
-	public static final RegistryObject<Block> SWAMP_WILLOW_SLAB = registerBlockAndBlockItem("swamp_willow_slab", () -> new SlabBlock(SWAMP_WILLOW_PLANKS_PROPERTIES.getProperties()));
-	public static final RegistryObject<Block> SWAMP_WILLOW_FENCE = registerBlockAndBlockItem("swamp_willow_fence", () -> new FenceBlock(SWAMP_WILLOW_PLANKS_PROPERTIES.getProperties()));
-	public static final RegistryObject<Block> SWAMP_WILLOW_FENCE_GATE = registerBlockAndBlockItem("swamp_willow_fence_gate", () -> new FenceGateBlock(SWAMP_WILLOW_PLANKS_PROPERTIES.getProperties()));
-	public static final RegistryObject<Block> SWAMP_WILLOW_DOOR = registerBlockAndBlockItem("swamp_willow_door", () -> new DoorBlock(Properties.of(Material.WOOD, SWAMP_WILLOW_PLANKS_PROPERTIES.getMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
-	public static final RegistryObject<Block> SWAMP_WILLOW_TRAPDOOR = registerBlockAndBlockItem("swamp_willow_trapdoor", () -> new TrapDoorBlock(Properties.of(Material.WOOD, SWAMP_WILLOW_PLANKS_PROPERTIES.getMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion().isValidSpawn(BDBBlocks::never)));
-	public static final RegistryObject<Block> SWAMP_WILLOW_PRESSURE_PLATE = registerBlockAndBlockItem("swamp_willow_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Properties.of(Material.WOOD, SWAMP_WILLOW_PLANKS_PROPERTIES.getMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)));
-	public static final RegistryObject<Block> SWAMP_WILLOW_BUTTON = registerBlockAndBlockItem("swamp_willow_button", () -> new WoodButtonBlock(Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD)));
-	public static final RegistryObject<Block> SWAMP_WILLOW_LADDER = registerBlockAndBlockItem("swamp_willow_ladder", () -> new LadderBlock(Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion()));
-	//	//	public static Block swamp_willow_crafting_table;
+	public static final RegistryObject<Block> SWAMP_WILLOW_PLANKS = registerBlockAndBlockItem("swamp_willow_planks", () -> new Block(Properties.copy(Blocks.OAK_PLANKS)));
+	public static final RegistryObject<Block> SWAMP_WILLOW_STAIRS = registerBlockAndBlockItem("swamp_willow_stairs", () -> new StairBlock(() -> SWAMP_WILLOW_PLANKS.get().defaultBlockState(), Properties.copy(SWAMP_WILLOW_PLANKS.get())));
+	public static final RegistryObject<Block> SWAMP_WILLOW_SLAB = registerBlockAndBlockItem("swamp_willow_slab", () -> new SlabBlock(Properties.copy(SWAMP_WILLOW_PLANKS.get())));
+	public static final RegistryObject<Block> SWAMP_WILLOW_FENCE = registerBlockAndBlockItem("swamp_willow_fence", () -> new FenceBlock(Properties.copy(SWAMP_WILLOW_PLANKS.get())));
+	public static final RegistryObject<Block> SWAMP_WILLOW_FENCE_GATE = registerBlockAndBlockItem("swamp_willow_fence_gate", () -> new FenceGateBlock(Properties.copy(SWAMP_WILLOW_PLANKS.get()), BDBWoodTypes.SWAMP_WILLOW));
+	public static final RegistryObject<Block> SWAMP_WILLOW_DOOR = registerBlockAndBlockItem("swamp_willow_door", () -> new DoorBlock(Properties.copy(Blocks.OAK_DOOR), BDBWoodTypes.SWAMP_WILLOW.setType()));
+	public static final RegistryObject<Block> SWAMP_WILLOW_TRAPDOOR = registerBlockAndBlockItem("swamp_willow_trapdoor", () -> new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR), BDBWoodTypes.SWAMP_WILLOW.setType()));
+	public static final RegistryObject<Block> SWAMP_WILLOW_PRESSURE_PLATE = registerBlockAndBlockItem("swamp_willow_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Properties.copy(Blocks.OAK_PRESSURE_PLATE), BDBWoodTypes.SWAMP_WILLOW.setType()));
+	public static final RegistryObject<Block> SWAMP_WILLOW_BUTTON = registerBlockAndBlockItem("swamp_willow_button", () -> new ButtonBlock(Properties.copy(Blocks.OAK_BUTTON), BDBWoodTypes.SWAMP_WILLOW.setType(), 30, true));
+	public static final RegistryObject<Block> SWAMP_WILLOW_LADDER = registerBlockAndBlockItem("swamp_willow_ladder", () -> new LadderBlock(Properties.copy(Blocks.LADDER)));
 
 	/*********************************************************** Mushrooms ********************************************************/
 
-	public static final RegistryObject<Block> WHITE_MUSHROOM = registerBlockAndBlockItem("white_mushroom", () -> new MushroomBlockBDB(Properties.of(Material.PLANT, MaterialColor.SAND).noCollission().instabreak().sound(SoundType.GRASS), () -> {
-		//		return BDBConfiguredFeatures.BIG_WHITE_MUSHROOM;
-		// DELETE
-		return BDBConfiguredFeatures.BIG_WHITE_MUSHROOM.getHolder().orElseThrow();
-	}));
-	public static final RegistryObject<Block> YELLOW_MUSHROOM = registerBlockAndBlockItem("yellow_mushroom", () -> new MushroomBlockBDB(Properties.of(Material.PLANT, MaterialColor.GOLD).noCollission().instabreak().sound(SoundType.GRASS), () -> {
-		return BDBConfiguredFeatures.BIG_YELLOW_MUSHROOM.getHolder().orElseThrow();
-	}));
-	public static final RegistryObject<Block> GRAY_MUSHROOM = registerBlockAndBlockItem("gray_mushroom", () -> new MushroomBlockBDB(Properties.of(Material.PLANT, MaterialColor.CLAY).noCollission().instabreak().sound(SoundType.GRASS), () -> {
-		return BDBConfiguredFeatures.BIG_GRAY_MUSHROOM.getHolder().orElseThrow();
-	}));
+	public static final RegistryObject<Block> WHITE_MUSHROOM = registerBlockAndBlockItem("white_mushroom", () -> new MushroomBlockBDB(Properties.copy(Blocks.BROWN_MUSHROOM).color(MaterialColor.SAND), BDBConfiguredFeatures.BIG_WHITE_MUSHROOM));
+	public static final RegistryObject<Block> YELLOW_MUSHROOM = registerBlockAndBlockItem("yellow_mushroom", () -> new MushroomBlockBDB(Properties.copy(Blocks.BROWN_MUSHROOM).color(MaterialColor.GOLD), BDBConfiguredFeatures.BIG_YELLOW_MUSHROOM));
+	public static final RegistryObject<Block> GRAY_MUSHROOM = registerBlockAndBlockItem("gray_mushroom", () -> new MushroomBlockBDB(Properties.copy(Blocks.BROWN_MUSHROOM).color(MaterialColor.CLAY), BDBConfiguredFeatures.BIG_GRAY_MUSHROOM));
 
 	//Potted MUSHROOMS
 	public static final RegistryObject<Block> POTTED_WHITE_MUSHROOM = registerBlock("potted_white_mushroom", () -> flowerPot(WHITE_MUSHROOM));
@@ -146,15 +122,15 @@ public class BDBBlocks {
 	public static final RegistryObject<Block> POTTED_GRAY_MUSHROOM = registerBlock("potted_gray_mushroom", () -> flowerPot(GRAY_MUSHROOM));
 
 	//Mushroom Blocks
-	public static final RegistryObject<Block> WHITE_MUSHROOM_BLOCK = registerBlockAndBlockItem("white_mushroom_block", () -> new HugeMushroomBlock(Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(0.2F).sound(SoundType.WOOD)));
+	public static final RegistryObject<Block> WHITE_MUSHROOM_BLOCK = registerBlockAndBlockItem("white_mushroom_block", () -> new HugeMushroomBlock(Properties.of(Material.WOOD, MaterialColor.SAND).strength(0.2F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> YELLOW_MUSHROOM_BLOCK = registerBlockAndBlockItem("yellow_mushroom_block", () -> new HugeMushroomBlock(Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_YELLOW).strength(0.2F).sound(SoundType.WOOD)));
-	public static final RegistryObject<Block> GRAY_MUSHROOM_BLOCK = registerBlockAndBlockItem("gray_mushroom_block", () -> new HugeMushroomBlock(Properties.of(Material.WOOD, MaterialColor.TERRACOTTA_LIGHT_GRAY).strength(0.2F).sound(SoundType.WOOD)));
+	public static final RegistryObject<Block> GRAY_MUSHROOM_BLOCK = registerBlockAndBlockItem("gray_mushroom_block", () -> new HugeMushroomBlock(Properties.of(Material.WOOD, MaterialColor.CLAY).strength(0.2F).sound(SoundType.WOOD)));
 
 	/*********************************************************** Flowers ********************************************************/
 
-	public static final RegistryObject<Block> PURPLE_VERBENA = registerBlockAndBlockItem("purple_verbena", () -> flower(MobEffects.SATURATION, 7));
-	public static final RegistryObject<Block> BLUE_POPPY = registerBlockAndBlockItem("blue_poppy", () -> flower(MobEffects.DAMAGE_RESISTANCE, 7));
-	public static final RegistryObject<Block> DARK_VIOLET = registerBlockAndBlockItem("dark_violet", () -> flower(MobEffects.WATER_BREATHING, 7));
+	public static final RegistryObject<Block> PURPLE_VERBENA = registerBlockAndBlockItem("purple_verbena", () -> flower(MobEffects.SATURATION, 7, MaterialColor.COLOR_PURPLE));
+	public static final RegistryObject<Block> BLUE_POPPY = registerBlockAndBlockItem("blue_poppy", () -> flower(MobEffects.DAMAGE_RESISTANCE, 7, MaterialColor.COLOR_LIGHT_BLUE));
+	public static final RegistryObject<Block> DARK_VIOLET = registerBlockAndBlockItem("dark_violet", () -> flower(MobEffects.WATER_BREATHING, 7, MaterialColor.TERRACOTTA_PURPLE));
 	public static final RegistryObject<Block> PINK_CACTUS_FLOWER = registerBlockAndBlockItem("pink_cactus_flower", () -> new SmallCactusBlockBDB(Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)));
 
 	//Potted Flowers
@@ -165,9 +141,9 @@ public class BDBBlocks {
 
 	/*********************************************************** Vegetation ********************************************************/
 
-	public static final RegistryObject<Block> FEATHER_REED_GRASS = registerBlockAndBlockItem("feather_reed_grass", () -> grass(MaterialColor.WOOD));
+	public static final RegistryObject<Block> FEATHER_REED_GRASS = registerBlockAndBlockItem("feather_reed_grass", () -> grass(MaterialColor.SAND));
 	public static final RegistryObject<Block> DEAD_GRASS = registerBlockAndBlockItem("dead_grass", () -> grass(MaterialColor.WOOD));
-	public static final RegistryObject<Block> SHORT_GRASS = registerBlockAndBlockItem("short_grass", () -> grass(MaterialColor.WOOD));
+	public static final RegistryObject<Block> SHORT_GRASS = registerBlockAndBlockItem("short_grass", () -> grass(MaterialColor.GRASS));
 	public static final RegistryObject<Block> DUNE_GRASS = registerBlockAndBlockItem("dune_grass", () -> grass(MaterialColor.GRASS));
 	public static final RegistryObject<Block> TALL_WATER_REEDS = registerBlockAndBlockItem("tall_water_reeds", () -> new DoubleWaterPlantBlockBDB(Properties.of(Material.WATER_PLANT).noCollission().instabreak().sound(SoundType.WET_GRASS)));
 
@@ -179,9 +155,9 @@ public class BDBBlocks {
 
 	/*********************************************************** Misc ********************************************************/
 
-	public static final RegistryObject<Block> SAND_CASTLE = registerBlockAndBlockItem("sand_castle", () -> new SimpleBlock(Properties.of(Material.CAKE, MaterialColor.SAND).sound(SoundType.SAND).strength(0.5F).noOcclusion().requiresCorrectToolForDrops().dynamicShape()));
-	public static final RegistryObject<Block> PINECONE = registerBlockAndBlockItem("pinecone", () -> new PineconeBlock(new PineconeTreeGrower(), Properties.of(Material.PLANT, MaterialColor.WOOD).sound(BDBSoundTypes.SMALL_BLOCK).noCollission().instabreak().noOcclusion()));
-	public static final RegistryObject<Block> SEASHELL = registerBlockAndBlockItem("seashell", () -> new SimpleBlock(Properties.of(Material.CAKE, MaterialColor.TERRACOTTA_WHITE).sound(BDBSoundTypes.SMALL_BLOCK).noCollission().instabreak().noOcclusion()));
+	public static final RegistryObject<Block> SAND_CASTLE = registerBlockAndBlockItem("sand_castle", () -> new SimpleBlock(Properties.of(Material.CAKE, MaterialColor.SAND).sound(SoundType.SAND).offsetType(OffsetType.XZ).strength(0.5F).noOcclusion().requiresCorrectToolForDrops().dynamicShape()));
+	public static final RegistryObject<Block> PINECONE = registerBlockAndBlockItem("pinecone", () -> new PineconeBlock(new PineconeTreeGrower(), Properties.of(Material.PLANT, MaterialColor.WOOD).sound(BDBSoundTypes.SMALL_BLOCK).offsetType(OffsetType.XZ).noCollission().instabreak().noOcclusion()));
+	public static final RegistryObject<Block> SEASHELL = registerBlockAndBlockItem("seashell", () -> new SimpleBlock(Properties.of(Material.CAKE, MaterialColor.TERRACOTTA_WHITE).sound(BDBSoundTypes.SMALL_BLOCK).offsetType(OffsetType.XZ).noCollission().instabreak().noOcclusion()));
 
 	/*********************************************************** Small Rocks ********************************************************/
 
@@ -198,6 +174,7 @@ public class BDBBlocks {
 
 	/*********************************************************** Starfish ********************************************************/
 
+	// TODO Check if map colors are correct. Maybe change material to DECORATION -> Check differences working
 	public static final RegistryObject<Block> STARFISH_WHITE = registerBlockAndBlockItem("starfish_white", () -> starfishBlock(DyeColor.WHITE, MaterialColor.SNOW));
 	public static final RegistryObject<Block> STARFISH_ORANGE = registerBlockAndBlockItem("starfish_orange", () -> starfishBlock(DyeColor.ORANGE, MaterialColor.COLOR_ORANGE));
 	public static final RegistryObject<Block> STARFISH_MAGENTA = registerBlockAndBlockItem("starfish_magenta", () -> starfishBlock(DyeColor.MAGENTA, MaterialColor.COLOR_MAGENTA));
@@ -232,64 +209,6 @@ public class BDBBlocks {
 	public static final RegistryObject<Block> STARFISH_WALL_RED = registerBlock("starfish_wall_red", () -> registerStarfishWallBlock(DyeColor.RED));
 	public static final RegistryObject<Block> STARFISH_WALL_BLACK = registerBlock("starfish_wall_black", () -> registerStarfishWallBlock(DyeColor.BLACK));
 
-	@OnlyIn(Dist.CLIENT)
-	@SubscribeEvent
-	public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
-		BetterDefaultBiomes.LOGGER.debug("Registering Blocks");
-		BetterDefaultBiomes.LOGGER.debug("Setting Block RenderTypes");
-		RenderType cutoutRenderType = RenderType.cutout();
-
-		// Trees
-		ItemBlockRenderTypes.setRenderLayer(PALM_SAPLING.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(PALM_SAPLING_POTTED.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(PALM_LEAVES.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(PALM_DOOR.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(PALM_TRAPDOOR.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(PALM_LADDER.get(), cutoutRenderType);
-
-		ItemBlockRenderTypes.setRenderLayer(SWAMP_WILLOW_SAPLING.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(SWAMP_WILLOW_SAPLING_POTTED.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(SWAMP_WILLOW_LEAVES.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(SWAMP_WILLOW_DOOR.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(SWAMP_WILLOW_TRAPDOOR.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(SWAMP_WILLOW_LADDER.get(), cutoutRenderType);
-
-		// Flowers/Mushrooms/Grass
-		ItemBlockRenderTypes.setRenderLayer(BLUE_POPPY.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_BLUE_POPPY.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(DARK_VIOLET.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_DARK_VIOLET.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(PURPLE_VERBENA.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_PURPLE_VERBENA.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(PINK_CACTUS_FLOWER.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_PINK_CACTUS_FLOWER.get(), cutoutRenderType);
-
-		ItemBlockRenderTypes.setRenderLayer(WHITE_MUSHROOM.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_WHITE_MUSHROOM.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(YELLOW_MUSHROOM.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_YELLOW_MUSHROOM.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(GRAY_MUSHROOM.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_GRAY_MUSHROOM.get(), cutoutRenderType);
-
-		ItemBlockRenderTypes.setRenderLayer(FEATHER_REED_GRASS.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_FEATHER_REED_GRASS.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(DEAD_GRASS.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_DEAD_GRASS.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(SHORT_GRASS.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_SHORT_GRASS.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(DUNE_GRASS.get(), cutoutRenderType);
-		ItemBlockRenderTypes.setRenderLayer(POTTED_DUNE_GRASS.get(), cutoutRenderType);
-
-		// Tall Plants
-		ItemBlockRenderTypes.setRenderLayer(TALL_WATER_REEDS.get(), cutoutRenderType);
-	}
-
-	/*********************************************************** Block Property ********************************************************/
-
-	private static Boolean never(BlockState state, BlockGetter worldIn, BlockPos pos, EntityType<?> entityType) {
-		return (boolean) false;
-	}
-
 	/*********************************************************** Repeated Blocks ********************************************************/
 
 	private static RotatedPillarBlock log(MaterialColor innerColor, MaterialColor outerColor) {
@@ -302,31 +221,30 @@ public class BDBBlocks {
 		return log(blockColor, blockColor);
 	}
 
-	private static Block planks(MaterialColor blockColor) {
-		return new Block(Properties.of(Material.WOOD, blockColor).strength(2.0F, 3.0F).sound(SoundType.WOOD));
-	}
-
-	private static FlowerBlockBDB flower(MobEffect suspiciousStewEffect, int effectDuration) {
-		return new FlowerBlockBDB(suspiciousStewEffect, effectDuration, Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS));
+	private static FlowerBlockBDB flower(MobEffect suspiciousStewEffect, int effectDuration, MaterialColor mapColor) {
+		return new FlowerBlockBDB(() -> suspiciousStewEffect, effectDuration, Properties.copy(Blocks.DANDELION).color(mapColor));
 	}
 
 	private static GrassBlockBDB grass(MaterialColor materialColor) {
-		return new GrassBlockBDB(Properties.of(Material.REPLACEABLE_PLANT, materialColor).noCollission().instabreak().sound(SoundType.GRASS));
+		return new GrassBlockBDB(Properties.of(Material.REPLACEABLE_PLANT, materialColor).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ));
 	}
 
 	private static FlowerPotBlock flowerPot(Supplier<Block> blockSupplier) {
-		FlowerPotBlock pottedPlant = new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT.delegate.get(), blockSupplier, Properties.of(Material.DECORATION).instabreak());
+		FlowerPotBlock pottedPlant = new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, blockSupplier, Properties.copy(Blocks.POTTED_DANDELION));
 		POTTED_PLANTS.put(blockSupplier, () -> pottedPlant);
 		return pottedPlant;
 	}
 
 	private static Block starfishBlock(DyeColor dyeColor, MaterialColor materialColor) {
-		return new StarfishBlock(dyeColor, Properties.of(Material.MOSS, materialColor).noCollission().instabreak().sound(SoundType.STONE).lightLevel(getLightValueLit(8)));
+		return new StarfishBlock(dyeColor, Properties.of(Material.MOSS, materialColor).noCollission().instabreak().sound(SoundType.STONE).offsetType(OffsetType.XZ).lightLevel(getLightValueLit(8)));
 	}
 
+	/**
+	 * Only here to set the OffsetType back to NONE, because otherwise the Starfish looks weird on walls.
+	 */
 	private static Block registerStarfishWallBlock(DyeColor dyeColor) {
 		Supplier<Block> parentStarfish = () -> StarfishBlock.getBlockByColor(dyeColor);
-		return new StarfishWallBlock(dyeColor, Properties.copy(parentStarfish.get()).lootFrom(() -> parentStarfish.get()));
+		return new StarfishWallBlock(dyeColor, Properties.copy(parentStarfish.get()).offsetType(OffsetType.NONE).lootFrom(() -> parentStarfish.get()));
 	}
 
 	private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
@@ -336,20 +254,13 @@ public class BDBBlocks {
 	}
 
 	private static RegistryObject<Block> registerSmallRock(@Nonnull String registryName) {
-		RegistryObject<Block> registryBlock = registerBlock(registryName, () -> new SmallRockBlock(Properties.of(Material.PLANT, MaterialColor.STONE).sound(SoundType.STONE).noCollission().instabreak().noOcclusion()));
+		RegistryObject<Block> registryBlock = registerBlock(registryName, () -> new SmallRockBlock(Properties.of(Material.DECORATION).sound(SoundType.STONE).offsetType(OffsetType.XZ).noCollission().instabreak().noOcclusion()));
 		// Blocks are registered before Items
-		BDBItems.registerItem(registryName, () -> new SmallRockItem(registryBlock.get(), new Item.Properties().tab(BetterDefaultBiomes.BETTERDEFAULTBIOMESTAB)));
+		BDBItems.registerItem(registryName, () -> new SmallRockItem(registryBlock.get(), new Item.Properties()));
 		return registryBlock;
 	}
 
 	/*********************************************************** Helper Methods ********************************************************/
-
-	/**
-	 * Helper method for registering Blocks to the BetterDefaultBiomes ItemGroup.
-	 */
-	private static <B extends Block> RegistryObject<Block> registerBlockAndBlockItem(@Nonnull String registryName, Supplier<B> blockSupplier) {
-		return registerBlockAndBlockItem(registryName, blockSupplier, BetterDefaultBiomes.BETTERDEFAULTBIOMESTAB);
-	}
 
 	/**
 	 * Helper method for registering Blocks with basic BlockItems.
@@ -359,10 +270,10 @@ public class BDBBlocks {
 	 * @param  itemGroup     The ItemGroup where the Item will show.
 	 * @return               The Block that was registered
 	 */
-	private static <B extends Block> RegistryObject<Block> registerBlockAndBlockItem(@Nonnull String registryName, Supplier<B> blockSupplier, CreativeModeTab itemGroup) {
+	private static <B extends Block> RegistryObject<Block> registerBlockAndBlockItem(@Nonnull String registryName, Supplier<B> blockSupplier) {
 		RegistryObject<Block> registryBlock = registerBlock(registryName, blockSupplier);
 		// Blocks are registered before Items
-		BDBItems.registerItem(registryName, () -> new BlockItem(registryBlock.get(), new Item.Properties().tab(itemGroup)));
+		BDBItems.registerItem(registryName, () -> new BlockItem(registryBlock.get(), new Item.Properties()));
 		return registryBlock;
 	}
 

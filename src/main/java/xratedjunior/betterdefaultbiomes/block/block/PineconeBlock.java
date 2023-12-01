@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -36,9 +37,10 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.0
  */
 public class PineconeBlock extends SimpleBlock implements BonemealableBlock {
+	private static final Random RANDOM = new Random();
 	public static final BooleanProperty SIDEWAYS = BooleanProperty.create("sideways");
 	private static final VoxelShape PINECONE = makeSquareShape(6.0D, 4.0D);
 	private final AbstractTreeGrower treeGrower;
@@ -78,7 +80,7 @@ public class PineconeBlock extends SimpleBlock implements BonemealableBlock {
 		BlockState blockstate = super.getStateForPlacement(context);
 		if (blockstate != null) {
 			if (!context.getLevel().isClientSide()) {
-				int i = this.RANDOM.nextInt(6);
+				int i = RANDOM.nextInt(6);
 				return blockstate.setValue(SIDEWAYS, Boolean.valueOf(i == 0));
 			}
 		}
@@ -119,7 +121,7 @@ public class PineconeBlock extends SimpleBlock implements BonemealableBlock {
 	 * Can this Block be Bonemealed?
 	 */
 	@Override
-	public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
 		return true;
 	}
 
@@ -127,7 +129,7 @@ public class PineconeBlock extends SimpleBlock implements BonemealableBlock {
 	 * Is Bonemeal a success and grow Tree?
 	 */
 	@Override
-	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
 		BlockState blockStateBelow = worldIn.getBlockState(pos.below());
 
 		// Copied from {@link BushBlock#mayPlaceOn}
@@ -144,11 +146,7 @@ public class PineconeBlock extends SimpleBlock implements BonemealableBlock {
 	 * Grow Tree
 	 */
 	@Override
-	public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
-		if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(worldIn, rand, pos)) {
-			return;
-		}
-
+	public void performBonemeal(ServerLevel worldIn, RandomSource rand, BlockPos pos, BlockState state) {
 		this.treeGrower.growTree(worldIn, worldIn.getChunkSource().getGenerator(), pos, state, rand);
 	}
 }

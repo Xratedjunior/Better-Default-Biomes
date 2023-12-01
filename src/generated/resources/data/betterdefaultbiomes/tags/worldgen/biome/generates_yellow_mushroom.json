@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:forest",
+    {
+      "id": "#forge:is_swamp",
+      "required": false
+    }
+  ]
+}
