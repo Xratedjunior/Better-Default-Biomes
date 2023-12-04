@@ -14,7 +14,7 @@ import xratedjunior.betterdefaultbiomes.configuration.entity.ZebraConfig;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.19.4-Alpha 4.0.1
  */
 public class MobSpawningConfig {
 	// Hostile
@@ -51,10 +51,13 @@ public class MobSpawningConfig {
 			
 			//Passive
 			spawn_muddy_pig = builder.define("Muddy_Pig", mobConfigDefault);
-			spawn_camel = builder.define("Camel", mobConfigDefault);
 			spawn_duck = builder.define("Duck", mobConfigDefault);
 			spawn_zebra = builder.define("Zebra", mobConfigDefault);
-			spawn_frog = builder.define("Frog", mobConfigDefault);
+			spawn_camel = builder.define("Camel", mobConfigDefault);
+			spawn_frog = builder
+					.comment("Turned off by default since this is now a Minecraft feature.")
+					.comment("You can choose to enable spawning by setting 'true'.")
+					.define("Frog", false);
 		
 			builder
 			.comment("Extensive Config options for all the Mobs.")
@@ -68,9 +71,9 @@ public class MobSpawningConfig {
 
 				// Passive
 				MuddyPigConfig.init(builder);
-				CamelConfig.init(builder);
 				DuckConfig.init(builder);
 				ZebraConfig.init(builder);
+				CamelConfig.init(builder);
 				FrogConfig.init(builder);
 				
 			builder.pop();

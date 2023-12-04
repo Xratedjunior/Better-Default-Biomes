@@ -1,6 +1,10 @@
 1.19.x Changelog
 Alpha 4.0
 ====
+ - Alpha 4.0.1	
+		- Disabled Frog spawning by default.
+		(This is now a Vanilla Minecraft feature)
+
  - Alpha 4.0.0	
 		Updated to Minecraft 1.19.4
 		Generation:
