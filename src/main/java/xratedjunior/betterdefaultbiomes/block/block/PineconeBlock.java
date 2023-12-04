@@ -37,7 +37,7 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class PineconeBlock extends SimpleBlock implements BonemealableBlock {
 	private static final Random RANDOM = new Random();
@@ -121,7 +121,7 @@ public class PineconeBlock extends SimpleBlock implements BonemealableBlock {
 	 * Can this Block be Bonemealed?
 	 */
 	@Override
-	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state) {
 		return true;
 	}
 

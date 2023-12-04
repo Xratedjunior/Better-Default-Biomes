@@ -37,7 +37,7 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class FrogEntity extends BDBAnimalEntityAbstract {
 	private static final float adultHealth = 8.0F;
@@ -199,7 +199,7 @@ public class FrogEntity extends BDBAnimalEntityAbstract {
 			--this.currentMoveTypeDuration;
 		}
 
-		if (this.onGround) {
+		if (this.onGround()) {
 			if (!this.wasOnGround) {
 				this.setJumping(false);
 				this.checkLandingDelay();
@@ -234,7 +234,7 @@ public class FrogEntity extends BDBAnimalEntityAbstract {
 			}
 		}
 
-		this.wasOnGround = this.onGround;
+		this.wasOnGround = this.onGround();
 	}
 
 	private void calculateRotationYaw(double x, double z) {
@@ -279,8 +279,8 @@ public class FrogEntity extends BDBAnimalEntityAbstract {
 			}
 		}
 
-		if (!this.level.isClientSide()) {
-			this.level.broadcastEntityEvent(this, (byte) jumpStateID);
+		if (!this.level().isClientSide()) {
+			this.level().broadcastEntityEvent(this, (byte) jumpStateID);
 		}
 	}
 
@@ -377,8 +377,8 @@ public class FrogEntity extends BDBAnimalEntityAbstract {
 	}
 
 	private void setSoundState() {
-		if (!this.level.isClientSide()) {
-			this.level.broadcastEntityEvent(this, (byte) soundStateID);
+		if (!this.level().isClientSide()) {
+			this.level().broadcastEntityEvent(this, (byte) soundStateID);
 		}
 	}
 
@@ -453,7 +453,7 @@ public class FrogEntity extends BDBAnimalEntityAbstract {
 
 		@Override
 		public void tick() {
-			if (this.frog.onGround && !this.frog.jumping && !((FrogEntity.JumpHelperController) this.frog.jumpControl).getIsJumping()) {
+			if (this.frog.onGround() && !this.frog.jumping && !((FrogEntity.JumpHelperController) this.frog.jumpControl).getIsJumping()) {
 				this.frog.setMovementSpeed(0.0D);
 			} else if (this.hasWanted()) {
 				this.frog.setMovementSpeed(this.nextJumpSpeed);
@@ -507,19 +507,14 @@ public class FrogEntity extends BDBAnimalEntityAbstract {
 		}
 
 		@Override
-		protected double getAttackReachSqr(LivingEntity attackTarget) {
-			return (double) (2.0F + attackTarget.getBbWidth());
-		}
-
-		@Override
-		protected void checkAndPerformAttack(LivingEntity enemy, double distToEnemySqr) {
-			double d0 = this.getAttackReachSqr(enemy);
-			if (distToEnemySqr <= d0 && this.getTicksUntilNextAttack() <= 0) {
-				if (!this.mob.level.isClientSide()) {
-					this.mob.level.broadcastEntityEvent(this.mob, (byte) attackStateID);
+		protected void checkAndPerformAttack(LivingEntity enemy) {
+			if (this.canPerformAttack(enemy)) {
+				if (!this.mob.level().isClientSide()) {
+					// Broadcast Event to client
+					this.mob.level().broadcastEntityEvent(this.mob, (byte) attackStateID);
 				}
 			}
-			super.checkAndPerformAttack(enemy, distToEnemySqr);
+			super.checkAndPerformAttack(enemy);
 		}
 	}
 }

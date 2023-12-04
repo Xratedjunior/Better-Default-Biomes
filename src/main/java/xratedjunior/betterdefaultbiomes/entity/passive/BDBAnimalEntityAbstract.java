@@ -54,7 +54,7 @@ import xratedjunior.betterdefaultbiomes.configuration.entity.breeding.BreedingIt
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public abstract class BDBAnimalEntityAbstract extends Animal {
 	private static final Predicate<LivingEntity> PARENT_SELECTOR = (livingEntity) -> {
@@ -283,7 +283,7 @@ public abstract class BDBAnimalEntityAbstract extends Animal {
 	// TODO Change/Create FollowParentGoal with adjustable range. Range is the only noticeable change added here.
 	protected void followParent() {
 		if (this.isParent() && this.isBaby() && !this.isEatingGroundBlock()) {
-			LivingEntity livingentity = this.level.getNearestEntity(BDBAnimalEntityAbstract.class, PARENT_TARGETING, this, this.getX(), this.getY(), this.getZ(), this.getBoundingBox().inflate(16.0D));
+			LivingEntity livingentity = this.level().getNearestEntity(BDBAnimalEntityAbstract.class, PARENT_TARGETING, this, this.getX(), this.getY(), this.getZ(), this.getBoundingBox().inflate(16.0D));
 			if (livingentity != null && this.distanceToSqr(livingentity) > 4.0D) {
 				this.navigation.createPath(livingentity, 0);
 			}
@@ -304,7 +304,7 @@ public abstract class BDBAnimalEntityAbstract extends Animal {
 
 		super.aiStep();
 
-		if (!this.level.isClientSide() && this.isAlive()) {
+		if (!this.level().isClientSide() && this.isAlive()) {
 			this.babyHealth();
 
 			//Heal over time
@@ -313,7 +313,7 @@ public abstract class BDBAnimalEntityAbstract extends Animal {
 			}
 
 			//Start eating Grass
-			if (this.canEatGroundBlock() && !this.isEatingGroundBlock() && this.random.nextInt(100) == 0 && this.level.getBlockState(this.blockPosition().below()).is(Blocks.GRASS_BLOCK)) {
+			if (this.canEatGroundBlock() && !this.isEatingGroundBlock() && this.random.nextInt(100) == 0 && this.level().getBlockState(this.blockPosition().below()).is(Blocks.GRASS_BLOCK)) {
 				this.setEatingGroundBlock(true);
 			}
 			//Stop eating Grass
@@ -335,8 +335,8 @@ public abstract class BDBAnimalEntityAbstract extends Animal {
 	public void tick() {
 		super.tick();
 
-		if (this.getHealth() > this.prevHealth && this.level.isClientSide()) {
-			this.level.addParticle(ParticleTypes.HEART, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
+		if (this.getHealth() > this.prevHealth && this.level().isClientSide()) {
+			this.level().addParticle(ParticleTypes.HEART, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
 		}
 		this.prevHealth = this.getHealth();
 
@@ -397,7 +397,7 @@ public abstract class BDBAnimalEntityAbstract extends Animal {
 	public InteractionResult playerInteractEating(Player player, ItemStack itemStackInHand) {
 		boolean flag = this.handleEating(player, itemStackInHand);
 
-		if (this.level.isClientSide()) {
+		if (this.level().isClientSide()) {
 			return InteractionResult.CONSUME;
 		} else {
 			return flag ? InteractionResult.SUCCESS : InteractionResult.PASS;
@@ -417,7 +417,7 @@ public abstract class BDBAnimalEntityAbstract extends Animal {
 					int growthAmount = breedingItem.getGrowthAmount();
 
 					//Set in love for breeding
-					if (!this.level.isClientSide() && this.getAge() == 0 && !this.isInLove() && isBreedingItem) {
+					if (!this.level().isClientSide() && this.getAge() == 0 && !this.isInLove() && isBreedingItem) {
 						this.setInLove(player);
 						eat = true;
 					}
@@ -430,10 +430,10 @@ public abstract class BDBAnimalEntityAbstract extends Animal {
 
 					//Help child grow
 					if (this.isBaby() && growthAmount > 0) {
-						this.level.addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
-						this.level.addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
+						this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
+						this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
 
-						if (!this.level.isClientSide()) {
+						if (!this.level().isClientSide()) {
 							this.ageUp(growthAmount);
 						}
 						eat = true;
@@ -459,13 +459,13 @@ public abstract class BDBAnimalEntityAbstract extends Animal {
 		if (!this.isSilent()) {
 			SoundEvent soundevent = this.getAnimalEatingSound();
 			if (soundevent != null) {
-				this.level.playSound((Player) null, this.getX(), this.getY(), this.getZ(), soundevent, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+				this.level().playSound((Player) null, this.getX(), this.getY(), this.getZ(), soundevent, this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
 			}
 		}
 	}
 
 	private void openAnimalMouth() {
-		if (!this.level.isClientSide()) {
+		if (!this.level().isClientSide()) {
 			this.openMouthCounter = 1;
 			this.setAnimalWatchableBoolean(64, true);
 		}
@@ -486,7 +486,7 @@ public abstract class BDBAnimalEntityAbstract extends Animal {
 	}
 
 	private boolean isTempted() {
-		Player player = this.level.getNearestPlayer(PLAYER_PREDICATE, this);
+		Player player = this.level().getNearestPlayer(PLAYER_PREDICATE, this);
 		if (player == null)
 			return false;
 		else {

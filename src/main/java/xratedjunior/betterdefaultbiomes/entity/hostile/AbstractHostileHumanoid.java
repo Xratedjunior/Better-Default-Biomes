@@ -63,7 +63,7 @@ import xratedjunior.betterdefaultbiomes.entity.hostile.desertbandit.DesertBandit
  * MINECRAFT REFERENCE: {@link Skeleton} & {@link Pillager}
  * 
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public abstract class AbstractHostileHumanoid extends Monster implements RangedAttackMob, CrossbowAttackMob {
 	private static final EntityDataAccessor<Boolean> DATA_CROSSBOW_CHARGING_STATE = SynchedEntityData.defineId(AbstractHostileHumanoid.class, EntityDataSerializers.BOOLEAN);
@@ -112,14 +112,14 @@ public abstract class AbstractHostileHumanoid extends Monster implements RangedA
 	 * sets this entity's combat AI.
 	 */
 	public void reassessWeaponGoal(int hardDifficultyAttackInterval, int attackInterval) {
-		if (this.level != null && !this.level.isClientSide()) {
+		if (this.level() != null && !this.level().isClientSide()) {
 			this.goalSelector.removeGoal(this.meleeGoal);
 			this.goalSelector.removeGoal(this.bowGoal);
 			this.goalSelector.removeGoal(this.crossbowGoal);
 			ItemStack itemstack = this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, item -> item instanceof BowItem));
 			if (itemstack.is(Items.BOW)) {
 				int ticksInterval = hardDifficultyAttackInterval;
-				if (this.level.getDifficulty() != Difficulty.HARD) {
+				if (this.level().getDifficulty() != Difficulty.HARD) {
 					ticksInterval = attackInterval;
 				}
 				this.bowGoal.setMinAttackInterval(ticksInterval);
@@ -160,9 +160,9 @@ public abstract class AbstractHostileHumanoid extends Monster implements RangedA
 			double d1 = target.getBoundingBox().minY + (double) (target.getBbHeight() / 3.0F) - abstractarrowentity.getY();
 			double d2 = target.getZ() - this.getZ();
 			double d3 = Math.sqrt(d0 * d0 + d2 * d2);
-			abstractarrowentity.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
+			abstractarrowentity.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level().getDifficulty().getId() * 4));
 			this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
-			this.level.addFreshEntity(abstractarrowentity);
+			this.level().addFreshEntity(abstractarrowentity);
 		}
 	}
 
@@ -245,10 +245,11 @@ public abstract class AbstractHostileHumanoid extends Monster implements RangedA
 
 	/**
 	 * Returns the Y Offset of this entity.
+	 * Reference: {@link Skeleton#ridingOffset}
 	 */
 	@Override
-	public double getMyRidingOffset() {
-		return -0.48D;
+	public float ridingOffset(Entity entity) {
+		return -0.7f;
 	}
 
 	/*********************************************************** Spawn Rules ********************************************************/
@@ -277,9 +278,9 @@ public abstract class AbstractHostileHumanoid extends Monster implements RangedA
 
 	/*********************************************************** Spawn-Equipment ********************************************************/
 
-	/**
-	 * Set Armor/Weapons/Enchants for the Entity before random equipment is assigned.
-	 */
+																																			/**
+																																			 * Set Armor/Weapons/Enchants for the Entity before random equipment is assigned.
+																																			 */
 	protected void setDefaultEquipmentAndEnchants(DifficultyInstance difficulty) {
 		// Empty by default
 	}
@@ -297,7 +298,7 @@ public abstract class AbstractHostileHumanoid extends Monster implements RangedA
 	@Override
 	public void setItemSlot(EquipmentSlot slotIn, ItemStack stack) {
 		super.setItemSlot(slotIn, stack);
-		if (!this.level.isClientSide()) {
+		if (!this.level().isClientSide()) {
 			this.reassessCombatGoal();
 		}
 	}

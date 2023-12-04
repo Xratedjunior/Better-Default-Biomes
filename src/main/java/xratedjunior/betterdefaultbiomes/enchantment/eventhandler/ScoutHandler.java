@@ -14,7 +14,7 @@ import xratedjunior.betterdefaultbiomes.enchantment.BDBEnchantments;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class ScoutHandler {
 
@@ -28,7 +28,7 @@ public class ScoutHandler {
 		Vec3 vec3d = new Vec3((double) player.getX() + 0.5D, (double) player.getY(), (double) player.getZ() + 0.5D);
 		double horizontalDistance = 2 * enchantmentLevel;
 		double verticalDistance = 2 * enchantmentLevel;
-		List<Mob> mobList = player.level.getEntitiesOfClass(Mob.class, new AABB(vec3d.x() - horizontalDistance, vec3d.y() - verticalDistance, vec3d.z() - horizontalDistance, vec3d.x() + horizontalDistance, vec3d.y() + verticalDistance, vec3d.z() + horizontalDistance));
+		List<Mob> mobList = player.level().getEntitiesOfClass(Mob.class, new AABB(vec3d.x() - horizontalDistance, vec3d.y() - verticalDistance, vec3d.z() - horizontalDistance, vec3d.x() + horizontalDistance, vec3d.y() + verticalDistance, vec3d.z() + horizontalDistance));
 		if (!mobList.isEmpty()) {
 			MobEffectInstance glowing = new MobEffectInstance(MobEffects.GLOWING, 2, 0);
 			mobList.forEach(mob -> mob.addEffect(glowing));

@@ -18,7 +18,7 @@ import xratedjunior.betterdefaultbiomes.configuration.entity.HunterConfig;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class HeadHunterEntity extends HunterEntity {
 
@@ -51,9 +51,9 @@ public class HeadHunterEntity extends HunterEntity {
 		double dy = targety - this.getEyeY();
 		double dz = target.getZ() - this.getZ();
 		float velocity = 3.0F; // Default: 1.6F
-		abstractarrowentity.shoot(dx, dy, dz, velocity, (float) (14 - this.level.getDifficulty().getId() * 4));
+		abstractarrowentity.shoot(dx, dy, dz, velocity, (float) (14 - this.level().getDifficulty().getId() * 4));
 		this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
-		this.level.addFreshEntity(abstractarrowentity);
+		this.level().addFreshEntity(abstractarrowentity);
 	}
 
 	/*********************************************************** Attributes ********************************************************/

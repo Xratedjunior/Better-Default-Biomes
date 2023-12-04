@@ -1,3 +1,25 @@
+1.20.x Changelog
+Alpha 5.0
+====
+ - Alpha 5.0.0 (Backport)
+		Backport to Minecraft 1.20.1
+
+ - Alpha 5.0.0	
+		Updated to Minecraft 1.20.2
+		* All Tags now use Data Generators.
+		* Many Tag changes.
+			* Tweaked Create compatibility.
+			* Tweaked Farmer's Delight compatibility.
+
+			- Delete Environmental compatibility.
+			(Content no longer included in their mod)
+
+			- Delete Enhanced Mushrooms compatibility.
+			(Content no longer included in their mod)
+
+		- Disabled Camel spawning by default.
+		(This is now a Vanilla Minecraft feature)
+
 1.19.x Changelog
 Alpha 4.0
 ====

@@ -1,39 +1,44 @@
 package xratedjunior.betterdefaultbiomes;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 import xratedjunior.betterdefaultbiomes.item.BDBItems;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class BDBCreativeModeTabs {
 	// Create an ItemGroup with the Mod ID as the name.
-	public static CreativeModeTab BETTER_DEFAULT_BIOMES_TAB;
+	public static final ResourceKey<CreativeModeTab> BETTER_DEFAULT_BIOMES_TAB = ResourceKey.create(Registries.CREATIVE_MODE_TAB, BetterDefaultBiomes.locate(BetterDefaultBiomes.MOD_ID));
 
-	public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
-		BetterDefaultBiomes.LOGGER.debug("Registering Creative Mode Tabs");
+	public static void registerCreativeModeTabs(RegisterEvent event) {
+		if (event.getRegistryKey().equals(Registries.CREATIVE_MODE_TAB)) {
+			BetterDefaultBiomes.LOGGER.debug("Registering Creative Mode Tabs");
 
-		BETTER_DEFAULT_BIOMES_TAB = event.registerCreativeModeTab(BetterDefaultBiomes.locate(BetterDefaultBiomes.MOD_ID), //
-				(builder) -> builder //
-						.icon(() -> new ItemStack(BDBItems.HUNTER_ARROW.get())) //
-						.title(Component.translatable("itemGroup.betterdefaultbiomes")) //
+			event.register(Registries.CREATIVE_MODE_TAB, helper -> {
+				helper.register(BETTER_DEFAULT_BIOMES_TAB, CreativeModeTab.builder() // Start builder
+						.icon(() -> new ItemStack(BDBItems.HUNTER_ARROW.get())) // Icon from item
+						.title(Component.translatable("itemGroup.betterdefaultbiomes")) // Translatable title
 						.displayItems((parameters, output) -> {
-							addItems(output);
-						}));
+							addItems(output); // Add all Items
+						}).build()); // Build
+			});
+		}
 	}
 
 	/**
 	 * Add all Items in order of: Item, Block, Spawn Egg
 	 */
 	private static void addItems(CreativeModeTab.Output output) {
-		for (RegistryObject<Item> spawnEgg : BDBItems.ITEMS) {
-			output.accept(spawnEgg.get());
+		for (RegistryObject<Item> item : BDBItems.ITEMS) {
+			output.accept(item.get());
 		}
 	}
 }

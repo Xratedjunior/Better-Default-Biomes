@@ -17,7 +17,7 @@ import xratedjunior.betterdefaultbiomes.entity.projectile.DuckEggEntity;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 @OnlyIn(Dist.CLIENT)
 public class DuckEggRenderer extends EntityRenderer<DuckEggEntity> {
@@ -38,7 +38,7 @@ public class DuckEggRenderer extends EntityRenderer<DuckEggEntity> {
 			matrixStackIn.mulPose(Axis.YP.rotationDegrees(180.0F));
 
 			Minecraft mc = Minecraft.getInstance();
-			mc.getItemRenderer().renderStatic(entityIn.getItem(), ItemDisplayContext.GROUND, packedLightIn, OverlayTexture.NO_OVERLAY, matrixStackIn, bufferIn, entityIn.getLevel(), entityIn.getId());
+			mc.getItemRenderer().renderStatic(entityIn.getItem(), ItemDisplayContext.GROUND, packedLightIn, OverlayTexture.NO_OVERLAY, matrixStackIn, bufferIn, entityIn.level(), entityIn.getId());
 
 			matrixStackIn.popPose();
 			super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);

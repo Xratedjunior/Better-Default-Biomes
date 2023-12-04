@@ -1,20 +1,27 @@
 {
-  "conditions": [
-      {
-      "type": "forge:mod_loaded",
-      "modid": "create"
-    }
-  ],
-  "type": "create:cutting",
-  "ingredients": [
+  "type": "forge:conditional",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "create"
+  },
+  "recipes": [
     {
-      "item": "betterdefaultbiomes:swamp_willow_wood"
+      "type": "create:cutting",
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "create"
+      },
+      "ingredients": [
+        {
+          "item": "betterdefaultbiomes:swamp_willow_wood"
+        }
+      ],
+  	  "results": [
+        {
+      	  "item": "betterdefaultbiomes:swamp_willow_wood_stripped"
+   	    }
+   	  ],
+   	  "processingTime": 50
     }
-  ], 
-  "results": [
-    {
-      "item": "betterdefaultbiomes:swamp_willow_wood_stripped"
-    }
-  ],
-  "processingTime": 50
+  ]
 }

@@ -2,7 +2,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
 }
 
 version = "${minecraft_version}-Alpha ${mod_version}"
@@ -28,14 +28,11 @@ minecraft {
     runs {
         // applies to all the run configs below
         configureEach {
-            // Logging Data
+			// Logging Data
             property 'forge.logging.markers', 'REGISTRIES'
 
             // Logging Level
             property 'forge.logging.console.level', 'debug'
-
-            // Source Sets
-            property 'forge.enabledGameTestNamespaces', mod_id
 
             mods {
                 "${mod_id}" {
@@ -45,27 +42,25 @@ minecraft {
         }
 
         client {
-            workingDirectory project.file('run/client')
+			workingDirectory project.file('run/client')
         
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         server {
-        	workingDirectory project.file('run/server')
-        	
+			workingDirectory project.file('run/server')
+        
             property 'forge.enabledGameTestNamespaces', mod_id
-            args '--nogui'
+            // args '--nogui'
         }
 
         // This run config launches GameTestServer and runs all registered gametests, then exits.
         // By default, the server will crash when no gametests are provided.
         // The gametest system is also enabled by default for other run configs under the /test command.
-        gameTestServer {
-        	workingDirectory project.file('run/game_test_server')
-        	
-            property 'forge.enabledGameTestNamespaces', mod_id
-        }
+        // gameTestServer {
+            // property 'forge.enabledGameTestNamespaces', mod_id
+        // }
 
         data {
             // example of overriding the workingDirectory set in configureEach above
@@ -114,6 +109,7 @@ tasks.named('processResources', ProcessResources).configure {
     }
 }
 
+// Example for how to get properties into the manifest for reading at runtime.
 tasks.named('jar', Jar).configure {
     manifest {
         attributes([

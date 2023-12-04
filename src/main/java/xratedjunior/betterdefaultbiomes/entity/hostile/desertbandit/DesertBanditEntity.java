@@ -57,7 +57,7 @@ import xratedjunior.betterdefaultbiomes.entity.projectile.BanditArrowEntity;
  * TODO Ride Horses and/or Camels?
  * 
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class DesertBanditEntity extends AbstractHostileHumanoid {
 	private static final Item BANDIT_SWORD = Items.IRON_SWORD;
@@ -177,7 +177,7 @@ public class DesertBanditEntity extends AbstractHostileHumanoid {
 	protected void setDefaultEquipmentAndEnchants(DifficultyInstance difficulty) {
 		ItemStack desertBanditSword = new ItemStack(BANDIT_SWORD);
 		Map<Enchantment, Integer> map = Maps.newHashMap();
-		if (this.level.getDifficulty() == Difficulty.HARD) {
+		if (this.level().getDifficulty() == Difficulty.HARD) {
 			map.put(Enchantments.SHARPNESS, 1);
 		}
 		map.put(Enchantments.UNBREAKING, 1);

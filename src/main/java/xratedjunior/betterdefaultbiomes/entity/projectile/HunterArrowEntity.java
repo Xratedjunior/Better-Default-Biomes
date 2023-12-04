@@ -1,7 +1,5 @@
 package xratedjunior.betterdefaultbiomes.entity.projectile;
 
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -9,7 +7,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.network.NetworkHooks;
 import xratedjunior.betterdefaultbiomes.entity.BDBEntityTypes;
 import xratedjunior.betterdefaultbiomes.entity.projectile.dispenser.CustomDispenserBehavior;
 import xratedjunior.betterdefaultbiomes.item.BDBItems;
@@ -17,7 +14,7 @@ import xratedjunior.betterdefaultbiomes.item.item.HunterArrowItem;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class HunterArrowEntity extends AbstractArrow {
 
@@ -61,15 +58,8 @@ public class HunterArrowEntity extends AbstractArrow {
 
 	public static HunterArrowEntity shootHunterArrow(LivingEntity livingEntity, ItemStack itemStack, float damage) {
 		HunterArrowItem arrowitem = itemStack.getItem() instanceof HunterArrowItem ? (HunterArrowItem) itemStack.getItem() : ((HunterArrowItem) BDBItems.HUNTER_ARROW.get());
-		HunterArrowEntity abstractarrowentity = arrowitem.createArrow(livingEntity.level, itemStack, livingEntity);
+		HunterArrowEntity abstractarrowentity = arrowitem.createArrow(livingEntity.level(), itemStack, livingEntity);
 		abstractarrowentity.setEnchantmentEffectsFromEntity(livingEntity, damage);
 		return abstractarrowentity;
-	}
-
-	/*********************************************************** Networking ********************************************************/
-
-	@Override
-	public Packet<ClientGamePacketListener> getAddEntityPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 }

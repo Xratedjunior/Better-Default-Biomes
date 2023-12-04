@@ -15,7 +15,7 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "tag": "forge:tools/shears"
+                    "tag": "forge:shears"
                   }
                 }
               ]

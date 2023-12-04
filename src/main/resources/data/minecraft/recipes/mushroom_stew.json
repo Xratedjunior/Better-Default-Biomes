@@ -1,4 +1,5 @@
 {
+  "_comment": "Add Vanilla recipe to group.",
   "type": "minecraft:crafting_shapeless",
   "group": "mushroom_stew",
   "ingredients": [

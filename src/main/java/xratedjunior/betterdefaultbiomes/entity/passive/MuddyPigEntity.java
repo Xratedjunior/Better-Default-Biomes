@@ -5,16 +5,18 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import xratedjunior.betterdefaultbiomes.entity.BDBEntityTypes;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class MuddyPigEntity extends Pig {
 
@@ -36,18 +38,25 @@ public class MuddyPigEntity extends Pig {
 	/**
 	 * Drop vanilla pig loot table, but also the muddy pig loot table.
 	 * This makes sure that people still have customization.
+	 * Copy from: {@link LivingEntity#dropFromLootTable}
 	 */
 	@Override
 	protected void dropFromLootTable(DamageSource damageSource, boolean lastHurtByPlayer) {
-		LootContext.Builder lootcontext$builder = this.createLootContext(lastHurtByPlayer, damageSource);
-		LootContext lootContext = lootcontext$builder.create(LootContextParamSets.ENTITY);
+		// Get LootTable Parameters
+		LootParams.Builder lootparams$builder = (new LootParams.Builder((ServerLevel) this.level())).withParameter(LootContextParams.THIS_ENTITY, this).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.DAMAGE_SOURCE, damageSource).withOptionalParameter(LootContextParams.KILLER_ENTITY, damageSource.getEntity()).withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, damageSource.getDirectEntity());
+		if (lastHurtByPlayer && this.lastHurtByPlayer != null) {
+			lootparams$builder = lootparams$builder.withParameter(LootContextParams.LAST_DAMAGE_PLAYER, this.lastHurtByPlayer).withLuck(this.lastHurtByPlayer.getLuck());
+		}
+		LootParams lootparams = lootparams$builder.create(LootContextParamSets.ENTITY);
+
 		// Drop vanilla pig loot table.
 		ResourceLocation pigLootTable = EntityType.PIG.getDefaultLootTable();
-		LootTable lootTable = this.level.getServer().getLootTables().get(pigLootTable);
-		lootTable.getRandomItems(lootContext).forEach(this::spawnAtLocation);
+		LootTable loottable = this.level().getServer().getLootData().getLootTable(pigLootTable);
+		loottable.getRandomItems(lootparams, this.getLootTableSeed(), this::spawnAtLocation);
+
 		// Drop muddy pig loot table.
-		ResourceLocation muddyPigLoottable = this.getLootTable();
-		lootTable = this.level.getServer().getLootTables().get(muddyPigLoottable);
-		lootTable.getRandomItems(lootContext).forEach(this::spawnAtLocation);
+		ResourceLocation muddyPigLootTable = this.getLootTable();
+		loottable = this.level().getServer().getLootData().getLootTable(muddyPigLootTable);
+		loottable.getRandomItems(lootparams, this.getLootTableSeed(), this::spawnAtLocation);
 	}
 }

@@ -2,7 +2,6 @@ package xratedjunior.betterdefaultbiomes.util;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.annotation.Nullable;
 
@@ -17,6 +16,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.AttributeModifierTemplate;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
@@ -28,7 +28,7 @@ import net.minecraft.world.level.biome.Biome;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class BDBHelper {
 	public static final Component HOLD_SHIFT_TOOLTIP = Component.translatable("tooltip.betterdefaultbiomes.hold_shift").withStyle(ChatFormatting.DARK_GRAY);
@@ -48,6 +48,7 @@ public class BDBHelper {
 
 	/**
 	 * Copied from {@link PotionUtils#addPotionTooltip(ItemStack, List, float)}
+	 * But added support for custom colors
 	 */
 	public static void addPotionTooltip(MobEffectInstance mobEffectInstance, List<Component> tooltip, float durationMultiplier, @Nullable ChatFormatting customColor) {
 		// Create new list to store attributes
@@ -55,14 +56,12 @@ public class BDBHelper {
 
 		MutableComponent effectName = Component.translatable(mobEffectInstance.getDescriptionId());
 		MobEffect mobEffect = mobEffectInstance.getEffect();
-		Map<Attribute, AttributeModifier> attributeModifiers = mobEffect.getAttributeModifiers();
+		Map<Attribute, AttributeModifierTemplate> attributeModifiers = mobEffect.getAttributeModifiers();
 
 		// Apply effect amplifier (level) to attribute modifiers
 		if (!attributeModifiers.isEmpty()) {
-			for (Entry<Attribute, AttributeModifier> modifier : attributeModifiers.entrySet()) {
-				AttributeModifier attributemodifier = modifier.getValue();
-				AttributeModifier amplifiedAttributeModifier = new AttributeModifier(attributemodifier.getName(), mobEffect.getAttributeModifierValue(mobEffectInstance.getAmplifier(), attributemodifier), attributemodifier.getOperation());
-				attributeList.add(new Pair<>(modifier.getKey(), amplifiedAttributeModifier));
+			for (Map.Entry<Attribute, AttributeModifierTemplate> modifier : attributeModifiers.entrySet()) {
+				attributeList.add(new Pair<>(modifier.getKey(), modifier.getValue().create(mobEffectInstance.getAmplifier())));
 			}
 		}
 

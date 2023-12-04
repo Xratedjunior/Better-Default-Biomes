@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import org.joml.Vector3f;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -13,13 +15,13 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
@@ -63,7 +65,7 @@ import xratedjunior.betterdefaultbiomes.entity.ai.goal.CamelFollowCaravanGoal;
  * TODO Disconnect from Llama. Maybe put together with Vanilla Camel?
  * 
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class CamelEntity extends Llama {
 	protected Ingredient foodItems = Ingredient.of(BreedingConfigRegistry.getTemptationItemStacks(this.getBreedingConfig()).stream());
@@ -214,20 +216,11 @@ public class CamelEntity extends Llama {
 	}
 
 	/**
-	 * Returns the Y offset from the entity's position for any entity riding this one.
+	 * Parameters: Left/Right, Up/Down, Front/Back
 	 */
 	@Override
-	public double getPassengersRidingOffset() {
-		return (double) this.getBbHeight() * 0.55D;
-	}
-
-	@Override
-	public void positionRider(Entity passenger) {
-		if (this.hasPassenger(passenger)) {
-			float zOffset = Mth.cos(this.yBodyRot * ((float) Math.PI / 180F));
-			float xOffset = Mth.sin(this.yBodyRot * ((float) Math.PI / 180F));
-			passenger.setPos(this.getX() + (double) (0.3F * xOffset), this.getY() + this.getPassengersRidingOffset() + passenger.getMyRidingOffset(), this.getZ() - (double) (0.16F * zOffset));
-		}
+	protected Vector3f getPassengerAttachmentPoint(Entity entity, EntityDimensions dimensions, float scale) {
+		return new Vector3f(0.0F, dimensions.height - (this.isBaby() ? 0.85F : 0.52F) * scale, -0.14F * scale);
 	}
 
 	/*********************************************************** Water Bucket ********************************************************/
@@ -276,7 +269,7 @@ public class CamelEntity extends Llama {
 			player.setItemInHand(hand, waterBucket);
 			this.setWaterCooldown(6000);
 			this.setHasEaten(false);
-			return InteractionResult.sidedSuccess(this.level.isClientSide());
+			return InteractionResult.sidedSuccess(this.level().isClientSide());
 		}
 		return super.mobInteract(player, hand);
 	}
@@ -294,7 +287,7 @@ public class CamelEntity extends Llama {
 			itemInHand.shrink(1);
 		}
 
-		if (this.level.isClientSide) {
+		if (this.level().isClientSide) {
 			return InteractionResult.CONSUME;
 		} else {
 			return isEating ? InteractionResult.SUCCESS : InteractionResult.PASS;
@@ -325,7 +318,7 @@ public class CamelEntity extends Llama {
 					int decreaseTemperAmount = (int) Math.ceil(growthAmount / 20);
 
 					//Set in love for breeding
-					if (!this.level.isClientSide() && this.getAge() == 0 && this.isTamed() && !this.isInLove() && isBreedingItem) {
+					if (!this.level().isClientSide() && this.getAge() == 0 && this.isTamed() && !this.isInLove() && isBreedingItem) {
 						this.setInLove(player);
 						eat = true;
 					}
@@ -338,10 +331,10 @@ public class CamelEntity extends Llama {
 
 					//Help child grow
 					if (this.isBaby() && growthAmount > 0) {
-						this.level.addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
-						this.level.addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
+						this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
+						this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
 
-						if (!this.level.isClientSide()) {
+						if (!this.level().isClientSide()) {
 							this.ageUp(growthAmount);
 						}
 						eat = true;
@@ -349,7 +342,7 @@ public class CamelEntity extends Llama {
 
 					if (decreaseTemperAmount > 0 && !this.isTamed() && this.getTemper() < this.getMaxTemper()) {
 						eat = true;
-						if (!this.level.isClientSide()) {
+						if (!this.level().isClientSide()) {
 							this.modifyTemper(decreaseTemperAmount);
 						}
 					}
@@ -360,7 +353,7 @@ public class CamelEntity extends Llama {
 						if (!this.isSilent()) {
 							SoundEvent soundevent = this.getEatingSound();
 							if (soundevent != null) {
-								this.level.playSound((Player) null, this.getX(), this.getY(), this.getZ(), this.getEatingSound(), this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+								this.level().playSound((Player) null, this.getX(), this.getY(), this.getZ(), this.getEatingSound(), this.getSoundSource(), 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
 							}
 						}
 					}
@@ -396,6 +389,6 @@ public class CamelEntity extends Llama {
 	}
 
 	protected CamelEntity makeBaby() {
-		return BDBEntityTypes.CAMEL.get().create(this.level);
+		return BDBEntityTypes.CAMEL.get().create(this.level());
 	}
 }

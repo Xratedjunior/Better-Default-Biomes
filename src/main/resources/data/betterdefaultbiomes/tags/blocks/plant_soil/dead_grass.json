@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#minecraft:dirt",
-    "minecraft:farmland",
-    "#minecraft:sand",
-    "#minecraft:terracotta"
-  ]
-}

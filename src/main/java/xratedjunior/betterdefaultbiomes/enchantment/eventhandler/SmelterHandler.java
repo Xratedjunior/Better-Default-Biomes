@@ -14,6 +14,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -31,7 +32,7 @@ import xratedjunior.betterdefaultbiomes.enchantment.BDBEnchantments;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class SmelterHandler {
 	protected final static Random rand = new Random();
@@ -67,15 +68,15 @@ public class SmelterHandler {
 
 			for (ItemStack drop : blockDrops) {
 				// Check furnace recipes for each drop.
-				Optional<SmeltingRecipe> furnaceRecipe = world.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(drop), world);
+				Optional<RecipeHolder<SmeltingRecipe>> furnaceRecipe = world.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(drop), world);
 				if (furnaceRecipe.isPresent()) {
 					// Get Smelting result.
-					ItemStack smeltedItem = furnaceRecipe.get().getResultItem(world.registryAccess());
+					ItemStack smeltedItem = furnaceRecipe.get().value().getResultItem(world.registryAccess());
 					if (!smeltedItem.isEmpty()) {
 						// Get drop count with Fortune, etc.
 						int itemCount = drop.getCount();
 						// Drop Smelting experience.
-						float smeltingXP = furnaceRecipe.get().getExperience();
+						float smeltingXP = furnaceRecipe.get().value().getExperience();
 						// Round XP up to the nearest integer.
 						block.popExperience((ServerLevel) world, pos, Mth.ceil(smeltingXP * itemCount));
 

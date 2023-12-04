@@ -19,7 +19,7 @@ import net.minecraft.world.level.Level;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class DesertBanditArcherEntity extends DesertBanditEntity {
 
@@ -39,7 +39,7 @@ public class DesertBanditArcherEntity extends DesertBanditEntity {
 		int flameChance = DesertBanditEntity.flameChance;
 		int infinityChance = DesertBanditEntity.infinityChance;
 		Map<Enchantment, Integer> map = Maps.newHashMap();
-		if (entity.level.getDifficulty() == Difficulty.HARD) {
+		if (entity.level().getDifficulty() == Difficulty.HARD) {
 			map.put(Enchantments.POWER_ARROWS, 2);
 			map.put(Enchantments.PUNCH_ARROWS, 1);
 			if (entity.random.nextInt(flameChance) == 0) {

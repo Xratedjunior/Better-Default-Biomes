@@ -21,7 +21,7 @@ import net.minecraft.world.level.Level;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class DesertBanditArbalistEntity extends DesertBanditEntity {
 
@@ -48,7 +48,7 @@ public class DesertBanditArbalistEntity extends DesertBanditEntity {
 		int multiShotChance = DesertBanditEntity.multiShotChance;
 		Map<Enchantment, Integer> map = Maps.newHashMap();
 		map.put(Enchantments.PIERCING, 1);
-		if (entity.level.getDifficulty() == Difficulty.HARD) {
+		if (entity.level().getDifficulty() == Difficulty.HARD) {
 			map.put(Enchantments.QUICK_CHARGE, 2);
 			if (entity.random.nextInt(multiShotChance) == 0) {
 				map.put(Enchantments.MULTISHOT, 1);

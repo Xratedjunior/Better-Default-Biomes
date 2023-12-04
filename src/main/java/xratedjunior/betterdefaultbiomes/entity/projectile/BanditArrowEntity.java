@@ -1,7 +1,5 @@
 package xratedjunior.betterdefaultbiomes.entity.projectile;
 
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -10,7 +8,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.network.NetworkHooks;
 import xratedjunior.betterdefaultbiomes.entity.BDBEntityTypes;
 import xratedjunior.betterdefaultbiomes.entity.projectile.dispenser.CustomDispenserBehavior;
 import xratedjunior.betterdefaultbiomes.item.BDBItems;
@@ -19,7 +16,7 @@ import xratedjunior.betterdefaultbiomes.item.item.HunterArrowItem;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class BanditArrowEntity extends AbstractArrow {
 
@@ -56,7 +53,7 @@ public class BanditArrowEntity extends AbstractArrow {
 		int effectDurationTicks = 200;
 		MobEffectInstance weaknessEffect = new MobEffectInstance(MobEffects.WEAKNESS, effectDurationTicks, 0);
 		// Increase weakness level when difficulty is set to hard
-		if (living.level.getDifficulty() == Difficulty.HARD) {
+		if (living.level().getDifficulty() == Difficulty.HARD) {
 			weaknessEffect = new MobEffectInstance(MobEffects.WEAKNESS, effectDurationTicks, 1);
 		}
 
@@ -65,15 +62,8 @@ public class BanditArrowEntity extends AbstractArrow {
 
 	public static BanditArrowEntity shootBanditArrow(LivingEntity livingEntity, ItemStack itemStack, float damage) {
 		BanditArrowItem arrowitem = itemStack.getItem() instanceof HunterArrowItem ? (BanditArrowItem) itemStack.getItem() : ((BanditArrowItem) BDBItems.BANDIT_ARROW.get());
-		BanditArrowEntity abstractarrowentity = arrowitem.createArrow(livingEntity.level, itemStack, livingEntity);
+		BanditArrowEntity abstractarrowentity = arrowitem.createArrow(livingEntity.level(), itemStack, livingEntity);
 		abstractarrowentity.setEnchantmentEffectsFromEntity(livingEntity, damage);
 		return abstractarrowentity;
-	}
-
-	/*********************************************************** Networking ********************************************************/
-
-	@Override
-	public Packet<ClientGamePacketListener> getAddEntityPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 }

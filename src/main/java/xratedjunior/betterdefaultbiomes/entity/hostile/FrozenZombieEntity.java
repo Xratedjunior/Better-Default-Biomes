@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class FrozenZombieEntity extends Zombie {
 
@@ -22,14 +22,14 @@ public class FrozenZombieEntity extends Zombie {
 	@Override
 	public boolean doHurtTarget(Entity entityIn) {
 		if (super.doHurtTarget(entityIn)) {
-			Difficulty difficulty = this.level.getDifficulty();
+			Difficulty difficulty = this.level().getDifficulty();
 			if (entityIn instanceof LivingEntity && !difficulty.equals(Difficulty.PEACEFUL)) {
 				int seconds = 4;
 				int level = 1;
-				if (this.level.getDifficulty().equals(Difficulty.NORMAL)) {
+				if (this.level().getDifficulty().equals(Difficulty.NORMAL)) {
 					seconds = 8;
 					level = 2;
-				} else if (this.level.getDifficulty().equals(Difficulty.HARD)) {
+				} else if (this.level().getDifficulty().equals(Difficulty.HARD)) {
 					seconds = 16;
 					level = 3;
 				}

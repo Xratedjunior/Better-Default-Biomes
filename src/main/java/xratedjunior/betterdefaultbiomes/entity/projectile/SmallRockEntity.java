@@ -2,8 +2,6 @@ package xratedjunior.betterdefaultbiomes.entity.projectile;
 
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -18,7 +16,6 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.network.NetworkHooks;
 import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
 import xratedjunior.betterdefaultbiomes.entity.BDBEntityTypes;
 import xratedjunior.betterdefaultbiomes.entity.projectile.dispenser.CustomDispenserBehavior;
@@ -26,7 +23,7 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class SmallRockEntity extends ThrowableItemProjectile {
 	private final float damage = 2.0F; // 1 Heart
@@ -91,8 +88,8 @@ public class SmallRockEntity extends ThrowableItemProjectile {
 		super.onHit(result);
 
 		// Remove entity
-		if (!this.level.isClientSide()) {
-			this.level.broadcastEntityEvent(this, this.removeStateID);
+		if (!this.level().isClientSide()) {
+			this.level().broadcastEntityEvent(this, this.removeStateID);
 			this.discard();
 		}
 
@@ -108,8 +105,8 @@ public class SmallRockEntity extends ThrowableItemProjectile {
 
 		// Drop on the ground
 		else {
-			ItemEntity item = new ItemEntity(this.level, x, y, z, this.getItem());
-			this.level.addFreshEntity(item);
+			ItemEntity item = new ItemEntity(this.level(), x, y, z, this.getItem());
+			this.level().addFreshEntity(item);
 		}
 	}
 
@@ -125,15 +122,8 @@ public class SmallRockEntity extends ThrowableItemProjectile {
 		//	Break particles when hitting the ground
 		if (id == this.removeStateID) {
 			for (int i = 0; i < 8; ++i) {
-				this.level.addParticle(new ItemParticleOption(ParticleTypes.ITEM, this.getItem()), this.getX(), this.getY(), this.getZ(), ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D);
+				this.level().addParticle(new ItemParticleOption(ParticleTypes.ITEM, this.getItem()), this.getX(), this.getY(), this.getZ(), ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D);
 			}
 		}
-	}
-
-	/*********************************************************** Networking ********************************************************/
-
-	@Override
-	public Packet<ClientGamePacketListener> getAddEntityPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 }

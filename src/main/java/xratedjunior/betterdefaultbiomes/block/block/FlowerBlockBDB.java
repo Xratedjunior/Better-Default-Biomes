@@ -23,14 +23,14 @@ import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class FlowerBlockBDB extends FlowerBlock implements BonemealableBlock {
 	private static final VoxelShape NORMAL = makeSquareShape(2.0D, 8.0D);
 	private static final VoxelShape LARGE = makeSquareShape(1.0D, 14.0D);
 
 	public FlowerBlockBDB(Supplier<MobEffect> effect, int effectDuration, BlockBehaviour.Properties properties) {
-		super(effect, effectDuration, properties);
+		super(effect.get(), effectDuration, properties);
 	}
 
 	private static VoxelShape makeSquareShape(double widthPixelOffset, double yPixelHeight) {
@@ -64,7 +64,7 @@ public class FlowerBlockBDB extends FlowerBlock implements BonemealableBlock {
 	 * Enables spawning drops
 	 */
 	@Override
-	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state) {
 		return true;
 	}
 

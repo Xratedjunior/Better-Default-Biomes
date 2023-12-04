@@ -13,17 +13,18 @@ import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 
 /**
- * UPDATE 1.20, FarmersDelight is not updated to 1.19.4
- * For now at least not spamming any errors, TODO implement and check ItemStack working?
- * 
+ * TODO implement and check ItemStack working? (More than max stack size)
  * Prevent error spamming in the console if the Farmers Delight mod is not loaded.
- * REFERENCE: {@linkplain https://github.com/vectorwing/FarmersDelight/blob/1.19/src/main/java/vectorwing/farmersdelight/common/loot/modifier/AddItemModifier.java}
+ * REFERENCE: {@linkplain https://github.com/vectorwing/FarmersDelight/blob/1.19/src/main/java/vectorwing/farmersdelight/common/loot/modifier/AddItemModifier.java#L18}
  * 
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class AddItemModifier extends LootModifier {
-	public static final Supplier<Codec<AddItemModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.create(inst -> codecStart(inst).and(ItemStack.CODEC.fieldOf("result").forGetter(AddItemModifier::getItemStack)).apply(inst, AddItemModifier::new)));
+	public static final Supplier<Codec<AddItemModifier>> CODEC = Suppliers.memoize(() -> // Supplier  
+	RecordCodecBuilder.create(inst -> codecStart(inst).and( // Add to CodecBuilder
+			ItemStack.CODEC.fieldOf("result").forGetter(AddItemModifier::getItemStack) // ItemStack
+	).apply(inst, AddItemModifier::new)));
 	public final ItemStack addedItem;
 
 	/**
@@ -33,7 +34,7 @@ public class AddItemModifier extends LootModifier {
 		super(conditionsIn);
 		this.addedItem = addedItemIn;
 	}
-	
+
 	public ItemStack getItemStack() {
 		return this.addedItem;
 	}

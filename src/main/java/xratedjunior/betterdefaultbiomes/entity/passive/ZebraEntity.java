@@ -16,7 +16,7 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class ZebraEntity extends BDBAnimalEntityAbstract {
 
@@ -60,13 +60,14 @@ public class ZebraEntity extends BDBAnimalEntityAbstract {
 		return BDBSoundEvents.ENTITY_ZEBRA_DEATH.get();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn) {
-		if (!blockIn.getMaterial().isLiquid()) {
-			BlockState blockstate = this.level.getBlockState(pos.above());
-			SoundType soundtype = blockIn.getSoundType(level, pos, this);
+		if (!blockIn.liquid()) {
+			BlockState blockstate = this.level().getBlockState(pos.above());
+			SoundType soundtype = blockIn.getSoundType(this.level(), pos, this);
 			if (blockstate.is(Blocks.SNOW)) {
-				soundtype = blockstate.getSoundType(level, pos, this);
+				soundtype = blockstate.getSoundType(this.level(), pos, this);
 			} else if (soundtype == SoundType.WOOD) {
 				this.playSound(SoundEvents.HORSE_STEP_WOOD, soundtype.getVolume() * 0.15F, soundtype.getPitch());
 			} else {

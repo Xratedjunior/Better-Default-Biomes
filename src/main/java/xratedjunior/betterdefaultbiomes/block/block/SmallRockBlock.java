@@ -31,6 +31,9 @@ import xratedjunior.betterdefaultbiomes.data.BDBTags;
 import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
+ * UPDATE ADD TUFF, DRIPSTONE, CALCITE, (SMOOTH) BASALT, PRISMARINE?, BLACKSTONE?, ENDSTONE? VARIANTS
+ * UPDATE Do not create drops when throwing rocks in creative mode
+ * 
  * @author  Xrated_junior
  * @version 1.19.4-Alpha 4.0.0
  */

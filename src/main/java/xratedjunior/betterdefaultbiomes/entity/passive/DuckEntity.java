@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import org.joml.Vector3f;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -58,7 +60,7 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  *          TODO extend if possible {@link Chicken} or {@link BDBAnimalEntityAbstract} and adjust {@link DuckRenderer} after.
  */
 public class DuckEntity extends Animal {
@@ -215,7 +217,7 @@ public class DuckEntity extends Animal {
 	}
 
 	private DuckEntity createChild() {
-		return BDBEntityTypes.DUCK.get().create(this.level);
+		return BDBEntityTypes.DUCK.get().create(this.level());
 	}
 
 	/*********************************************************** Interact ********************************************************/
@@ -235,7 +237,7 @@ public class DuckEntity extends Animal {
 	public InteractionResult playerInteractEating(Player player, ItemStack itemStackInHand) {
 		boolean flag = this.handleEating(player, itemStackInHand);
 
-		if (this.level.isClientSide()) {
+		if (this.level().isClientSide()) {
 			return InteractionResult.CONSUME;
 		} else {
 			return flag ? InteractionResult.SUCCESS : InteractionResult.PASS;
@@ -255,7 +257,7 @@ public class DuckEntity extends Animal {
 					int growthAmount = breedingItem.getGrowthAmount();
 
 					//Set in love for breeding
-					if (!this.level.isClientSide() && this.getAge() == 0 && !this.isInLove() && isBreedingItem) {
+					if (!this.level().isClientSide() && this.getAge() == 0 && !this.isInLove() && isBreedingItem) {
 						this.setInLove(player);
 						eat = true;
 					}
@@ -268,10 +270,10 @@ public class DuckEntity extends Animal {
 
 					//Help child grow
 					if (this.isBaby() && growthAmount > 0) {
-						this.level.addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
-						this.level.addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
+						this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
+						this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), 0.0D, 0.0D, 0.0D);
 
-						if (!this.level.isClientSide()) {
+						if (!this.level().isClientSide()) {
 							this.ageUp(growthAmount);
 						}
 						eat = true;
@@ -292,18 +294,18 @@ public class DuckEntity extends Animal {
 
 	/*********************************************************** DuckJockey ********************************************************/
 
-	@SuppressWarnings("unused")
 	@Override
-	public void positionRider(Entity passenger) {
-		super.positionRider(passenger);
-		float f = Mth.sin(this.yBodyRot * ((float) Math.PI / 180F));
-		float f1 = Mth.cos(this.yBodyRot * ((float) Math.PI / 180F));
-		float f2 = 0.1F;
-		float f3 = 0.0F;
-		passenger.setPos(this.getX() + (double) (0.1F * f), this.getY(0.5D) + passenger.getMyRidingOffset() + 0.0D, this.getZ() - (double) (0.1F * f1));
-		if (passenger instanceof LivingEntity) {
-			((LivingEntity) passenger).yBodyRot = this.yBodyRot;
+	protected void positionRider(Entity entity, Entity.MoveFunction move) {
+		super.positionRider(entity, move);
+		if (entity instanceof LivingEntity) {
+			((LivingEntity) entity).yBodyRot = this.yBodyRot;
 		}
+
+	}
+
+	@Override
+	protected Vector3f getPassengerAttachmentPoint(Entity entity, EntityDimensions dimensions, float scale) {
+		return new Vector3f(0.0F, dimensions.height, -0.1F * scale);
 	}
 
 	/**
@@ -344,20 +346,20 @@ public class DuckEntity extends Animal {
 		super.aiStep();
 		this.oFlap = this.wingRotation;
 		this.oFlapSpeed = this.destPos;
-		this.destPos = (float) ((double) this.destPos + (double) (this.onGround || (this.isInWater() && !this.wasEyeInWater) ? -1 : 4) * 0.3D);
+		this.destPos = (float) ((double) this.destPos + (double) (this.onGround() || (this.isInWater() && !this.wasEyeInWater) ? -1 : 4) * 0.3D);
 		this.destPos = Mth.clamp(this.destPos, 0.0F, 1.0F);
-		if ((!this.onGround && (!this.isInWater() && this.wasEyeInWater)) && this.wingRotDelta < 1.0F) {
+		if ((!this.onGround() && (!this.isInWater() && this.wasEyeInWater)) && this.wingRotDelta < 1.0F) {
 			this.wingRotDelta = 1.0F;
 		}
 
 		this.wingRotDelta = (float) ((double) this.wingRotDelta * 0.9D);
 		Vec3 vector3d = this.getDeltaMovement();
-		if ((!this.onGround && (!this.isInWater() && this.wasEyeInWater)) && vector3d.y < 0.0D) {
+		if ((!this.onGround() && (!this.isInWater() && this.wasEyeInWater)) && vector3d.y < 0.0D) {
 			this.setDeltaMovement(vector3d.multiply(1.0D, 0.6D, 1.0D));
 		}
 
 		this.wingRotation += this.wingRotDelta * 2.0F;
-		if (!this.level.isClientSide() && this.isAlive() && !this.isBaby() && !this.isDuckJockey() && --this.timeUntilNextEgg <= 0) {
+		if (!this.level().isClientSide() && this.isAlive() && !this.isBaby() && !this.isDuckJockey() && --this.timeUntilNextEgg <= 0) {
 			this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 			this.spawnAtLocation(BDBItems.DUCK_EGG.get());
 			this.timeUntilNextEgg = this.random.nextInt(6000) + 6000;

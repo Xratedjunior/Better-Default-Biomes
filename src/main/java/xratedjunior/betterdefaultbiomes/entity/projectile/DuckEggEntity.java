@@ -2,8 +2,6 @@ package xratedjunior.betterdefaultbiomes.entity.projectile;
 
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
@@ -14,7 +12,6 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.network.NetworkHooks;
 import xratedjunior.betterdefaultbiomes.entity.BDBEntityTypes;
 import xratedjunior.betterdefaultbiomes.entity.passive.DuckEntity;
 import xratedjunior.betterdefaultbiomes.entity.projectile.dispenser.CustomDispenserBehavior;
@@ -24,7 +21,7 @@ import xratedjunior.betterdefaultbiomes.item.BDBItems;
  * Referenced from {@link ThrownEgg}
  * 
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class DuckEggEntity extends ThrowableItemProjectile {
 
@@ -67,7 +64,7 @@ public class DuckEggEntity extends ThrowableItemProjectile {
 	@Override
 	protected void onHit(HitResult result) {
 		super.onHit(result);
-		if (!this.level.isClientSide()) {
+		if (!this.level().isClientSide()) {
 			// 12.5% chance to spawn chicken
 			if (this.random.nextInt(8) == 0) {
 				int i = 1;
@@ -78,14 +75,14 @@ public class DuckEggEntity extends ThrowableItemProjectile {
 
 				// Spawn a Ducks
 				for (int j = 0; j < i; ++j) {
-					DuckEntity duckEntity = BDBEntityTypes.DUCK.get().create(this.level);
+					DuckEntity duckEntity = BDBEntityTypes.DUCK.get().create(this.level());
 					duckEntity.setAge(-24000);
 					duckEntity.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
-					this.level.addFreshEntity(duckEntity);
+					this.level().addFreshEntity(duckEntity);
 				}
 			}
 
-			this.level.broadcastEntityEvent(this, (byte) 3);
+			this.level().broadcastEntityEvent(this, (byte) 3);
 			this.discard();
 		}
 	}
@@ -101,15 +98,8 @@ public class DuckEggEntity extends ThrowableItemProjectile {
 		//	Break particles when hitting the ground
 		if (id == 3) {
 			for (int i = 0; i < 8; ++i) {
-				this.level.addParticle(new ItemParticleOption(ParticleTypes.ITEM, this.getItem()), this.getX(), this.getY(), this.getZ(), ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D);
+				this.level().addParticle(new ItemParticleOption(ParticleTypes.ITEM, this.getItem()), this.getX(), this.getY(), this.getZ(), ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D, ((double) this.random.nextFloat() - 0.5D) * 0.08D);
 			}
 		}
-	}
-
-	/*********************************************************** Networking ********************************************************/
-
-	@Override
-	public Packet<ClientGamePacketListener> getAddEntityPacket() {
-		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 }

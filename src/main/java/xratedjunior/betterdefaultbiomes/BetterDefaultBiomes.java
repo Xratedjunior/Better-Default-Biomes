@@ -7,13 +7,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -25,7 +22,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
 import xratedjunior.betterdefaultbiomes.block.property.BDBWoodTypes;
 import xratedjunior.betterdefaultbiomes.compat.BDBVanillaCompat;
@@ -40,9 +36,7 @@ import xratedjunior.betterdefaultbiomes.entity.event.GlowingEntitiesEvent;
 import xratedjunior.betterdefaultbiomes.entity.projectile.dispenser.CustomDispenserBehavior;
 import xratedjunior.betterdefaultbiomes.item.BDBItems;
 import xratedjunior.betterdefaultbiomes.item.FuelEventHandler;
-import xratedjunior.betterdefaultbiomes.item.recipeconditions.EnhancedMushroomsCondition;
 import xratedjunior.betterdefaultbiomes.loot.BDBGlobalLootModifiers;
-import xratedjunior.betterdefaultbiomes.loot.conditions.ModLoadedCondition;
 import xratedjunior.betterdefaultbiomes.proxy.ClientProxy;
 import xratedjunior.betterdefaultbiomes.proxy.CommonProxy;
 import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
@@ -52,12 +46,13 @@ import xratedjunior.betterdefaultbiomes.world.generation.BDBFeatures;
 import xratedjunior.betterdefaultbiomes.world.generation.BDBPlacementModifierTypes;
 
 /**
+ * UPDATE CHECK COMPAT FOR CREATE AND FARMERSDELIGHT!! (Not updated to 1.20.2 yet)
  * TODO Remove Biome Categories from Wiki sidebar and add 1.18 information. (Make sure older wiki info is still available)
  * TODO Initialize EventBusSubscribers from main class
  * UPDATE Make datapack available for download on discord for people to configure
  * 
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 @Mod(value = BetterDefaultBiomes.MOD_ID)
 public class BetterDefaultBiomes {
@@ -105,36 +100,11 @@ public class BetterDefaultBiomes {
 		modEventBus.addListener(this::commonSetup);
 		modEventBus.addListener(this::loadComplete);
 
-		// Register Json Conditions
-		modEventBus.addListener(this::registerLootConditionTypes);
-		modEventBus.addListener(this::registerRecipeSerializers);
-
 		// Data generators
 		modEventBus.addListener(BDBDataGenerators::gatherData);
 
 		// Register and fill Creative Mode Tab
 		modEventBus.addListener(BDBCreativeModeTabs::registerCreativeModeTabs);
-	}
-
-	/**
-	 * Register Recipe Condition
-	 * <blockquote> Copy: {@link ForgeMod#registerRecipeSerializers(RegisterEvent)} </blockquote>
-	 */
-	public void registerRecipeSerializers(RegisterEvent event) {
-		if (event.getRegistryKey().equals(ForgeRegistries.Keys.RECIPE_SERIALIZERS)) {
-			CraftingHelper.register(new EnhancedMushroomsCondition.Serializer());
-		}
-	}
-
-	/**
-	 * Reference: {@link ForgeMod#registerLootData(RegisterEvent)}
-	 */
-	public void registerLootConditionTypes(RegisterEvent event) {
-		if (event.getRegistryKey().equals(Registries.LOOT_CONDITION_TYPE)) {
-			LOGGER.debug("Register Loot Condition Types.");
-
-			event.register(Registries.LOOT_CONDITION_TYPE, locate("mod_loaded"), () -> ModLoadedCondition.MOD_LOADED_CONDITION_TYPE);
-		}
 	}
 
 	private void clientSetup(final FMLClientSetupEvent event) {
@@ -149,7 +119,7 @@ public class BetterDefaultBiomes {
 	 */
 	private void commonSetup(final FMLCommonSetupEvent event) {
 		/*********************************************************** Event Subscribers ********************************************************/
-		
+
 		// Register event that gives Entities the Glowing effect.
 		MinecraftForge.EVENT_BUS.register(new GlowingEntitiesEvent());
 		// Register event for villager trades.

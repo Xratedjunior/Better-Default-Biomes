@@ -1,0 +1,27 @@
+{
+  "type": "forge:conditional",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "test_modid"
+  },
+  "recipes": [
+    {
+      "type": "minecraft:crafting_shapeless",
+      "category": "misc",
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "test_modid"
+      },
+      "group": "diamond",
+      "ingredients": [
+        {
+          "item": "minecraft:dirt"
+        }
+      ],
+      "result": {
+        "count": 3,
+        "item": "minecraft:diamond"
+      }
+    }
+  ]
+}

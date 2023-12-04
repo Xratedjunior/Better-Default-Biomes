@@ -1,0 +1,33 @@
+{
+  "type": "forge:conditional",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "farmersdelight"
+  },
+  "recipes": [
+    {
+      "type": "farmersdelight:cooking",
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
+      },
+	  "container": {
+	    "item": "minecraft:bowl"
+	  },
+	  "cookingtime": 200,
+	  "experience": 1.0,
+	  "ingredients": [
+	    {
+	      "item": "betterdefaultbiomes:gray_mushroom"
+	    },
+	    {
+	      "item": "minecraft:brown_mushroom"
+	    }
+	  ],
+	  "recipe_book_tab": "meals",
+	  "result": {
+	    "item": "minecraft:mushroom_stew"
+	  }
+    }
+  ]
+}

@@ -28,7 +28,6 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape;
 import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
 
@@ -36,7 +35,7 @@ import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
  * Reference 1.16 TreeFeature
  * 
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public abstract class TreeFeatureBDB extends Feature<NoneFeatureConfiguration> {
 
@@ -72,7 +71,7 @@ public abstract class TreeFeatureBDB extends Feature<NoneFeatureConfiguration> {
 	}
 
 	private boolean isReplaceablePlant(BlockState state) {
-		return state.getMaterial().equals(Material.REPLACEABLE_PLANT);
+		return state.is(BlockTags.REPLACEABLE_BY_TREES);
 	}
 
 	public boolean canBeReplacedByTree(LevelSimulatedReader world, BlockPos pos) {

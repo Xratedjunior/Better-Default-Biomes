@@ -13,7 +13,7 @@ import xratedjunior.betterdefaultbiomes.entity.passive.CamelEntity;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class CamelFollowCaravanGoal extends Goal {
 	public final CamelEntity camel;
@@ -33,7 +33,7 @@ public class CamelFollowCaravanGoal extends Goal {
 	@Override
 	public boolean canUse() {
 		if (!this.camel.isLeashed() && !this.camel.inCaravan()) {
-			List<Entity> list = this.camel.level.getEntities(this.camel, this.camel.getBoundingBox().inflate(9.0D, 4.0D, 9.0D), (p_220719_0_) -> {
+			List<Entity> list = this.camel.level().getEntities(this.camel, this.camel.getBoundingBox().inflate(9.0D, 4.0D, 9.0D), (p_220719_0_) -> {
 				EntityType<?> entitytype = p_220719_0_.getType();
 				return entitytype == BDBEntityTypes.CAMEL.get();
 			});

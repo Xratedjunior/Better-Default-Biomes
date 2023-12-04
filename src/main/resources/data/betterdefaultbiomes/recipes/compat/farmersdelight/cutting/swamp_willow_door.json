@@ -1,23 +1,30 @@
 {
-  "type": "farmersdelight:cutting",
-  "ingredients": [
-    {
-      "item": "betterdefaultbiomes:swamp_willow_door"
-    }
-  ],
-  "tool": {
-    "type": "farmersdelight:tool",
-    "tool": "axe"
+  "type": "forge:conditional",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "farmersdelight"
   },
-  "result": [
+  "recipes": [
     {
-      "item": "betterdefaultbiomes:swamp_willow_planks"
-    }
-  ],
-   "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "farmersdelight"
+      "type": "farmersdelight:cutting",
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
+      },
+	  "ingredients": [
+	    {
+	      "item": "betterdefaultbiomes:swamp_willow_door"
+	    }
+	  ],
+	  "result": [
+	    {
+	      "item": "betterdefaultbiomes:swamp_willow_planks"
+	    }
+	  ],
+	  "tool": {
+	    "type": "farmersdelight:tool_action",
+	    "action": "axe_dig"
+	  }
     }
   ]
 }

@@ -51,7 +51,7 @@ import xratedjunior.betterdefaultbiomes.entity.ai.goal.StealthGoal;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class JungleCreeperEntity extends Creeper {
 	private static final EntityDataAccessor<Boolean> STEALTH = SynchedEntityData.defineId(JungleCreeperEntity.class, EntityDataSerializers.BOOLEAN);
@@ -201,7 +201,7 @@ public class JungleCreeperEntity extends Creeper {
 	@Override
 	public void aiStep() {
 		super.aiStep();
-		if (!this.level.isClientSide() && this.isAlive()) {
+		if (!this.level().isClientSide() && this.isAlive()) {
 			if (this.stealthCooldown > 0) {
 				this.stealthCooldown--;
 			}
@@ -254,15 +254,15 @@ public class JungleCreeperEntity extends Creeper {
 	protected InteractionResult mobInteract(Player player, InteractionHand hand) {
 		ItemStack itemstack = player.getItemInHand(hand);
 		if (itemstack.getItem() == Items.FLINT_AND_STEEL) {
-			this.level.playSound(player, this.getX(), this.getY(), this.getZ(), SoundEvents.FLINTANDSTEEL_USE, this.getSoundSource(), 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
-			if (!this.level.isClientSide()) {
+			this.level().playSound(player, this.getX(), this.getY(), this.getZ(), SoundEvents.FLINTANDSTEEL_USE, this.getSoundSource(), 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
+			if (!this.level().isClientSide()) {
 				this.ignite();
 				itemstack.hurtAndBreak(1, player, (p_213625_1_) -> {
 					p_213625_1_.broadcastBreakEvent(hand);
 				});
 			}
 
-			return InteractionResult.sidedSuccess(this.level.isClientSide());
+			return InteractionResult.sidedSuccess(this.level().isClientSide());
 		} else {
 			return super.mobInteract(player, hand);
 		}
@@ -274,10 +274,10 @@ public class JungleCreeperEntity extends Creeper {
 	 * REFERENCE: {@link Creeper#explodeCreeper}
 	 */
 	private void explodeCreeper() {
-		if (!this.level.isClientSide()) {
+		if (!this.level().isClientSide()) {
 			float radiusMultiplier = this.isPowered() ? 2.0F : 1.0F;
 			this.dead = true;
-			this.level.explode(this, this.getX(), this.getY(), this.getZ(), (float) this.explosionRadius * radiusMultiplier, ExplosionInteraction.MOB);
+			this.level().explode(this, this.getX(), this.getY(), this.getZ(), (float) this.explosionRadius * radiusMultiplier, ExplosionInteraction.MOB);
 			this.discard();
 			this.spawnLingeringCloud();
 		}
@@ -286,7 +286,7 @@ public class JungleCreeperEntity extends Creeper {
 	private void spawnLingeringCloud() {
 		Collection<MobEffectInstance> collection = this.getActiveEffects();
 		if (!collection.isEmpty()) {
-			AreaEffectCloud areaeffectcloudentity = new AreaEffectCloud(this.level, this.getX(), this.getY(), this.getZ());
+			AreaEffectCloud areaeffectcloudentity = new AreaEffectCloud(this.level(), this.getX(), this.getY(), this.getZ());
 			areaeffectcloudentity.setRadius(2.5F);
 			areaeffectcloudentity.setRadiusOnUse(-0.5F);
 			areaeffectcloudentity.setWaitTime(10);
@@ -297,7 +297,7 @@ public class JungleCreeperEntity extends Creeper {
 				areaeffectcloudentity.addEffect(new MobEffectInstance(effectinstance));
 			}
 
-			this.level.addFreshEntity(areaeffectcloudentity);
+			this.level().addFreshEntity(areaeffectcloudentity);
 		}
 	}
 }

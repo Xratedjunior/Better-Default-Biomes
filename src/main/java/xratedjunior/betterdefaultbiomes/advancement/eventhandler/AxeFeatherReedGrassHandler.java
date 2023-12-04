@@ -1,6 +1,7 @@
 package xratedjunior.betterdefaultbiomes.advancement.eventhandler;
 
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -13,7 +14,6 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import xratedjunior.betterdefaultbiomes.advancement.BDBCriteriaTriggers;
 import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
-import xratedjunior.betterdefaultbiomes.data.BDBTags;
 
 /**
  * @author  Xrated_junior
@@ -26,7 +26,7 @@ public class AxeFeatherReedGrassHandler {
 		Player player = event.getPlayer();
 		ItemStack playerItem = player.getItemInHand(InteractionHand.MAIN_HAND);
 
-		if (playerItem.is(BDBTags.Items.AXES)) {
+		if (playerItem.is(ItemTags.AXES)) {
 			Block block = event.getState().getBlock();
 			if (block == BDBBlocks.FEATHER_REED_GRASS.get()) {
 				advancementCriteria = true;
@@ -45,7 +45,7 @@ public class AxeFeatherReedGrassHandler {
 				Player player = entity.getCommandSenderWorld().getNearestPlayer(entity, 5);
 				if (player != null) {
 					ItemStack playerItem = player.getItemInHand(InteractionHand.MAIN_HAND);
-					if (playerItem.is(BDBTags.Items.AXES)) {
+					if (playerItem.is(ItemTags.AXES)) {
 						if (!player.getCommandSenderWorld().isClientSide()) {
 							BDBCriteriaTriggers.AXE_FEATHER_REED_GRASS_WHEAT.trigger((ServerPlayer) player);
 						}

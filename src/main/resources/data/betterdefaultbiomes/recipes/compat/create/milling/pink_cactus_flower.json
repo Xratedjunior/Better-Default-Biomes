@@ -1,28 +1,35 @@
 {
-  "conditions": [
+  "type": "forge:conditional",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "create"
+  },
+  "recipes": [
     {
-      "type": "forge:mod_loaded",
-      "modid": "create"
+      "type": "create:milling",
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "create"
+      },
+      "ingredients": [
+        {
+          "item": "betterdefaultbiomes:pink_cactus_flower"
+        }
+      ],
+  	  "results": [
+	    {
+	      "item": "minecraft:pink_dye",
+	      "count": 2
+	    },
+	    {
+	      "item": "minecraft:green_dye"
+	    },
+	    {
+	      "item": "minecraft:magenta_dye",
+	      "chance": 0.25
+	    }
+	  ],
+   	  "processingTime": 50
     }
-  ],
-  "type": "create:milling",
-  "ingredients": [
-    {
-      "item": "betterdefaultbiomes:pink_cactus_flower"
-    }
-  ],
-  "results": [
-    {
-      "item": "minecraft:pink_dye",
-      "count": 2
-    },
-    {
-      "item": "minecraft:green_dye"
-    },
-    {
-      "item": "minecraft:magenta_dye",
-      "chance": 0.25
-    }
-  ],
-  "processingTime": 50
+  ]
 }

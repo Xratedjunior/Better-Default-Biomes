@@ -1,20 +1,27 @@
 {
-  "conditions": [
-      {
-      "type": "forge:mod_loaded",
-      "modid": "create"
-    }
-  ],
-  "type": "create:cutting",
-  "ingredients": [
+  "type": "forge:conditional",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "create"
+  },
+  "recipes": [
     {
-      "item": "betterdefaultbiomes:palm_log"
+      "type": "create:cutting",
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "create"
+      },
+      "ingredients": [
+        {
+          "item": "betterdefaultbiomes:palm_log"
+        }
+      ],
+  	  "results": [
+        {
+      	  "item": "betterdefaultbiomes:palm_log_stripped"
+   	    }
+   	  ],
+   	  "processingTime": 50
     }
-  ], 
-  "results": [
-    {
-      "item": "betterdefaultbiomes:palm_log_stripped"
-    }
-  ],
-  "processingTime": 50
+  ]
 }

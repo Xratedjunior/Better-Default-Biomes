@@ -21,7 +21,7 @@ import net.minecraft.world.level.Level;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class DesertBanditMasterEntity extends DesertBanditEntity {
 
@@ -46,7 +46,7 @@ public class DesertBanditMasterEntity extends DesertBanditEntity {
 		ItemStack desertMasterSword = new ItemStack(Items.GOLDEN_SWORD);
 		int fireAspectChance = DesertBanditEntity.fireAspectChance;
 		Map<Enchantment, Integer> map = Maps.newHashMap();
-		if (entity.level.getDifficulty() == Difficulty.HARD) {
+		if (entity.level().getDifficulty() == Difficulty.HARD) {
 			if (entity.random.nextInt(3) == 0) {
 				map.put(Enchantments.UNBREAKING, 2);
 			} else {

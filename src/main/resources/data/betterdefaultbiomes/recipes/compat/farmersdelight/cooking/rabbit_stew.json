@@ -1,34 +1,39 @@
 {
-  "type": "farmersdelight:cooking",
-  "ingredients": [
+  "type": "forge:conditional",
+  "forge:condition": {
+    "type": "forge:mod_loaded",
+    "modid": "farmersdelight"
+  },
+  "recipes": [
     {
-      "item": "minecraft:baked_potato"
-    },
-    [
-      {
-        "item": "minecraft:rabbit"
+      "type": "farmersdelight:cooking",
+      "forge:condition": {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
       },
-      {
-        "item": "minecraft:cooked_rabbit"
-      }
-    ],
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "tag": "betterdefaultbiomes:mushrooms"
-    }
-  ],
-  "result": {
-    "item": "minecraft:rabbit_stew"
-  },
-  "container": {
-    "item": "minecraft:bowl"
-  },
-   "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "farmersdelight"
+	  "container": {
+	    "item": "minecraft:bowl"
+	  },
+	  "cookingtime": 200,
+	  "experience": 1.0,
+	  "ingredients": [
+	    {
+	      "item": "minecraft:baked_potato"
+	    },
+	    {
+		  "item": "minecraft:rabbit"
+	    },
+	    {
+	      "item": "minecraft:carrot"
+	    },
+	    {
+	      "tag": "betterdefaultbiomes:mushrooms"
+	    }
+	  ],
+	  "recipe_book_tab": "meals",
+	  "result": {
+	    "item": "minecraft:rabbit_stew"
+	  }
     }
   ]
 }
