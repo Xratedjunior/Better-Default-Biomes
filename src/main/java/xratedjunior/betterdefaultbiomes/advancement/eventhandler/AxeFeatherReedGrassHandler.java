@@ -17,7 +17,7 @@ import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.20.2-Alpha 5.0.0
  */
 public class AxeFeatherReedGrassHandler {
 	private static Boolean advancementCriteria = false;

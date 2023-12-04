@@ -47,6 +47,7 @@ import xratedjunior.betterdefaultbiomes.world.generation.BDBPlacementModifierTyp
 
 /**
  * UPDATE CHECK COMPAT FOR CREATE AND FARMERSDELIGHT!! (Not updated to 1.20.2 yet)
+ * UPDATE Make DataGenerator for Farmer's Delight Tag
  * TODO Remove Biome Categories from Wiki sidebar and add 1.18 information. (Make sure older wiki info is still available)
  * TODO Initialize EventBusSubscribers from main class
  * UPDATE Make datapack available for download on discord for people to configure
