@@ -1,13 +1,11 @@
 1.20.x Changelog
 Alpha 5.0
 ====
+ - Alpha 5.0.2
+		* Fixed bug where only the first entry for Spawn Biomes from the config file was checked
  - Alpha 5.0.1
 		Fixed issue #30
 		(Biomes can now be excluded)
-
- - Alpha 5.1.0 (Backport)
-		Backport to Minecraft 1.20.1
-
  - Alpha 5.0.0	
 		Updated to Minecraft 1.20.2
 		* All Tags now use Data Generators.
@@ -24,13 +22,19 @@ Alpha 5.0
 		- Disabled Camel spawning by default.
 		(This is now a Vanilla Minecraft feature)
 
+ - Alpha 5.1.1 (Backport)
+		* Fixed bug where only the first entry for Spawn Biomes from the config file was checked
+ - Alpha 5.1.0 (Backport)
+		Backport to Minecraft 1.20.1
+
 1.19.x Changelog
 Alpha 4.0
 ====
+ - Alpha 4.0.2
+		* Fixed bug where only the first entry for Spawn Biomes from the config file was 
  - Alpha 4.0.1	
 		- Disabled Frog spawning by default.
 		(This is now a Vanilla Minecraft feature)
-
  - Alpha 4.0.0	
 		Updated to Minecraft 1.19.4
 		Generation:
