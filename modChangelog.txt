@@ -1,6 +1,9 @@
 1.19.x Changelog
 Alpha 4.0
 ====
+ - Alpha 4.0.2	
+		* Fixed bug where only the first entry for Spawn Biomes from the config file was checked
+
  - Alpha 4.0.1	
 		- Disabled Frog spawning by default.
 		(This is now a Vanilla Minecraft feature)

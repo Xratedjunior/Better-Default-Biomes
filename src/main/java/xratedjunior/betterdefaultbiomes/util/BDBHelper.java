@@ -28,7 +28,7 @@ import net.minecraft.world.level.biome.Biome;
 
 /**
  * @author  Xrated_junior
- * @version 1.19.4-Alpha 4.0.0
+ * @version 1.19.4-Alpha 4.0.2
  */
 public class BDBHelper {
 	public static final Component HOLD_SHIFT_TOOLTIP = Component.translatable("tooltip.betterdefaultbiomes.hold_shift").withStyle(ChatFormatting.DARK_GRAY);
@@ -142,8 +142,11 @@ public class BDBHelper {
 					// Go to next 'spawnInput'
 					continue;
 				}
-				// Check singular Biomes and BiomeTypes
-				return matchBiomeOrTag(biome, spawnInput);
+				// Check singular Biome and Biome Tag inputs.
+				if (matchBiomeOrTag(biome, spawnInput)) {
+					// Found a match!
+					return true;
+				}
 			}
 		}
 
