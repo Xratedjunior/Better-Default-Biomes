@@ -1,6 +1,10 @@
 1.20.x Changelog
 Alpha 5.0
 ====
+ - Alpha 5.0.1
+		Fixed issue #30
+		(Biomes can now be excluded)
+
  - Alpha 5.0.0 (Backport)
 		Backport to Minecraft 1.20.1
 

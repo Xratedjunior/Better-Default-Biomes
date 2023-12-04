@@ -1,6 +1,7 @@
 {
   "type": "betterdefaultbiomes:add_features",
   "biomes": "#betterdefaultbiomes:generates_small_rock",
+  "excluded_biomes": "minecraft:mushroom_fields",
   "features": "betterdefaultbiomes:small_rock_feature",
   "step": "vegetal_decoration"
 }

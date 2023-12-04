@@ -28,7 +28,7 @@ import net.minecraft.world.level.biome.Biome;
 
 /**
  * @author  Xrated_junior
- * @version 1.20.2-Alpha 5.0.0
+ * @version 1.20.2-Alpha 5.0.1
  */
 public class BDBHelper {
 	public static final Component HOLD_SHIFT_TOOLTIP = Component.translatable("tooltip.betterdefaultbiomes.hold_shift").withStyle(ChatFormatting.DARK_GRAY);
@@ -118,6 +118,7 @@ public class BDBHelper {
 		if (!spawnInputs.isEmpty()) {
 			for (String spawnInput : spawnInputs) {
 
+				// TODO Check working correctly?
 				// Check for advanced inputs
 				if (spawnInput.contains("&")) {
 					// Split all inputs
@@ -167,8 +168,7 @@ public class BDBHelper {
 	 */
 	private static boolean matchBiome(Holder<Biome> biome, String biomeInput) {
 		// SpawnInput is "minecraft:plains" for example.
-		ResourceLocation location = new ResourceLocation(biomeInput);
-		ResourceKey<Biome> biomeKey = ResourceKey.create(Registries.BIOME, location);
+		ResourceKey<Biome> biomeKey = ResourceKey.create(Registries.BIOME, locate(biomeInput));
 		return biome.is(biomeKey);
 	}
 
@@ -176,9 +176,12 @@ public class BDBHelper {
 	 * Check if 'string' has matching Biome Tag.
 	 */
 	private static boolean matchTag(Holder<Biome> biome, String tagInput) {
-		// SpawnInput is "minecraft:plains" for example.
-		ResourceLocation tagLocation = new ResourceLocation(tagInput);
-		TagKey<Biome> tagKey = TagKey.create(Registries.BIOME, tagLocation);
+		// SpawnInput is "minecraft:is_overworld" for example.
+		TagKey<Biome> tagKey = TagKey.create(Registries.BIOME, locate(tagInput));
 		return biome.containsTag(tagKey);
+	}
+	
+	private static ResourceLocation locate(String configInput) {
+		return new ResourceLocation(configInput);
 	}
 }
