@@ -1,6 +1,8 @@
 1.20.x Changelog
 Alpha 5.0
 ====
+ - Alpha 5.0.4
+		Removed proxy classes
  - Alpha 5.0.3
 		Fixed issue #33 - Server crash 1.20.1
  - Alpha 5.0.2

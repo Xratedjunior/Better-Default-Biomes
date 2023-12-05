@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 
 /**
- * DELETE Might be needed for signs? I think not since all sounds are general wood sounds.
+ * Used to create Sign & Hanging Sign material.
  * Reference: {@linkplain https://youtu.be/ARoH2sRFY4o?si=VZ64ZysNBQIRBjYf&t=306}
  * 
  * @author  Xrated_junior

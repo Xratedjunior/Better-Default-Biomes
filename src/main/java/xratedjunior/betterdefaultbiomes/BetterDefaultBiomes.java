@@ -6,24 +6,19 @@ import java.nio.file.Path;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 import xratedjunior.betterdefaultbiomes.block.BDBBlocks;
-import xratedjunior.betterdefaultbiomes.block.property.BDBWoodTypes;
 import xratedjunior.betterdefaultbiomes.compat.BDBVanillaCompat;
 import xratedjunior.betterdefaultbiomes.configuration.BDBModConfig;
 import xratedjunior.betterdefaultbiomes.configuration.entity.breeding.BreedingConfigRegistry;
@@ -37,8 +32,6 @@ import xratedjunior.betterdefaultbiomes.entity.projectile.dispenser.CustomDispen
 import xratedjunior.betterdefaultbiomes.item.BDBItems;
 import xratedjunior.betterdefaultbiomes.item.FuelEventHandler;
 import xratedjunior.betterdefaultbiomes.loot.BDBGlobalLootModifiers;
-import xratedjunior.betterdefaultbiomes.proxy.ClientProxy;
-import xratedjunior.betterdefaultbiomes.proxy.CommonProxy;
 import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 import xratedjunior.betterdefaultbiomes.trade.BDBVillagerTradesEvent;
 import xratedjunior.betterdefaultbiomes.world.BDBBiomeModifiers;
@@ -46,6 +39,9 @@ import xratedjunior.betterdefaultbiomes.world.generation.BDBFeatures;
 import xratedjunior.betterdefaultbiomes.world.generation.BDBPlacementModifierTypes;
 
 /**
+ * UPDATE {@linkplain https://www.youtube.com/watch?v=NN-k74NMKRc}
+ * UPDATE {@linkplain https://github.com/Dplayend/Toggle-Enchantments/blob/main/src/main/java/com/dplayend/togenc/ToggleEnchantmentsClient.java}
+ * *
  * UPDATE CHECK COMPAT FOR CREATE AND FARMERSDELIGHT!! (Not updated to 1.20.2 yet)
  * UPDATE Make DataGenerator for Farmer's Delight Tag
  * TODO Remove Biome Categories from Wiki sidebar and add 1.18 information. (Make sure older wiki info is still available)
@@ -53,7 +49,7 @@ import xratedjunior.betterdefaultbiomes.world.generation.BDBPlacementModifierTyp
  * UPDATE Make datapack available for download on discord for people to configure
  * 
  * @author  Xrated_junior
- * @version 1.20.2-Alpha 5.0.0
+ * @version 1.20.2-Alpha 5.0.4
  */
 @Mod(value = BetterDefaultBiomes.MOD_ID)
 public class BetterDefaultBiomes {
@@ -64,9 +60,6 @@ public class BetterDefaultBiomes {
 	private static final String BDBFolderName = MOD_ID;
 	private static final File BDBFolder = new File(FMLPaths.CONFIGDIR.get().toFile(), BDBFolderName);
 	public static final Path BDBFolderPath = BDBFolder.toPath();
-
-	@SuppressWarnings("deprecation")
-	public static CommonProxy proxy = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
 	public BetterDefaultBiomes() {
 		/*********************************************************** Config ********************************************************/
@@ -96,23 +89,14 @@ public class BetterDefaultBiomes {
 
 		/*********************************************************** Event Listeners ********************************************************/
 
-		// General event listeners
-		modEventBus.addListener(this::clientSetup);
+		// Forge events and other stuff
 		modEventBus.addListener(this::commonSetup);
-		modEventBus.addListener(this::loadComplete);
 
 		// Data generators
 		modEventBus.addListener(BDBDataGenerators::gatherData);
 
 		// Register and fill Creative Mode Tab
 		modEventBus.addListener(BDBCreativeModeTabs::registerCreativeModeTabs);
-	}
-
-	private void clientSetup(final FMLClientSetupEvent event) {
-		Sheets.addWoodType(BDBWoodTypes.PALM);
-		Sheets.addWoodType(BDBWoodTypes.SWAMP_WILLOW);
-
-		LOGGER.debug("clientSetup method completed");
 	}
 
 	/*
@@ -148,20 +132,12 @@ public class BetterDefaultBiomes {
 			CustomDispenserBehavior.init();
 
 			// Add potted plants functionality.
-			BetterDefaultBiomes.LOGGER.debug("Register Potted Plants");
+			LOGGER.debug("Register Potted Plants");
 			BDBBlocks.POTTED_PLANTS.forEach((flower, pottedFlower) -> ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ForgeRegistries.BLOCKS.getKey(flower.get()), pottedFlower));
 
 		});
 
 		LOGGER.debug("commonSetup method completed");
-	}
-
-	/*
-	 * PostRegistrationEvent
-	 */
-	private void loadComplete(final FMLLoadCompleteEvent event) {
-		proxy.init();
-		LOGGER.debug("loadComplete method completed");
 	}
 
 	/**
