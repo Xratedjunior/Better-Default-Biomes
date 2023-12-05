@@ -1,6 +1,8 @@
 1.20.x Changelog
 Alpha 5.0
 ====
+ - Alpha 5.0.3
+		Fixed issue #33 - Server crash 1.20.1
  - Alpha 5.0.2
 		* Fixed bug where only the first entry for Spawn Biomes from the config file was checked
  - Alpha 5.0.1
@@ -22,16 +24,18 @@ Alpha 5.0
 		- Disabled Camel spawning by default.
 		(This is now a Vanilla Minecraft feature)
 
- - Alpha 5.1.1 (Backport)
+ - Alpha 5.0.3 (Backport 5.0.3)
+		* Backport all changes up to 1.20.2 - Alpha 5.0.3
+ - Alpha 5.0.0.1 (Hotfix 5.0.2)
 		* Fixed bug where only the first entry for Spawn Biomes from the config file was checked
- - Alpha 5.1.0 (Backport)
+ - Alpha 5.0.0.0 (Backport 5.0.0)
 		Backport to Minecraft 1.20.1
 
 1.19.x Changelog
 Alpha 4.0
 ====
  - Alpha 4.0.2
-		* Fixed bug where only the first entry for Spawn Biomes from the config file was 
+		* Fixed bug where only the first entry for Spawn Biomes from the config file was checked
  - Alpha 4.0.1	
 		- Disabled Frog spawning by default.
 		(This is now a Vanilla Minecraft feature)

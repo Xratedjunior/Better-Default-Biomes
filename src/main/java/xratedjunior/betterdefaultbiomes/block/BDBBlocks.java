@@ -1,13 +1,12 @@
 package xratedjunior.betterdefaultbiomes.block;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
 import javax.annotation.Nonnull;
-
-import org.apache.commons.compress.utils.Lists;
 
 import com.google.common.collect.Maps;
 
@@ -68,14 +67,14 @@ import xratedjunior.betterdefaultbiomes.world.generation.BDBConfiguredFeatures;
 
 /**
  * @author  Xrated_junior
- * @version 1.20.2-Alpha 5.0.0
+ * @version 1.20.2-Alpha 5.0.3
  */
 @Mod.EventBusSubscriber(modid = BetterDefaultBiomes.MOD_ID, bus = Bus.MOD)
 public class BDBBlocks {
 	public static final DeferredRegister<Block> DEFERRED_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BetterDefaultBiomes.MOD_ID);
 	public static final Map<Supplier<Block>, Supplier<Block>> POTTED_PLANTS = Maps.newHashMap();
-	public static final List<Supplier<Block>> SMALL_ROCKS = Lists.newArrayList();
-	public static final List<Supplier<Block>> STARFISH = Lists.newArrayList();
+	public static final List<Supplier<Block>> SMALL_ROCKS = new ArrayList<Supplier<Block>>();
+	public static final List<Supplier<Block>> STARFISH = new ArrayList<Supplier<Block>>();
 	
 	/*********************************************************** Trees ********************************************************/
 
