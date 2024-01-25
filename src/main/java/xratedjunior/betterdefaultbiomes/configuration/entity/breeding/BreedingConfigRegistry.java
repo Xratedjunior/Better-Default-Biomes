@@ -28,7 +28,7 @@ import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.18.2-Alpha 3.1.0
  */
 public class BreedingConfigRegistry {
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -202,7 +202,7 @@ public class BreedingConfigRegistry {
 	 * Adds the Items from the json file to the foodItems ingredient
 	 */
 	public static List<ItemStack> getTemptationItemStacks(String breedingConfigName) {
-		List<ItemStack> itemStackList = Lists.newArrayList();
+		List<ItemStack> itemStackList = new ArrayList<ItemStack>();
 		BreedingConfig breedingConfig = BreedingConfigRegistry.BREEDING_CONFIGS.get(breedingConfigName);
 		for (BreedingItem breedingItem : breedingConfig.getBreedingItems()) {
 			List<Item> itemList = BreedingConfigRegistry.getItemList(breedingItem);
@@ -220,7 +220,7 @@ public class BreedingConfigRegistry {
 	 * Adds the Items from the json file to the breedingItems ingredient
 	 */
 	public static List<ItemStack> getBreedingItemStacks(String breedingConfigName) {
-		List<ItemStack> itemStackList = Lists.newArrayList();
+		List<ItemStack> itemStackList = new ArrayList<ItemStack>();
 		BreedingConfig breedingConfig = BreedingConfigRegistry.BREEDING_CONFIGS.get(breedingConfigName);
 		for (BreedingItem breedingItem : breedingConfig.getBreedingItems()) {
 			if (breedingItem.getBreeding()) {

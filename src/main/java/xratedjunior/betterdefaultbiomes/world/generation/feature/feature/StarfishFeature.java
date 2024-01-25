@@ -1,10 +1,10 @@
 package xratedjunior.betterdefaultbiomes.world.generation.feature.feature;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
@@ -26,7 +26,7 @@ import xratedjunior.betterdefaultbiomes.data.BDBTags;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.18.2-Alpha 3.1.0
  */
 public class StarfishFeature extends Feature<NoneFeatureConfiguration> {
 	private final Direction[] horizontalDirections = new Direction[] {
@@ -143,7 +143,7 @@ public class StarfishFeature extends Feature<NoneFeatureConfiguration> {
 
 	public static void starfishGenerationColorsInit() {
 		BetterDefaultBiomes.LOGGER.debug("Initialising Starfish colors from config.");
-		List<DyeColor> configColors = Lists.newArrayList();
+		List<DyeColor> configColors = new ArrayList<DyeColor>();
 		for (String color : StarfishConfig.generation_colors.get()) {
 			for (DyeColor dyeColor : DyeColor.values()) {
 				if (dyeColor.getName().equals(color)) {

@@ -1,9 +1,8 @@
 package xratedjunior.betterdefaultbiomes.block.block;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import org.apache.commons.compress.utils.Lists;
 
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -38,7 +37,7 @@ import xratedjunior.betterdefaultbiomes.sound.BDBSoundEvents;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.18.2-Alpha 3.1.0
  */
 public class SmallRockBlock extends SimpleBlock {
 	public static final int MAX_ROCK_SIZE = 2;
@@ -217,7 +216,7 @@ public class SmallRockBlock extends SimpleBlock {
 		 * Checks if some variants have been turned off in the config
 		 */
 		public static void setPossibleStoneVariants() {
-			List<RockVariant> variantList = Lists.newArrayList();
+			List<RockVariant> variantList = new ArrayList<SmallRockBlock.RockVariant>();
 			for (RockVariant variant : STONE_VARIANTS) {
 				if (variant.getConfigValue(variant)) {
 					variantList.add(variant);
@@ -231,7 +230,7 @@ public class SmallRockBlock extends SimpleBlock {
 		 * Checks if variants have been turned off in the config
 		 */
 		public static void setAllPossibleVariants() {
-			List<RockVariant> variantList = Lists.newArrayList();
+			List<RockVariant> variantList = new ArrayList<SmallRockBlock.RockVariant>();
 			for (RockVariant variant : ALL_VARIANTS) {
 				if (variant.getConfigValue(variant)) {
 					variantList.add(variant);
@@ -265,7 +264,7 @@ public class SmallRockBlock extends SimpleBlock {
 		 */
 		public static List<Block> getMatchingRockVariants(Block groundBlock) {
 			// Create list
-			List<Block> matchingVariants = Lists.newArrayList();
+			List<Block> matchingVariants = new ArrayList<Block>();
 
 			for (RockVariant variant : ALL_VARIANTS) {
 				// Check if the groundBlock matches with Block Tags.

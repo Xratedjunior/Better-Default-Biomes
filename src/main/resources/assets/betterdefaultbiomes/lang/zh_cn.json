@@ -1,0 +1,285 @@
+{
+	//ItemGroups
+	"itemGroup.betterdefaultbiomes": "更好的默认群系",
+	
+	//Advancements
+	"advancements.betterdefaultbiomes.root.description": "装在更好的默认群系开始游戏",
+	"advancements.betterdefaultbiomes.frozen_flesh.title": "最后一搏",
+	"advancements.betterdefaultbiomes.frozen_flesh.description": "吃掉一块霜冻腐肉",
+	"advancements.betterdefaultbiomes.this_is_new.title": "崭新出厂",
+	"advancements.betterdefaultbiomes.this_is_new.description": "探索时间到！",
+	"advancements.betterdefaultbiomes.kill_all_mobs.title": "狩猎时刻",
+	"advancements.betterdefaultbiomes.kill_all_mobs.description": "杀光它们",
+	"advancements.betterdefaultbiomes.axe_feather_reed_grass.title": "稻香四溢",
+	"advancements.betterdefaultbiomes.axe_feather_reed_grass.description": "使用斧收集一个羽毛芦苇草",
+	"advancements.betterdefaultbiomes.eat_all_foods.title": "食欲大开",
+	"advancements.betterdefaultbiomes.eat_all_foods.description": "吃掉BDP添加的所有食物",
+	
+	//Old Advancements
+	"advancements.betterdefaultbiomes.killed_by_hunter.title": "猎杀时刻",
+	"advancements.betterdefaultbiomes.killed_by_hunter.description": "被猎人杀死",
+	"advancements.betterdefaultbiomes.shoot_a_hunter.title": "血债血偿",
+	"advancements.betterdefaultbiomes.shoot_a_hunter.description": "射杀一名猎人",
+	"advancements.betterdefaultbiomes.killed_by_jungle_creeper.title": "吉利服",
+	"advancements.betterdefaultbiomes.killed_by_jungle_creeper.description": "被丛林苦力怕炸死",
+	"advancements.betterdefaultbiomes.kill_a_jungle_creeper.title": "时机未到",
+	"advancements.betterdefaultbiomes.kill_a_jungle_creeper.description": "杀死一个丛林苦力怕",
+	
+	//Enchantments
+	"enchantment.betterdefaultbiomes.smelting_touch": "冶炼",
+	"enchantment.betterdefaultbiomes.smelting_touch.desc": "挖矿石时自动烧制。",
+	"enchantment.betterdefaultbiomes.scout": "侦察",
+	"enchantment.betterdefaultbiomes.scout.desc": "玩家附近的怪物获得发光效果。",
+	"enchantment.betterdefaultbiomes.hunting": "狩猎",
+	"enchantment.betterdefaultbiomes.hunting.desc": "对动物造成更多伤害。",
+	"enchantment.betterdefaultbiomes.horse_protection": "马匹保护",
+	"enchantment.betterdefaultbiomes.horse_protection.desc": "使马防御提高。",
+	"enchantment.betterdefaultbiomes.horse_fire_protection": "马匹火焰保护",
+	"enchantment.betterdefaultbiomes.horse_fire_protection.desc": "使马对火焰的伤害抗性提高。",
+	"enchantment.betterdefaultbiomes.horse_feather_falling": "马匹摔落保护",
+	"enchantment.betterdefaultbiomes.horse_feather_falling.desc": "使马对摔落的伤害抗性提高。",
+	"enchantment.betterdefaultbiomes.horse_blast_protection": "马匹爆炸保护",
+	"enchantment.betterdefaultbiomes.horse_blast_protection.desc": "使马对爆炸的伤害抗性提高。",
+	"enchantment.betterdefaultbiomes.horse_projectile_protection": "马匹弹射物保护",
+	"enchantment.betterdefaultbiomes.horse_projectile_protection.desc": "使马对摔落的弓箭抗性提高。",
+	"enchantment.betterdefaultbiomes.spikes": "刺弹",
+	"enchantment.betterdefaultbiomes.spikes.desc": "攻击盾牌时反弹伤害。",
+	"enchantment.betterdefaultbiomes.guard": "守护",
+	"enchantment.betterdefaultbiomes.guard.desc": "攻击盾牌时击退",
+	"enchantment.betterdefaultbiomes.floating": "轻浮",
+	"enchantment.betterdefaultbiomes.floating.desc": "使马可以在水面飘浮",
+	
+	//Item Tooltips
+	"tooltip.betterdefaultbiomes.hold_shift": "按住Shift键获取详细信息",
+	"tooltip.betterdefaultbiomes.bandit_arrow": "由沙漠盗贼弓手掉落",
+	"tooltip.betterdefaultbiomes.hunter_arrow": "由猎人掉落",
+	"tooltip.betterdefaultbiomes.torch_arrow": "当火把击中方块时放置它",
+	"tooltip.betterdefaultbiomes.torch_arrow_fire": "点燃生物两秒",
+	
+    //Arrows
+	"item.betterdefaultbiomes.hunter_arrow": "狩猎箭",
+	"item.betterdefaultbiomes.bandit_arrow": "盗贼箭",
+	"item.betterdefaultbiomes.torch_arrow": "火把箭",
+	
+	"item.betterdefaultbiomes.duck_egg": "鸭蛋",
+	
+	//FoodProperties
+    "item.betterdefaultbiomes.frozen_flesh": "霜冻腐肉",
+    "item.betterdefaultbiomes.duck": "生鸭",
+    "item.betterdefaultbiomes.cooked_duck": "烤鸭",
+    "item.betterdefaultbiomes.frog_leg": "蛙腿",
+    "item.betterdefaultbiomes.cooked_frog_leg": "熟蛙腿",
+    
+	//Mob Equipment
+    "equipment.betterdefaultbiomes.hunter_bow": "狩猎弓",
+    "equipment.betterdefaultbiomes.head_hunter_bow": "狩猎弓",
+    "equipment.betterdefaultbiomes.miner_pickaxe": "矿工镐",
+    "equipment.betterdefaultbiomes.miner_helmet": "矿工头盔",
+    "equipment.betterdefaultbiomes.bandit_sword": "盗贼之剑",
+    "equipment.betterdefaultbiomes.bandit_bow": "盗贼弓",
+    "equipment.betterdefaultbiomes.bandit_crossbow": "盗贼弩",
+    "equipment.betterdefaultbiomes.bandit_master_sword": "盗贼大师之剑",
+	
+	//Entities
+		// Hostile
+		"entity.betterdefaultbiomes.hunter": "猎人",
+		"entity.betterdefaultbiomes.head_hunter": "猎头者",
+		"entity.betterdefaultbiomes.jungle_creeper": "丛林苦力怕",
+		"entity.betterdefaultbiomes.lost_miner": "迷失矿工",
+		"entity.betterdefaultbiomes.frozen_zombie": "霜冻僵尸",
+		
+		"entity.betterdefaultbiomes.desert_bandit": "沙漠盗贼",
+		"entity.betterdefaultbiomes.desert_bandit_archer": "沙漠盗贼弓手",
+		"entity.betterdefaultbiomes.desert_bandit_arbalist": "沙漠盗贼仲裁者",
+		"entity.betterdefaultbiomes.desert_bandit_master": "沙漠盗贼大师",
+	
+		//Passive
+		"entity.betterdefaultbiomes.muddy_pig": "泥泞猪",
+		"entity.betterdefaultbiomes.camel": "骆驼",
+		"entity.betterdefaultbiomes.duck": "鸭子",
+		"entity.betterdefaultbiomes.zebra": "斑马",
+		"entity.betterdefaultbiomes.frog": "青蛙",
+		"entity.betterdefaultbiomes.waterbuck": "水羚",
+		
+		//Neutral
+	
+	//Entity Spawn Eggs
+		// Hostile
+		"item.betterdefaultbiomes.hunter_spawn_egg": "猎人刷怪蛋",
+		"item.betterdefaultbiomes.head_hunter_spawn_egg": "猎头者刷怪蛋",
+		"item.betterdefaultbiomes.jungle_creeper_spawn_egg": "丛林苦力怕刷怪蛋",
+		"item.betterdefaultbiomes.warthog_spawn_egg": "疣猪刷怪蛋",
+		"item.betterdefaultbiomes.lost_miner_spawn_egg": "迷失矿工刷怪蛋",
+		"item.betterdefaultbiomes.frozen_zombie_spawn_egg": "冰霜僵尸刷怪蛋",
+		
+		"item.betterdefaultbiomes.desert_bandit_spawn_egg": "沙漠盗贼刷怪蛋",
+		"item.betterdefaultbiomes.desert_bandit_archer_spawn_egg": "沙漠盗贼弓手刷怪蛋",
+		"item.betterdefaultbiomes.desert_bandit_arbalist_spawn_egg": "沙漠盗贼仲裁者刷怪蛋",
+		"item.betterdefaultbiomes.desert_bandit_master_spawn_egg": "沙漠盗贼大师刷怪蛋",
+	
+		//passive
+		"item.betterdefaultbiomes.muddy_pig_spawn_egg": "泥泞猪刷怪蛋",
+		"item.betterdefaultbiomes.camel_spawn_egg": "骆驼刷怪蛋",
+		"item.betterdefaultbiomes.duck_spawn_egg": "鸭子刷怪蛋",
+		"item.betterdefaultbiomes.zebra_spawn_egg": "斑马刷怪蛋",
+		"item.betterdefaultbiomes.frog_spawn_egg": "青蛙刷怪蛋",
+		"item.betterdefaultbiomes.waterbuck_spawn_egg": "水羚刷怪蛋",
+		
+		//Neutral
+		
+	//	Entity Sounds
+	"subtitle.betterdefaultbiomes.duck.hurt": "鸭子：受伤",
+	"subtitle.betterdefaultbiomes.duck.hurt.baby": "小鸭子：受伤",
+	"subtitle.betterdefaultbiomes.duck.death": "鸭子：死亡",
+	"subtitle.betterdefaultbiomes.duck.death.baby": "小鸭子：死亡",
+	"subtitle.betterdefaultbiomes.duck.ambient": "鸭子：嘎嘎",
+	"subtitle.betterdefaultbiomes.zebra.hurt": "斑马：受伤",
+	"subtitle.betterdefaultbiomes.zebra.death": "斑马：死亡",
+	"subtitle.betterdefaultbiomes.zebra.ambient": "斑马：喧嚷",
+	"subtitle.betterdefaultbiomes.frog.hurt": "青蛙：受伤",
+	"subtitle.betterdefaultbiomes.frog.death": "青蛙：死亡",
+	"subtitle.betterdefaultbiomes.frog.ambient": "青蛙：呱呱",
+	
+	//	Block Sounds
+	"subtitle.betterdefaultbiomes.block.add": "方块：被添加",
+	"subtitle.betterdefaultbiomes.block.remove": "方块：被移除",
+	"subtitle.betterdefaultbiomes.block.place": "方块：被放置",
+	"subtitle.betterdefaultbiomes.block.break": "方块：损坏",
+	"subtitle.betterdefaultbiomes.block.hit": "方块：碎裂",
+	"subtitle.betterdefaultbiomes.block.rotate": "方块：旋转",
+	
+	// Sounds
+	"subtitle.betterdefaultbiomes.entity.small_rock.throw": "投掷石子",
+	"subtitle.betterdefaultbiomes.entity.small_rock.break": "石子：破裂",
+	
+	//	Small Decoration Blocks
+	"block.betterdefaultbiomes.pinecone": "松果",
+	"block.betterdefaultbiomes.sand_castle": "沙堡",
+	"block.betterdefaultbiomes.seashell": "贝壳",
+	
+	//	Small Rocks
+	"block.betterdefaultbiomes.small_rock_stone": "石子",
+	"block.betterdefaultbiomes.small_rock_cobble": "圆石石子",
+	"block.betterdefaultbiomes.small_rock_mossy": "苔石石子",
+	"block.betterdefaultbiomes.small_rock_andesite": "安山岩石子",
+	"block.betterdefaultbiomes.small_rock_diorite": "闪长岩石子",
+	"block.betterdefaultbiomes.small_rock_granite": "花岗岩石子",
+	"block.betterdefaultbiomes.small_rock_sandstone": "砂岩石子",
+	"block.betterdefaultbiomes.small_rock_red_sandstone": "红砂岩石子",
+	"block.betterdefaultbiomes.small_rock_deepslate": "深板岩石子",
+	"block.betterdefaultbiomes.small_rock_cobbled_deepslate": "深板岩圆石石子",
+	
+	//	Starfish
+	"block.betterdefaultbiomes.starfish_white": "白色海星",
+	"block.betterdefaultbiomes.starfish_orange": "橙色海星",
+	"block.betterdefaultbiomes.starfish_magenta": "品红色海星",
+	"block.betterdefaultbiomes.starfish_light_blue": "淡蓝色海星",
+	"block.betterdefaultbiomes.starfish_yellow": "黄色海星",
+	"block.betterdefaultbiomes.starfish_lime": "黄绿色海星",
+	"block.betterdefaultbiomes.starfish_pink": "粉色海星",
+	"block.betterdefaultbiomes.starfish_gray": "灰色海星",
+	"block.betterdefaultbiomes.starfish_light_gray": "淡灰色海星",
+	"block.betterdefaultbiomes.starfish_cyan": "青色海星",
+	"block.betterdefaultbiomes.starfish_purple": "紫色海星",
+	"block.betterdefaultbiomes.starfish_blue": "蓝色海星",
+	"block.betterdefaultbiomes.starfish_brown": "棕色海星",
+	"block.betterdefaultbiomes.starfish_green": "绿色海星",
+	"block.betterdefaultbiomes.starfish_red": "红色海星",
+	"block.betterdefaultbiomes.starfish_black": "黑色海星",
+	
+	"block.betterdefaultbiomes.starfish_wall_white": "白色海星",
+	"block.betterdefaultbiomes.starfish_wall_orange": "橙色海星",
+	"block.betterdefaultbiomes.starfish_wall_magenta": "品红色海星",
+	"block.betterdefaultbiomes.starfish_wall_light_blue": "淡蓝色海星",
+	"block.betterdefaultbiomes.starfish_wall_yellow": "黄色海星",
+	"block.betterdefaultbiomes.starfish_wall_lime": "黄绿色海星",
+	"block.betterdefaultbiomes.starfish_wall_pink": "粉色海星",
+	"block.betterdefaultbiomes.starfish_wall_gray": "灰色海星",
+	"block.betterdefaultbiomes.starfish_wall_light_gray": "淡灰色海星",
+	"block.betterdefaultbiomes.starfish_wall_cyan": "青色海星",
+	"block.betterdefaultbiomes.starfish_wall_purple": "紫色海星",
+	"block.betterdefaultbiomes.starfish_wall_blue": "蓝色海星",
+	"block.betterdefaultbiomes.starfish_wall_brown": "棕色海星",
+	"block.betterdefaultbiomes.starfish_wall_green": "绿色海星",
+	"block.betterdefaultbiomes.starfish_wall_red": "红色海星",
+	"block.betterdefaultbiomes.starfish_wall_black": "黑色海星",
+	
+	//	Flowers
+	"block.betterdefaultbiomes.blue_poppy": "蓝色虞美人",
+	"block.betterdefaultbiomes.dark_violet": "紫罗兰",
+	"block.betterdefaultbiomes.purple_verbena": "紫色马鞭草",
+	"block.betterdefaultbiomes.pink_cactus_flower": "粉色仙人花",
+	
+	//	Potted Flowers
+	"block.betterdefaultbiomes.potted_blue_poppy": "蓝色虞美人盆栽",
+	"block.betterdefaultbiomes.potted_dark_violet": "紫罗兰盆栽",
+	"block.betterdefaultbiomes.potted_purple_verbena": "紫色马鞭草盆栽",
+	"block.betterdefaultbiomes.potted_pink_cactus_flower": "粉色仙人花盆栽",
+	
+	//	Mushrooms
+	"block.betterdefaultbiomes.white_mushroom": "白色蘑菇",
+	"block.betterdefaultbiomes.yellow_mushroom": "黄色蘑菇",
+	"block.betterdefaultbiomes.gray_mushroom": "灰色蘑菇",
+		
+	//	Potted Mushrooms
+	"block.betterdefaultbiomes.potted_white_mushroom": "白色蘑菇盆栽",
+	"block.betterdefaultbiomes.potted_yellow_mushroom": "黄色蘑菇盆栽",
+	"block.betterdefaultbiomes.potted_gray_mushroom": "灰色蘑菇盆栽",
+	
+	// Mushroom Blocks
+	"block.betterdefaultbiomes.white_mushroom_block": "白色蘑菇方块",
+	"block.betterdefaultbiomes.yellow_mushroom_block": "黄色蘑菇方块",
+	"block.betterdefaultbiomes.gray_mushroom_block": "灰色蘑菇方块",
+    
+    //	Plants
+	"block.betterdefaultbiomes.feather_reed_grass": "羽毛芦苇草",
+	"block.betterdefaultbiomes.dead_grass": "枯死的草",
+	"block.betterdefaultbiomes.short_grass": "矮草",
+	"block.betterdefaultbiomes.dune_grass": "固沙草",
+	
+	//	Potted Plants
+	"block.betterdefaultbiomes.potted_feather_reed_grass": "羽毛芦苇草盆栽",
+	"block.betterdefaultbiomes.potted_dead_grass": "枯死的草盆栽",
+	"block.betterdefaultbiomes.potted_short_grass": "矮草盆栽",
+	
+    //	Tall Plants
+    "block.betterdefaultbiomes.tall_water_reeds": "高芦苇",
+	
+	// Palm Tree
+    "block.betterdefaultbiomes.palm_sapling": "棕榈树苗",
+    "block.betterdefaultbiomes.palm_sapling_potted": "棕榈树苗盆栽",
+    "block.betterdefaultbiomes.palm_leaves": "棕榈树叶",
+    "block.betterdefaultbiomes.palm_log": "棕榈原木",
+    "block.betterdefaultbiomes.palm_wood": "棕榈木",
+    "block.betterdefaultbiomes.palm_log_stripped": "去皮棕榈原木",
+    "block.betterdefaultbiomes.palm_wood_stripped": "去皮棕榈木",
+    "block.betterdefaultbiomes.palm_planks": "棕榈木板",
+    "block.betterdefaultbiomes.palm_stairs": "棕榈木楼梯",
+    "block.betterdefaultbiomes.palm_slab": "棕榈木台阶",
+    "block.betterdefaultbiomes.palm_fence": "棕榈木栅栏",
+    "block.betterdefaultbiomes.palm_fence_gate": "棕榈木栅栏门",
+    "block.betterdefaultbiomes.palm_door": "棕榈木门",
+    "block.betterdefaultbiomes.palm_trapdoor": "棕榈木活板门",
+    "block.betterdefaultbiomes.palm_pressure_plate": "棕榈木压力板",
+    "block.betterdefaultbiomes.palm_button": "棕榈木按钮",
+    "block.betterdefaultbiomes.palm_ladder": "棕榈木梯",
+   
+	// Swamp Willow Tree
+    "block.betterdefaultbiomes.swamp_willow_sapling": "沼柳树苗",
+    "block.betterdefaultbiomes.swamp_willow_sapling_potted": "沼柳木树苗盆栽",
+    "block.betterdefaultbiomes.swamp_willow_leaves": "沼柳树叶",
+    "block.betterdefaultbiomes.swamp_willow_log": "沼柳原木",
+    "block.betterdefaultbiomes.swamp_willow_wood": "沼柳木",
+    "block.betterdefaultbiomes.swamp_willow_log_stripped": "去皮沼柳原木",
+    "block.betterdefaultbiomes.swamp_willow_wood_stripped": "去皮沼柳木",
+    "block.betterdefaultbiomes.swamp_willow_planks": "沼柳木板",
+    "block.betterdefaultbiomes.swamp_willow_stairs": "沼柳木楼梯",
+    "block.betterdefaultbiomes.swamp_willow_slab": "沼柳木台阶",
+    "block.betterdefaultbiomes.swamp_willow_fence": "沼柳木栅栏",
+    "block.betterdefaultbiomes.swamp_willow_fence_gate": "沼柳木栅栏门",
+    "block.betterdefaultbiomes.swamp_willow_door": "沼柳木门",
+    "block.betterdefaultbiomes.swamp_willow_trapdoor": "沼柳木活板门",
+    "block.betterdefaultbiomes.swamp_willow_pressure_plate": "沼柳木压力板",
+    "block.betterdefaultbiomes.swamp_willow_button": "沼柳木按钮",
+    "block.betterdefaultbiomes.swamp_willow_ladder": "沼柳木梯"
+}

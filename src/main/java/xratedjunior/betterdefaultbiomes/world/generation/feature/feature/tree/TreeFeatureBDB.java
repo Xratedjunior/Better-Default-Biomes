@@ -1,5 +1,6 @@
 package xratedjunior.betterdefaultbiomes.world.generation.feature.feature.tree;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -36,7 +37,7 @@ import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
  * Reference 1.16 TreeFeature
  * 
  * @author  Xrated_junior
- * @version 1.18.2-1.0.0
+ * @version 1.18.2-Alpha 3.1.0
  */
 public abstract class TreeFeatureBDB extends Feature<NoneFeatureConfiguration> {
 
@@ -163,7 +164,7 @@ public abstract class TreeFeatureBDB extends Feature<NoneFeatureConfiguration> {
 	}
 
 	private static DiscreteVoxelShape updateLeaves(LevelAccessor p_67203_, BoundingBox p_67204_, Set<BlockPos> p_67205_, Set<BlockPos> p_67206_) {
-		List<Set<BlockPos>> list = Lists.newArrayList();
+		List<Set<BlockPos>> list = new ArrayList<Set<BlockPos>>();
 		DiscreteVoxelShape discretevoxelshape = new BitSetDiscreteVoxelShape(p_67204_.getXSpan(), p_67204_.getYSpan(), p_67204_.getZSpan());
 		@SuppressWarnings("unused")
 		int i = 6;

@@ -1,5 +1,6 @@
 package xratedjunior.betterdefaultbiomes.util;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -8,7 +9,6 @@ import java.util.Set;
 
 import javax.annotation.Nullable;
 
-import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.ChatFormatting;
@@ -32,7 +32,7 @@ import xratedjunior.betterdefaultbiomes.BetterDefaultBiomes;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.18.2-Alpha 3.1.0
  */
 @SuppressWarnings("deprecation")
 public class BDBHelper {
@@ -56,7 +56,7 @@ public class BDBHelper {
 	 */
 	public static void addPotionTooltip(MobEffectInstance mobEffectInstance, List<Component> tooltip, float durationMultiplier, @Nullable ChatFormatting customColor) {
 		// Create new list to store attributes
-		List<Pair<Attribute, AttributeModifier>> attributeList = Lists.newArrayList();
+		List<Pair<Attribute, AttributeModifier>> attributeList = new ArrayList<Pair<Attribute,AttributeModifier>>();
 
 		MutableComponent effectName = new TranslatableComponent(mobEffectInstance.getDescriptionId());
 		MobEffect mobEffect = mobEffectInstance.getEffect();

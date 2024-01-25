@@ -1,9 +1,8 @@
 package xratedjunior.betterdefaultbiomes.entity.client.model.util;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
-
-import com.google.common.collect.Lists;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -16,11 +15,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 /**
  * @author  Xrated_junior
- * @version 1.18.2-Alpha 3.0.0
+ * @version 1.18.2-Alpha 3.1.0
  */
 @OnlyIn(Dist.CLIENT)
 public abstract class BDBEntityModel<E extends Entity> extends EntityModel<E> {
-	protected List<BDBModelPart> modelParts = Lists.newArrayList();
+	protected List<BDBModelPart> modelParts = new ArrayList<BDBModelPart>();
 
 	public BDBEntityModel(Function<ResourceLocation, RenderType> renderType) {
 		super(renderType);
